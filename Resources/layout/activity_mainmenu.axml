@@ -6,8 +6,7 @@
     <android.support.v4.widget.DrawerLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/drawer_layout"
         android:layout_height="match_parent"
-        android:layout_width="fill_parent"
-        android:fitsSystemWindows="true">
+        android:layout_width="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -15,6 +14,11 @@
             <include
                 layout="@layout/toolbar" />
         </LinearLayout>
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="50dp" />
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
             android:layout_height="match_parent"

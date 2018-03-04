@@ -37,63 +37,49 @@ namespace TooLearnAndroid
 
             navigationView.NavigationItemSelected += HomeNavigationView_NavigationItemSelected;
 
-            /*
-
-            myaccount_button.Click += delegate
-            {
-                MyAccountFragment fragment = new MyAccountFragment();
-                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
-                fragmentTx.Commit();
-            };
-
-            logout_button.Click += delegate
-            {
-                LogOutFragment fragment = new LogOutFragment();
-                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
-                fragmentTx.Commit();
-            };
-
-            joinquiz_button.Click += delegate
-            {
-                JoinQuizFragment fragment = new JoinQuizFragment();
-                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
-                fragmentTx.Commit();
-            };
-            */
+            
         }
         private void HomeNavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
         {
             var menuItem = e.MenuItem;
             menuItem.SetChecked(!menuItem.IsChecked);
-            Intent intent;
             switch (menuItem.ItemId)
             {
                 case Resource.Id.nav_myaccount:
-                    intent = new Intent(this, typeof(MyAccountActivity));
-                    StartActivity(intent); break;
+                    MyAccountFragment fragment = new MyAccountFragment();
+                    FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                    fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+                    fragmentTx.Commit(); break;
 
                 case Resource.Id.nav_logout:
-                    intent = new Intent(this, typeof(LogoutActivity));
-                    StartActivity(intent); break;
+                    LogoutFragment fragment1 = new LogoutFragment();
+                    FragmentTransaction fragmentTx1 = this.FragmentManager.BeginTransaction();
+                    fragmentTx1.Replace(Resource.Id.fragment_container, fragment1);
+                    fragmentTx1.Commit(); break;
 
                 case Resource.Id.nav_joinquiz:
-                    intent = new Intent(this, typeof(JoinQuizActivity));
-                    StartActivity(intent); break;
+                    JoinQuizFragment fragment2 = new JoinQuizFragment();
+                    FragmentTransaction fragmentTx2 = this.FragmentManager.BeginTransaction();
+                    fragmentTx2.Replace(Resource.Id.fragment_container, fragment2);
+                    fragmentTx2.Commit(); break;
 
                 case Resource.Id.nav_settings:
-                    intent = new Intent(this, typeof(SettingsActivity));
-                    StartActivity(intent); break;
+                    SettingsFragment fragment3 = new SettingsFragment();
+                    FragmentTransaction fragmentTx3 = this.FragmentManager.BeginTransaction();
+                    fragmentTx3.Replace(Resource.Id.fragment_container, fragment3);
+                    fragmentTx3.Commit(); break;
 
                 case Resource.Id.nav_manual:
-                    intent = new Intent(this, typeof(ManualActivity));
-                    StartActivity(intent); break;
+                    ManualFragment fragment4 = new ManualFragment();
+                    FragmentTransaction fragmentTx4 = this.FragmentManager.BeginTransaction();
+                    fragmentTx4.Replace(Resource.Id.fragment_container, fragment4);
+                    fragmentTx4.Commit(); break;
 
                 case Resource.Id.nav_about:
-                    intent = new Intent(this, typeof(AboutActivity));
-                    StartActivity(intent); break;
+                    AboutFragment fragment5 = new AboutFragment();
+                    FragmentTransaction fragmentTx5 = this.FragmentManager.BeginTransaction();
+                    fragmentTx5.Replace(Resource.Id.fragment_container, fragment5);
+                    fragmentTx5.Commit(); break;
             }
         } 
 
