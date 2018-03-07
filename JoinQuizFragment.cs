@@ -15,6 +15,7 @@ namespace TooLearnAndroid
 {
     public class JoinQuizFragment : Fragment
     {
+        Button join;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -25,9 +26,16 @@ namespace TooLearnAndroid
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             // Use this to return your custom view for this Fragment
-            return inflater.Inflate(Resource.Layout.fragment_joinquiz, container, false);
-
+            var view = inflater.Inflate(Resource.Layout.fragment_joinquiz, container, false);
+            join = view.FindViewById<Button>(Resource.Id.button1);
+            join.Click += StartLobbyActivity;
+            return view;
             //return base.OnCreateView(inflater, container, savedInstanceState);
+        }
+        void StartLobbyActivity(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this.Activity, typeof(LobbyActivity));
+            StartActivity(intent);
         }
     }
 }

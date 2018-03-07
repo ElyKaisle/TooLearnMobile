@@ -16,6 +16,7 @@ namespace TooLearnAndroid
 
             Button classroom_button = FindViewById<Button>(Resource.Id.button1);
             Button public_button = FindViewById<Button>(Resource.Id.button2);
+            Button group_button = FindViewById<Button>(Resource.Id.button3);
 
             classroom_button.Click += delegate
             {
@@ -24,9 +25,13 @@ namespace TooLearnAndroid
 
             public_button.Click += delegate
             {
-                StartActivity(typeof(NicknameActivity));
+                StartActivity(typeof(JoinQuizFragment));
             };
 
+            group_button.Click += delegate
+            {
+                StartActivity(typeof(SignInActivity));
+            };
         }
     }
 }
