@@ -19,17 +19,22 @@
         android:scaleType="fitCenter"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner1"
+        android:prompt="@string/classroom" />
     <TextView
         android:text="List of Classmate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView2" />
-    <GridView
+    <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/gridView1" />
+        android:layout_height="100dp"
+        android:id="@+id/listView1" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace TooLearnAndroid
 {
-    [Activity(Label = "SignUpActivity")]
+    [Activity(Label = "Sign Up", Theme = "@style/Theme.DesignDemo")]
     public class SignUpActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

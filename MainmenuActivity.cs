@@ -16,7 +16,7 @@ using Android.Support.Design.Widget;
 
 namespace TooLearnAndroid
 {
-    [Activity(Label = "MainmenuActivity", Theme = "@style/Theme.DesignDemo")]
+    [Activity(Label = "Main Menu", Theme = "@style/Theme.DesignDemo")]
     public class MainmenuActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

@@ -52,6 +52,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
@@ -120,6 +123,7 @@
     <Compile Include="AboutFragment.cs" />
     <Compile Include="EditProfileActivity.cs" />
     <Compile Include="GamepinActivity.cs" />
+    <Compile Include="GameRulesActivity.cs" />
     <Compile Include="JoinQuizFragment.cs" />
     <Compile Include="LobbyActivity.cs" />
     <Compile Include="LogoutFragment.cs" />
@@ -195,6 +199,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_publicjoinquiz.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_gamerules.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

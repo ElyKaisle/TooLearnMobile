@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace TooLearnAndroid
 {
-    [Activity(Label = "LobbyActivity")]
+    [Activity(Label = "Lobby", Theme = "@style/Theme.DesignDemo")]
     public class LobbyActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

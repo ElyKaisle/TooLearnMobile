@@ -10,11 +10,18 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+using System.Threading.Tasks;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
+using System.Data.SqlClient;
+
 namespace TooLearnAndroid
 {
-    [Activity(Label = "PublicJoinQuizActivity")]
+    [Activity(Label = "Join Quiz", Theme = "@style/Theme.DesignDemo")]
     public class PublicJoinQuizActivity : Activity
     {
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -28,5 +35,8 @@ namespace TooLearnAndroid
                 StartActivity(typeof(NicknameActivity));
             };
         }
+
+        
+
     }
 }

@@ -12,10 +12,9 @@
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:scaleType="fitCenter"
-        android:layout_gravity="center"
         android:layout_marginBottom="50dp" />
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="118.0dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView1"
         android:id="@+id/editText1"
@@ -25,7 +24,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
-        android:textColorHint="#0000FF" />
+        android:textColorHint="#6c7a86"
+        android:textSize="16sp" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
-        android:textColorHint="#0000FF" />
+        android:textColorHint="#6c7a86"
+        android:textSize="16sp" />
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,7 +52,8 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
-        android:textColorHint="#0000FF" />
+        android:textColorHint="#6c7a86"
+        android:textSize="16sp" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,7 +66,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
-        android:textColorHint="#0000FF" />
+        android:textColorHint="#6c7a86"
+        android:textSize="16sp" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,7 +79,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
-        android:textColorHint="#0000FF" />
+        android:textColorHint="#6c7a86"
+        android:textSize="16sp" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,7 +92,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:layout_marginRight="5dp"
-        android:textColorHint="#0000FF" />
+        android:textColorHint="#6c7a86"
+        android:textSize="16sp" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
