@@ -124,6 +124,7 @@
     <Compile Include="EditProfileActivity.cs" />
     <Compile Include="GamepinActivity.cs" />
     <Compile Include="GameRulesActivity.cs" />
+    <Compile Include="GroupSignInActivity.cs" />
     <Compile Include="JoinQuizFragment.cs" />
     <Compile Include="LobbyActivity.cs" />
     <Compile Include="LogoutFragment.cs" />
@@ -133,10 +134,12 @@
     <Compile Include="MyAccountFragment.cs" />
     <Compile Include="MyClassroomActivity.cs" />
     <Compile Include="NicknameActivity.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="PublicJoinQuizActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScoreRecordActivity.cs" />
+    <Compile Include="ServerConnectionActivity.cs" />
     <Compile Include="SettingsFragment.cs" />
     <Compile Include="SignInActivity.cs" />
     <Compile Include="SignUpActivity.cs" />
@@ -202,6 +205,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_gamerules.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_serverconnection.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_groupsigninactivity.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

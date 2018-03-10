@@ -21,6 +21,12 @@ namespace TooLearnAndroid
 
             // Create your application here
             SetContentView(Resource.Layout.activity_nickname);
+            Button join_button = FindViewById<Button>(Resource.Id.button1);
+
+            join_button.Click += delegate
+            {
+                StartActivity(typeof(LobbyActivity));
+            };
         }
     }
 }

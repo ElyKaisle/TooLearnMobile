@@ -1,1 +1,1 @@
-<resources><string name="app_name">TooLearn</string><string name="drawer_open">Open</string><string name="drawer_close">Close</string><string name="classroom">Classroom</string><string-array name="classroom_array"><item></item></string-array></resources>
+<resources><string name="app_name">TooLearn</string><string name="drawer_open">Open</string><string name="drawer_close">Close</string></resources>

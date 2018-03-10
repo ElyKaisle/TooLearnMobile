@@ -6,6 +6,7 @@
     <activity android:label="Edit Profile" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.EditProfileActivity" />
     <activity android:label="Game Pin" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.GamepinActivity" />
     <activity android:label="Game Rules" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.GameRulesActivity" />
+    <activity android:label="GroupSignInActivity" android:name="md5163273af215e7232b37cf76ea257f312.GroupSignInActivity" />
     <activity android:label="Lobby" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.LobbyActivity" />
     <activity android:label="TooLearn" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MainActivity" />
     <activity android:label="Main Menu" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MainmenuActivity" />
@@ -13,6 +14,7 @@
     <activity android:label="Nickname" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.NicknameActivity" />
     <activity android:label="Join Quiz" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.PublicJoinQuizActivity" />
     <activity android:label="Score Record" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.ScoreRecordActivity" />
+    <activity android:label="Server Connection" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.ServerConnectionActivity" />
     <activity android:label="Sign In" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.SignInActivity" />
     <activity android:label="Sign Up" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.SignUpActivity" />
     <activity android:noHistory="true" android:theme="@style/Theme.Splash" android:name="md5163273af215e7232b37cf76ea257f312.SplashActivity">

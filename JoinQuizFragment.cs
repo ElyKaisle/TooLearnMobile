@@ -22,11 +22,6 @@ namespace TooLearnAndroid
 {
     public class JoinQuizFragment : Fragment
     {
-        public static String Session_id, PSession_id; // For Facilitator
-        public static int user_id, par_id; // For Participant
-        public static int group_id; // For Group
-        public static String serverIP;
-        public static String source, db, id, password;// For Participant& G
         private TcpClient _client = new TcpClient();
         private const int _buffer_size = 2048;
         private byte[] _buffer = new byte[_buffer_size];
@@ -96,7 +91,7 @@ namespace TooLearnAndroid
             {
                 get
                 {
-                    string str = "Data Source='" + source + "' ; Initial Catalog='" + db + "'; User ID='" + id + "';Password='" + password + "'";
+                    string str = "Data Source='" + Program.source + "' ; Initial Catalog='" + Program.db + "'; User ID='" + Program.id + "';Password='" + Program.password + "'";
                     return str;
                 }
             }

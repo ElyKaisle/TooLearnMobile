@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>3/8/2018 2:01:32 PM</xs:documentation>
+    <xs:documentation>3/10/2018 7:37:39 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -676,7 +676,6 @@
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
-            <xs:enumeration value="@string/classroom" />
             <xs:enumeration value="@string/drawer_close" />
             <xs:enumeration value="@string/drawer_open" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -3964,7 +3963,6 @@
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
-            <xs:enumeration value="@string/classroom" />
             <xs:enumeration value="@string/drawer_close" />
             <xs:enumeration value="@string/drawer_open" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -9434,7 +9432,6 @@
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
-            <xs:enumeration value="@string/classroom" />
             <xs:enumeration value="@string/drawer_close" />
             <xs:enumeration value="@string/drawer_open" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -11819,7 +11816,6 @@
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
-            <xs:enumeration value="@string/classroom" />
             <xs:enumeration value="@string/drawer_close" />
             <xs:enumeration value="@string/drawer_open" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -12253,7 +12249,6 @@
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
-            <xs:enumeration value="@string/classroom" />
             <xs:enumeration value="@string/drawer_close" />
             <xs:enumeration value="@string/drawer_open" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -13122,7 +13117,6 @@
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
-            <xs:enumeration value="@string/classroom" />
             <xs:enumeration value="@string/drawer_close" />
             <xs:enumeration value="@string/drawer_open" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -13556,7 +13550,6 @@
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
-            <xs:enumeration value="@string/classroom" />
             <xs:enumeration value="@string/drawer_close" />
             <xs:enumeration value="@string/drawer_open" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -15136,7 +15129,6 @@
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
-            <xs:enumeration value="@string/classroom" />
             <xs:enumeration value="@string/drawer_close" />
             <xs:enumeration value="@string/drawer_open" />
             <xs:enumeration value="@string/password_toggle_content_description" />
@@ -17444,7 +17436,6 @@
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
-            <xs:enumeration value="@string/classroom" />
             <xs:enumeration value="@string/drawer_close" />
             <xs:enumeration value="@string/drawer_open" />
             <xs:enumeration value="@string/password_toggle_content_description" />

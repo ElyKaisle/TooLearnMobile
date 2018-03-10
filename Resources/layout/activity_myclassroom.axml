@@ -22,8 +22,7 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner1"
-        android:prompt="@string/classroom" />
+        android:id="@+id/spinner1" />
     <TextView
         android:text="List of Classmate"
         android:layout_width="match_parent"

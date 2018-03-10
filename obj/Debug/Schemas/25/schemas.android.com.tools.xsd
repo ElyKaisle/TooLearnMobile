@@ -2,7 +2,7 @@
 <xs:schema xmlns:tools="http://schemas.android.com/tools" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/tools" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>3/8/2018 2:01:32 PM</xs:documentation>
+    <xs:documentation>3/10/2018 7:37:39 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="layout">
     <xs:annotation>
@@ -42,12 +42,14 @@
             <xs:enumeration value="@layout/activity_editprofile" />
             <xs:enumeration value="@layout/activity_gamepin" />
             <xs:enumeration value="@layout/activity_gamerules" />
+            <xs:enumeration value="@layout/activity_groupsigninactivity" />
             <xs:enumeration value="@layout/activity_lobby" />
             <xs:enumeration value="@layout/activity_mainmenu" />
             <xs:enumeration value="@layout/activity_myclassroom" />
             <xs:enumeration value="@layout/activity_nickname" />
             <xs:enumeration value="@layout/activity_publicjoinquiz" />
             <xs:enumeration value="@layout/activity_scorerecord" />
+            <xs:enumeration value="@layout/activity_serverconnection" />
             <xs:enumeration value="@layout/activity_signin" />
             <xs:enumeration value="@layout/activity_signup" />
             <xs:enumeration value="@layout/design_bottom_navigation_item" />
@@ -171,12 +173,14 @@
             <xs:enumeration value="@layout/activity_editprofile" />
             <xs:enumeration value="@layout/activity_gamepin" />
             <xs:enumeration value="@layout/activity_gamerules" />
+            <xs:enumeration value="@layout/activity_groupsigninactivity" />
             <xs:enumeration value="@layout/activity_lobby" />
             <xs:enumeration value="@layout/activity_mainmenu" />
             <xs:enumeration value="@layout/activity_myclassroom" />
             <xs:enumeration value="@layout/activity_nickname" />
             <xs:enumeration value="@layout/activity_publicjoinquiz" />
             <xs:enumeration value="@layout/activity_scorerecord" />
+            <xs:enumeration value="@layout/activity_serverconnection" />
             <xs:enumeration value="@layout/activity_signin" />
             <xs:enumeration value="@layout/activity_signup" />
             <xs:enumeration value="@layout/design_bottom_navigation_item" />
@@ -300,12 +304,14 @@
             <xs:enumeration value="@layout/activity_editprofile" />
             <xs:enumeration value="@layout/activity_gamepin" />
             <xs:enumeration value="@layout/activity_gamerules" />
+            <xs:enumeration value="@layout/activity_groupsigninactivity" />
             <xs:enumeration value="@layout/activity_lobby" />
             <xs:enumeration value="@layout/activity_mainmenu" />
             <xs:enumeration value="@layout/activity_myclassroom" />
             <xs:enumeration value="@layout/activity_nickname" />
             <xs:enumeration value="@layout/activity_publicjoinquiz" />
             <xs:enumeration value="@layout/activity_scorerecord" />
+            <xs:enumeration value="@layout/activity_serverconnection" />
             <xs:enumeration value="@layout/activity_signin" />
             <xs:enumeration value="@layout/activity_signup" />
             <xs:enumeration value="@layout/design_bottom_navigation_item" />
@@ -429,12 +435,14 @@
             <xs:enumeration value="@layout/activity_editprofile" />
             <xs:enumeration value="@layout/activity_gamepin" />
             <xs:enumeration value="@layout/activity_gamerules" />
+            <xs:enumeration value="@layout/activity_groupsigninactivity" />
             <xs:enumeration value="@layout/activity_lobby" />
             <xs:enumeration value="@layout/activity_mainmenu" />
             <xs:enumeration value="@layout/activity_myclassroom" />
             <xs:enumeration value="@layout/activity_nickname" />
             <xs:enumeration value="@layout/activity_publicjoinquiz" />
             <xs:enumeration value="@layout/activity_scorerecord" />
+            <xs:enumeration value="@layout/activity_serverconnection" />
             <xs:enumeration value="@layout/activity_signin" />
             <xs:enumeration value="@layout/activity_signup" />
             <xs:enumeration value="@layout/design_bottom_navigation_item" />
@@ -580,7 +588,6 @@
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
-            <xs:enumeration value="@string/classroom" />
             <xs:enumeration value="@string/drawer_close" />
             <xs:enumeration value="@string/drawer_open" />
             <xs:enumeration value="@string/password_toggle_content_description" />

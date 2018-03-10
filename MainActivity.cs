@@ -2,13 +2,16 @@
 using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Content;
+
 
 namespace TooLearnAndroid
 {
         [Activity(Label = "TooLearn", Theme = "@style/Theme.DesignDemo")]
         public class MainActivity : Activity
         {
-            protected override void OnCreate(Bundle savedInstanceState)
+        
+        protected override void OnCreate(Bundle savedInstanceState)
             {
                 base.OnCreate(savedInstanceState);
 
@@ -21,7 +24,10 @@ namespace TooLearnAndroid
 
                 classroom_button.Click += delegate
                 {
-                    StartActivity(typeof(SignInActivity));
+                    var serverconnection = new Intent(this, typeof(ServerConnectionActivity));
+                    serverconnection.PutExtra("Individual", Program.Role);
+                    StartActivity(serverconnection);
+                    
                 };
 
                 public_button.Click += delegate
@@ -31,7 +37,10 @@ namespace TooLearnAndroid
 
                 group_button.Click += delegate
                 {
-                    StartActivity(typeof(SignInActivity));
+                    var serverconnection = new Intent(this, typeof(ServerConnectionActivity));
+                    serverconnection.PutExtra("Group", Program.Role);
+                    StartActivity(serverconnection);
+
                 };
             }
         }
