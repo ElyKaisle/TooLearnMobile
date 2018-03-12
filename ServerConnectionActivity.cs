@@ -13,10 +13,9 @@ using Android.Widget;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Sql;
 using System.Net;
 using System.Net.Sockets;
-
-
 
 namespace TooLearnAndroid
 {
@@ -25,43 +24,40 @@ namespace TooLearnAndroid
     {
         SqlConnection con;
         Spinner spinner;
-
+        ArrayAdapter<String> adapter;
+        String[] servers = { };
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             // Create your application here
             SetContentView(Resource.Layout.activity_serverconnection);
             spinner = (Spinner)FindViewById<Spinner>(Resource.Id.spinner1);
-
-            DataTable table = System.Data.Sql.SqlDataSourceEnumerator.Instance.GetDataSources();
-            foreach (DataRow server in table.Rows)
-            {
-                String[] servers = server[table.Columns["ServerName"]].ToString().Split();
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, servers);
-                adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-                spinner.Adapter = adapter;
-            }
-
-            //load_server();
-           
+            load_server();
+            adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, servers);
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinner.Adapter = adapter;
             spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(ConnectActivity);
 
             Button refresh_button = FindViewById<Button>(Resource.Id.button1);
             refresh_button.Click += RefreshActivity;
             Button connect_button = FindViewById<Button>(Resource.Id.button2);
+            
 
         }
-
-        
 
         private void load_server()
         {
-            DataTable table = System.Data.Sql.SqlDataSourceEnumerator.Instance.GetDataSources();
+            int x = 0;
+            DataTable table = SqlDataSourceEnumerator.Instance.GetDataSources();
             foreach (DataRow server in table.Rows)
             {
-                String[] servers = server[table.Columns["ServerName"]].ToString().Split();
+                var query = server[table.Columns["ServerName"]].ToString();
+                servers[x] = query;
+                x++;
             }
+
         }
+      
 
         public void RefreshActivity(object sender, EventArgs e)
         {
@@ -69,7 +65,7 @@ namespace TooLearnAndroid
             spinner.Adapter = null;
             load_server();
         }
-
+        
         public void ConnectActivity(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             String DB;
@@ -152,5 +148,6 @@ namespace TooLearnAndroid
                 Toast.MakeText(this, "No Server Selected", ToastLength.Short).Show();
             }
         }
+        
     }
 }
