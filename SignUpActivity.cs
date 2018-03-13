@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
 
 using System.Data;
 using System.Data.SqlClient;
@@ -26,9 +27,57 @@ namespace TooLearnAndroid
             // Create your application here
             SetContentView(Resource.Layout.activity_signup);
             Button signup_button = FindViewById<Button>(Resource.Id.button1);
+            var username = FindViewById<EditText>(Resource.Id.editText4);
+            username.TextChanged += TextChangedActivity;
             signup_button.Click += CreateAccountActivity;
-          
+
         }
+        public void TextChangedActivity(object sender, Android.Text.TextChangedEventArgs e)
+        {
+            var username = FindViewById<EditText>(Resource.Id.editText4);
+            var availableuser = FindViewById<TextView>(Resource.Id.textView1);
+            var error = FindViewById<ImageView>(Resource.Id.imageView2);
+            var check = FindViewById<ImageView>(Resource.Id.imageView3);
+            string user = username.Text;
+            string availuser = availableuser.Text;
+            SqlDataAdapter sda = new SqlDataAdapter($"Select count(*) From participant Where p_username={user}", con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+
+            if (String.IsNullOrWhiteSpace(user))
+            {
+                availuser = null;
+                error.Visibility = ViewStates.Invisible;
+                check.Visibility = ViewStates.Invisible;
+            }
+
+
+            else if (int.Parse(dt.Rows[0][0].ToString()) == 0)
+            {
+                availuser = $"{user} is Available";
+                availableuser.SetTextColor(Color.Green);
+                error.Visibility = ViewStates.Invisible;
+                check.Visibility = ViewStates.Visible;
+
+            }
+
+
+
+
+            else if (int.Parse(dt.Rows[0][0].ToString()) > 0)
+            {
+                availuser = $"{user} is Not Available";
+                availableuser.SetTextColor(Color.Red);
+                check.Visibility = ViewStates.Invisible;
+                error.Visibility = ViewStates.Visible;
+            }
+
+
+            else { }
+        }
+
+
         public void CreateAccountActivity(object sender, EventArgs e)
         {
             var fname = FindViewById<EditText>(Resource.Id.editText1);
@@ -37,6 +86,7 @@ namespace TooLearnAndroid
             var username = FindViewById<EditText>(Resource.Id.editText4);
             var password = FindViewById<EditText>(Resource.Id.editText5);
             var repassword = FindViewById<EditText>(Resource.Id.editText6);
+            var availableuser = FindViewById<TextView>(Resource.Id.textView1);
             string first = fname.Text;
             string middle = mname.Text;
             string last = lname.Text;
@@ -53,7 +103,7 @@ namespace TooLearnAndroid
             else
             {
 
-                if (labelAvailableUsername.ForeColor == System.Drawing.Color.Green)
+                if (availableuser.CurrentTextColor == Color.Green)
                 {
                     if (pw == repw)
                     {
@@ -80,11 +130,8 @@ namespace TooLearnAndroid
                     Toast.MakeText(this, "Please use Available Username", ToastLength.Short).Show();
 
                 }
-
-
             }
         }
-
 
     }
 }
