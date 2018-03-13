@@ -145,9 +145,12 @@ C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\group_button.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\R.cs.flag
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\uploadflags.txt
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\error.png
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\checked.png
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\activity_game.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll.mdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\android\assets\TooLearnAndroid.dll.mdb
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\TooLearnAndroid.csprojResolveAssemblyReference.cache
 bin\Debug\Mono.Android.pdb
 bin\Debug\mscorlib.pdb
 bin\Debug\System.Core.pdb
@@ -165,6 +168,12 @@ bin\Debug\Mono.Data.Tds.pdb
 bin\Debug\Mono.Security.pdb
 bin\Debug\System.Xml.Linq.pdb
 bin\Debug\System.ComponentModel.Composition.pdb
+bin\Debug\I18N.pdb
+bin\Debug\I18N.CJK.pdb
+bin\Debug\I18N.MidEast.pdb
+bin\Debug\I18N.Other.pdb
+bin\Debug\I18N.Rare.pdb
+bin\Debug\I18N.West.pdb
 obj\Debug\linksrc\TooLearnAndroid.dll.mdb
 obj\Debug\linksrc\Mono.Android.pdb
 obj\Debug\linksrc\mscorlib.pdb
@@ -183,3 +192,9 @@ obj\Debug\linksrc\Mono.Data.Tds.pdb
 obj\Debug\linksrc\Mono.Security.pdb
 obj\Debug\linksrc\System.Xml.Linq.pdb
 obj\Debug\linksrc\System.ComponentModel.Composition.pdb
+obj\Debug\linksrc\I18N.pdb
+obj\Debug\linksrc\I18N.CJK.pdb
+obj\Debug\linksrc\I18N.MidEast.pdb
+obj\Debug\linksrc\I18N.Other.pdb
+obj\Debug\linksrc\I18N.Rare.pdb
+obj\Debug\linksrc\I18N.West.pdb

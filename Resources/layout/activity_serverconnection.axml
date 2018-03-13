@@ -8,15 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
-    <Spinner
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner1" />
-    <Button
-        android:text="Refresh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button1" />
+        android:id="@+id/editText1"
+        android:text="192.168.254.151" />
     <Button
         android:text="Connect"
         android:layout_width="match_parent"

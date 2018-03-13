@@ -46,43 +46,51 @@ namespace TooLearnAndroid
         }
         public void StartLobbyActivity(object sender, EventArgs e)
         {
-            //Alternative
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = Helper.ConnectionString;
+            
+            try {
+                //Alternative
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = Helper.ConnectionString;
 
-            SqlDataAdapter sda = new SqlDataAdapter("Select Game_Pin From Pincode", con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
+                SqlDataAdapter sda = new SqlDataAdapter("Select Game_Pin From Pincode", con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
 
-            if (dt.Rows.Count == 0)
-            {
-                Toast.MakeText(this.Activity, "No Host Server Detected! Please Wait for the Host to Start", ToastLength.Short).Show();
-
-            }
-
-            else
-            {
-
-                string code = dt.Rows[0][0].ToString();
-
-                var text = View.FindViewById<EditText>(Resource.Id.editText1).Text;
-                if (code == text)
+                if (dt.Rows.Count == 0)
                 {
-                    Intent intent = new Intent(this.Activity, typeof(LobbyActivity));
-                    StartActivity(intent);
+                    Toast.MakeText(this.Activity, "No Host Server Detected! Please Wait for the Host to Start", ToastLength.Short).Show();
+
                 }
 
-                else if (text == null || text == "")
-                {
-                    Toast.MakeText(this.Activity, "* Please Enter Code", ToastLength.Short).Show();
-
-                }
                 else
                 {
-                    Toast.MakeText(this.Activity, "* Code is Invalid!", ToastLength.Short).Show();
 
+                    string code = dt.Rows[0][0].ToString();
+
+                    var text = View.FindViewById<EditText>(Resource.Id.editText1).Text;
+                    if (code == text)
+                    {
+                        Intent intent = new Intent(this.Activity, typeof(LobbyActivity));
+                        StartActivity(intent);
+                    }
+
+                    else if (text == null || text == "")
+                    {
+                        Toast.MakeText(this.Activity, "* Please Enter Code", ToastLength.Short).Show();
+
+                    }
+                    else
+                    {
+                        Toast.MakeText(this.Activity, "* Code is Invalid!", ToastLength.Short).Show();
+
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this.Activity, ex.ToString(), ToastLength.Short).Show();
+            }
+            
         }
 
         static class Helper

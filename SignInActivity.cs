@@ -25,6 +25,8 @@ namespace TooLearnAndroid
 
             // Create your application here
             SetContentView(Resource.Layout.activity_signin);
+            var username = FindViewById<EditText>(Resource.Id.editText1);
+            var password = FindViewById<EditText>(Resource.Id.editText2);
             Button signup_button = FindViewById<Button>(Resource.Id.button2);
             Button signin_button = FindViewById<Button>(Resource.Id.button1);
             signin_button.Click += LoginActivity;

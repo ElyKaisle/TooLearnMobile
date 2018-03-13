@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_edittext"
         android:id="@+id/editText1"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:textColor="#FFFFFF" />
     <TextView
         android:text="Username"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -34,7 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_edittext"
-        android:id="@+id/editText2" />
+        android:id="@+id/editText2"
+        android:textColor="#FFFFFF" />
     <TextView
         android:text="Password"
         android:textAppearance="?android:attr/textAppearanceSmall"

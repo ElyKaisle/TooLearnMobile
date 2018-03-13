@@ -23,55 +23,25 @@ namespace TooLearnAndroid
     public class ServerConnectionActivity : Activity
     {
         SqlConnection con;
-        Spinner spinner;
-        ArrayAdapter<String> adapter;
-        String[] servers = { };
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             // Create your application here
             SetContentView(Resource.Layout.activity_serverconnection);
-            spinner = (Spinner)FindViewById<Spinner>(Resource.Id.spinner1);
-            load_server();
-            adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, servers);
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinner.Adapter = adapter;
-            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(ConnectActivity);
+            var connect = FindViewById<Button>(Resource.Id.button2);
+            connect.Click += ConnectActivity;
 
-            Button refresh_button = FindViewById<Button>(Resource.Id.button1);
-            refresh_button.Click += RefreshActivity;
-            Button connect_button = FindViewById<Button>(Resource.Id.button2);
-            
-
-        }
-
-        private void load_server()
-        {
-            int x = 0;
-            DataTable table = SqlDataSourceEnumerator.Instance.GetDataSources();
-            foreach (DataRow server in table.Rows)
-            {
-                var query = server[table.Columns["ServerName"]].ToString();
-                servers[x] = query;
-                x++;
-            }
-
-        }
-      
-
-        public void RefreshActivity(object sender, EventArgs e)
-        {
-            Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
-            spinner.Adapter = null;
-            load_server();
         }
         
-        public void ConnectActivity(object sender, AdapterView.ItemSelectedEventArgs e)
+        public void ConnectActivity(object sender, EventArgs e)
         {
-            String DB;
+            String DB, ID, Password;
             Object Source;
-            Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
-            string servername = spinner.SelectedItem.ToString();
+            var server = FindViewById<EditText>(Resource.Id.editText1);
+            string servername = server.Text;
+            Program.serverIP = servername;
+
+            /*
             try
             {
                 IPHostEntry host = Dns.GetHostEntry(servername); //get the ServerIP
@@ -91,13 +61,15 @@ namespace TooLearnAndroid
 
                 Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
             }
+            */
 
-            if (spinner.SelectedItem != null)
+            if (servername != null)
             {
-                Source = spinner.SelectedItem.ToString() + ",1433";
+                Source = servername + ",1433";
                 DB = "Toolearn";
-
-                con = new SqlConnection("Data Source='" + Source + "' ; Initial Catalog='" + DB + "'");
+                ID = "Toolearn";
+                Password = "Toolearn";
+                con = new SqlConnection("Data Source='" + Source + "' ; Initial Catalog='" + DB + "'; User ID='" + ID + "';Password='" + Password + "'");
                 try
                 {
                    
@@ -109,6 +81,8 @@ namespace TooLearnAndroid
 
                         Program.source = Source.ToString();
                         Program.db = DB;
+                        Program.id = ID;
+                        Program.password = Password;
 
                         string text = Intent.GetStringExtra("Invidividual");
                         if (text == "Individual")
