@@ -22,6 +22,7 @@ namespace TooLearnAndroid
     [Activity(Label = "Server Connection", Theme = "@style/Theme.DesignDemo")]
     public class ServerConnectionActivity : Activity
     {
+        string Role = MainActivity.Role;
         SqlConnection con;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -83,9 +84,8 @@ namespace TooLearnAndroid
                         Program.db = DB;
                         Program.id = ID;
                         Program.password = Password;
-
-                        string text = Intent.GetStringExtra("Invidividual");
-                        if (text == "Individual")
+                        
+                        if (Role == "Individual")
                         {
                             Intent intent = new Intent(this, typeof(SignInActivity));
                             StartActivity(intent);

@@ -10,7 +10,7 @@ namespace TooLearnAndroid
         [Activity(Label = "TooLearn", Theme = "@style/Theme.DesignDemo")]
         public class MainActivity : Activity
         {
-        
+        public static string Role;
         protected override void OnCreate(Bundle savedInstanceState)
             {
                 base.OnCreate(savedInstanceState);
@@ -24,8 +24,8 @@ namespace TooLearnAndroid
 
                 classroom_button.Click += delegate
                 {
+                    Role = "Individual";
                     var serverconnection = new Intent(this, typeof(ServerConnectionActivity));
-                    serverconnection.PutExtra("Individual", Program.Role);
                     StartActivity(serverconnection);
                     
                 };
@@ -37,6 +37,7 @@ namespace TooLearnAndroid
 
                 group_button.Click += delegate
                 {
+                    Role = "Group";
                     var serverconnection = new Intent(this, typeof(ServerConnectionActivity));
                     serverconnection.PutExtra("Group", Program.Role);
                     StartActivity(serverconnection);

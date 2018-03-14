@@ -125,13 +125,13 @@ namespace TooLearnAndroid
         }
 
 
-
+        /*
         protected override void OnStop()
         {
             base.OnStop();
             SetContentView(Resource.Layout.activity_lobby);
         }
-
+        */
         private void BeginReceiveCallback(IAsyncResult ar)
         {
 

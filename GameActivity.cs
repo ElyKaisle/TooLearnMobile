@@ -20,7 +20,7 @@ namespace TooLearnAndroid //MAGHILING KA SA BABA FOR PALATANDAAN ||  private voi
 {
     [Activity(Label = "GameActivity")]
     public class GameActivity : Activity
-    {
+    {/*
         private TcpClient _client = new TcpClient();
         private const int _buffer_size = 2048;
         private byte[] _buffer = new byte[_buffer_size];
@@ -447,5 +447,5 @@ namespace TooLearnAndroid //MAGHILING KA SA BABA FOR PALATANDAAN ||  private voi
         //NAPUNDO AKO SA MGA BUTTONS BE BACK LATER || MINUS MULT CHOICE BUTTON
         //AAYUSON ANG THREADHELPER SAKA SI PAG LAAG VARIABLE SA MGA OBJECTS
 
-    }
+    */}
 }
