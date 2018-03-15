@@ -66,7 +66,7 @@ namespace TooLearnAndroid
 
             if (servername != null)
             {
-                Source = servername + ",1433";
+                Source = servername;
                 DB = "Toolearn";
                 ID = "Toolearn";
                 Password = "Toolearn";

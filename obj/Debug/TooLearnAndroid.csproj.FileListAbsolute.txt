@@ -148,9 +148,14 @@ C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\upl
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\error.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\checked.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\activity_game.xml
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll.mdb
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\android\assets\TooLearnAndroid.dll.mdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\TooLearnAndroid.csprojResolveAssemblyReference.cache
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_rules.xml
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_multiplechoice.xml
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_truefalse.xml
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_shortanswer.xml
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\picturepuzzlerules.txt
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\quizbeerules.txt
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll
 bin\Debug\Mono.Android.pdb
 bin\Debug\mscorlib.pdb
 bin\Debug\System.Core.pdb

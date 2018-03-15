@@ -15,6 +15,7 @@ namespace TooLearnAndroid
 {
     public class RulesFragment : Fragment
     {
+        string GameType = LobbyActivity.GameType;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,7 +30,31 @@ namespace TooLearnAndroid
 
             //return base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_rules, container, false);
+            GameParticipant_Load();
             return view;
+        }
+
+        private void GameParticipant_Load()
+        {
+
+            var rulestitle = View.FindViewById<TextView>(Resource.Id.textView2).Text;
+            var rulescontent = View.FindViewById<TextView>(Resource.Id.textView3).Text;
+
+            if (GameType == "QB")
+            {
+                rulestitle = "Quiz Bee";
+                rulescontent = System.IO.File.ReadAllText("drawable/QuizBeeRules.txt");
+
+            }
+
+            else if (GameType == "PZ")
+            {
+                rulestitle = "Picture Puzzle";
+                rulescontent = System.IO.File.ReadAllText("drawable/PicturePuzzleRules.txt");
+            }
+
+
+
         }
     }
 }
