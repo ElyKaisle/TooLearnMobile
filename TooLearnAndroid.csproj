@@ -133,6 +133,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainmenuActivity.cs" />
     <Compile Include="ManualFragment.cs" />
+    <Compile Include="MultipleChoiceFragment.cs" />
     <Compile Include="MyAccountFragment.cs" />
     <Compile Include="MyClassroomActivity.cs" />
     <Compile Include="NicknameActivity.cs" />
@@ -140,13 +141,16 @@
     <Compile Include="PublicJoinQuizActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RulesFragment.cs" />
     <Compile Include="ScoreRecordActivity.cs" />
     <Compile Include="ServerConnectionActivity.cs" />
     <Compile Include="SettingsFragment.cs" />
+    <Compile Include="ShortAnswerFragment.cs" />
     <Compile Include="SignInActivity.cs" />
     <Compile Include="SignUpActivity.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="ThreadHelper.cs" />
+    <Compile Include="TrueFalseFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -217,6 +221,18 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_game.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_rules.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_multiplechoice.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_truefalse.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_shortanswer.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

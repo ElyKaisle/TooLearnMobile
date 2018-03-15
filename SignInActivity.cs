@@ -41,13 +41,14 @@ namespace TooLearnAndroid
             {
                 var user = FindViewById<EditText>(Resource.Id.editText1).Text;
                 var pw = FindViewById<EditText>(Resource.Id.editText2).Text;
-
-                SqlDataAdapter sda = new SqlDataAdapter($@"Select count * From participant Where p_username={user} COLLATE SQL_Latin1_General_CP1_CS_AS and p_password={pw} COLLATE SQL_Latin1_General_CP1_CS_AS", con);
+                string username = user;
+                string password = pw;
+                SqlDataAdapter sda = new SqlDataAdapter($"Select count(*) From participant Where p_username={username} COLLATE SQL_Latin1_General_CP1_CS_AS and p_password={password} COLLATE SQL_Latin1_General_CP1_CS_AS", con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 if (dt.Rows[0][0].ToString() == "1")
                 {
-                    SqlCommand cmd = new SqlCommand($@"Select participant_id from participant where p_username={user} COLLATE SQL_Latin1_General_CP1_CS_AS and p_password={pw} COLLATE SQL_Latin1_General_CP1_CS_AS", con);
+                    SqlCommand cmd = new SqlCommand($@"Select participant_id from participant where p_username={username} COLLATE SQL_Latin1_General_CP1_CS_AS and p_password={password} COLLATE SQL_Latin1_General_CP1_CS_AS", con);
 
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader();
