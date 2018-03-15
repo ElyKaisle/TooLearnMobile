@@ -29,12 +29,34 @@ namespace TooLearnAndroid
 
             //return base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_multiplechoice, container, false);
+            AddTextButtonActivity();
             var choice1 = view.FindViewById(Resource.Id.button1);
             var choice2 = view.FindViewById(Resource.Id.button2);
             var choice3 = view.FindViewById(Resource.Id.button3);
             var choice4 = view.FindViewById(Resource.Id.button4);
             choice1.Click += ChoiceOneActivity;
             return view;
+        }
+
+        public void AddTextButtonActivity()
+        {
+            var question = View.FindViewById<EditText>(Resource.Id.textView1).Text;
+            question = Array[0].ToString();
+            ThreadHelper.lblAddLabel(this, label1, array[0].ToString());  //Question
+            ThreadHelper.btnAddTxtButton(this, bunifuFlatButton1, array[1].ToString());  //A
+            ThreadHelper.btnAddTxtButton(this, bunifuFlatButton2, array[2].ToString());  //B
+            ThreadHelper.btnAddTxtButton(this, bunifuFlatButton3, array[3].ToString());  //C
+            ThreadHelper.btnAddTxtButton(this, bunifuFlatButton4, array[4].ToString());  //D
+            correctanswer = array[5].ToString();  //CorrectAnswer
+            points = array[8].ToString();
+
+            Total = array[10].ToString();
+
+
+            ThreadHelper.imgbtnIN(this, bunifuImageButton1, false);
+            ThreadHelper.BunifuBoxHide(this, bunifuMetroTextbox1, false);
+            ThreadHelper.ControlHide(this, bunifuFlatButton5, false);
+            ThreadHelper.ControlHide(this, bunifuFlatButton6, false);
         }
 
         private void ChoiceOneActivity(object sender, EventArgs e)

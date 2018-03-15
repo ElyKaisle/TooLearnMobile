@@ -151,7 +151,6 @@
     <Compile Include="SignInActivity.cs" />
     <Compile Include="SignUpActivity.cs" />
     <Compile Include="SplashActivity.cs" />
-    <Compile Include="ThreadHelper.cs" />
     <Compile Include="TrueFalseFragment.cs" />
     <Compile Include="WrongAnswerFragment.cs" />
   </ItemGroup>

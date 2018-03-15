@@ -22,7 +22,7 @@
         android:text="total items"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
+        android:id="@+id/totalItems" />
     <TextView
         android:text="FEEDBACK COMMENT"
         android:textAppearance="?android:attr/textAppearanceLarge"
