@@ -30,10 +30,10 @@ namespace TooLearnAndroid
             //return base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_multiplechoice, container, false);
             AddTextButtonActivity();
-            var choice1 = view.FindViewById(Resource.Id.button1);
-            var choice2 = view.FindViewById(Resource.Id.button2);
-            var choice3 = view.FindViewById(Resource.Id.button3);
-            var choice4 = view.FindViewById(Resource.Id.button4);
+            var choice1 = view.FindViewById<Button>(Resource.Id.button1);
+            var choice2 = view.FindViewById<Button>(Resource.Id.button2);
+            var choice3 = view.FindViewById<Button>(Resource.Id.button3);
+            var choice4 = view.FindViewById<Button>(Resource.Id.button4);
             choice1.Click += ChoiceOneActivity;
             return view;
         }
@@ -41,12 +41,16 @@ namespace TooLearnAndroid
         public void AddTextButtonActivity()
         {
             var question = View.FindViewById<EditText>(Resource.Id.textView1).Text;
-            question = Array[0].ToString();
-            ThreadHelper.lblAddLabel(this, label1, array[0].ToString());  //Question
-            ThreadHelper.btnAddTxtButton(this, bunifuFlatButton1, array[1].ToString());  //A
-            ThreadHelper.btnAddTxtButton(this, bunifuFlatButton2, array[2].ToString());  //B
-            ThreadHelper.btnAddTxtButton(this, bunifuFlatButton3, array[3].ToString());  //C
-            ThreadHelper.btnAddTxtButton(this, bunifuFlatButton4, array[4].ToString());  //D
+            question = GameActivity.array[0].ToString();
+            var choice1 = View.FindViewById<Button>(Resource.Id.button1).Text;
+            var choice2 = View.FindViewById<Button>(Resource.Id.button2).Text;
+            var choice3 = View.FindViewById<Button>(Resource.Id.button3).Text;
+            var choice4 = View.FindViewById<Button>(Resource.Id.button4).Text;
+            choice1 = GameActivity.array[1].ToString();
+            choice2 = GameActivity.array[2].ToString();
+            choice3 = GameActivity.array[3].ToString();
+            choice4 = GameActivity.array[4].ToString();
+
             correctanswer = array[5].ToString();  //CorrectAnswer
             points = array[8].ToString();
 

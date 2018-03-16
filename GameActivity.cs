@@ -27,6 +27,7 @@ namespace TooLearnAndroid
         private string _IPAddress = Program.serverIP;
         private const int _PORT = 1433;
 
+        public static String[] array = { };
         public static string Total = "";
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -158,11 +159,7 @@ namespace TooLearnAndroid
                 {
 
 
-                    var array = message.Split('\n');
-
-
-
-
+                    array = message.Split('\n');
 
 
                     if (array[11].ToString() == "Multiple Choice")//Item Format
@@ -174,11 +171,6 @@ namespace TooLearnAndroid
                         fragmentTx.Commit();
                         
 
-                        ThreadHelper.lblAddLabel(this, label1, array[0].ToString());  //Question
-                        ThreadHelper.btnAddTxtButton(this, bunifuFlatButton1, array[1].ToString());  //A
-                        ThreadHelper.btnAddTxtButton(this, bunifuFlatButton2, array[2].ToString());  //B
-                        ThreadHelper.btnAddTxtButton(this, bunifuFlatButton3, array[3].ToString());  //C
-                        ThreadHelper.btnAddTxtButton(this, bunifuFlatButton4, array[4].ToString());  //D
                         correctanswer = array[5].ToString();  //CorrectAnswer
                         points = array[8].ToString();
 
