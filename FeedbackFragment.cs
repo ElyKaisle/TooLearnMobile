@@ -46,16 +46,15 @@ namespace TooLearnAndroid
             float compute = (rawscore / Convert.ToInt32(totalscores)) * 100;
             if(compute < Convert.ToInt32("60"))
             {
-                comment = compute + " You Needs Improvement, Study and Play!";
+                comment = compute + "% You Need Improvement, Study and Play!";
             }
                     else if (compute == Convert.ToInt32("100"))
             {
-                comment = compute + " Excellent!";
+                comment = compute + "% Excellent!";
             }
-
             else
             {
-                comment = compute + " Not Bad!, aim Perfect Next Time ";
+                comment = compute + "% Not Bad!, aim Perfect Next Time ";
             }
         }
     }

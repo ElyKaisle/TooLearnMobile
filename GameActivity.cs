@@ -14,19 +14,27 @@ using System.Net;
 using System.Net.Sockets;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
+using System.Threading;
 
 namespace TooLearnAndroid 
 {
     [Activity(Label = "GameActivity")]
     public class GameActivity : Activity
     {
-        private TcpClient _client = new TcpClient();
+        SqlConnection con = new SqlConnection("Data Source='" + Program.source + "' ; Initial Catalog='" + Program.db + "'; User ID='" + Program.id + "';Password='" + Program.password + "'");
+
+        public static TcpClient _client = new TcpClient();
         private const int _buffer_size = 2048;
         private byte[] _buffer = new byte[_buffer_size];
         private string _IPAddress = Program.serverIP;
         private const int _PORT = 1433;
 
+        Timer timer;
+
+        string GameType = LobbyActivity.GameType;
+        public static string correctanswer, points, Pname;
+        public static string time;
+        public static int convertedtime;
         public static String[] array = { };
         public static string Total = "";
         protected override void OnCreate(Bundle savedInstanceState)
@@ -35,8 +43,9 @@ namespace TooLearnAndroid
 
             // Create your application here
             SetContentView(Resource.Layout.activity_game);
+            StartConnect();
             var timersec = FindViewById<TextView>(Resource.Id.textView5);
-            //TypeOfGames();
+            RulesOnLoadActivity();
         }
 
         
@@ -60,7 +69,27 @@ namespace TooLearnAndroid
             }
         }
 
-        private void BeginWriteCallback(IAsyncResult ar)
+        public static void SendScore(string message)
+        {
+            try
+            {
+                //Translate the message into its byte form
+                byte[] buffer = System.Text.Encoding.ASCII.GetBytes("(SCORE)," + Pname + "(" + message + ")");
+
+                //Get a client stream for reading and writing
+                NetworkStream stream = _client.GetStream();
+
+                //Send the message to the connected server
+                //stream.Write(buffer, 0, buffer.length);
+                stream.BeginWrite(buffer, 0, buffer.Length, BeginWriteCallback, stream);
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(Application.Context, ex.ToString(), ToastLength.Short).Show();
+            }
+        }
+
+        public static void BeginWriteCallback(IAsyncResult ar)
         {
             NetworkStream stream = (NetworkStream)ar.AsyncState;
             stream.EndWrite(ar);
@@ -113,6 +142,25 @@ namespace TooLearnAndroid
             }
         }
 
+        private string get(string answer)
+        {
+            string RA = answer;
+            string value = "";
+
+            char[] answerchar = RA.ToArray();
+            for (int i = 0; i < RA.Count(); i++)
+            {
+                if ((i % 2) == 0)
+                {
+                    value += answerchar[i].ToString();
+                }
+
+            }
+
+            return value;
+        }
+
+
         private void BeginReceiveCallback(IAsyncResult ar)
         {
             
@@ -138,6 +186,7 @@ namespace TooLearnAndroid
                     FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
                     fragmentTx.Replace(Resource.Id.fragment_container, fragment);
                     fragmentTx.Commit();
+
                     Receive();
 
                 }
@@ -150,7 +199,7 @@ namespace TooLearnAndroid
                     fragmentTx.Commit();
                 }
 
-                else if (message.Contains("CloseThis"))
+                else if (message.Contains("PleaseHideThis"))
                 {
                     Send("DISCONNECT");
                 }
@@ -169,215 +218,33 @@ namespace TooLearnAndroid
                         FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
                         fragmentTx.Replace(Resource.Id.fragment_container, fragment);
                         fragmentTx.Commit();
-                        
 
-                        correctanswer = array[5].ToString();  //CorrectAnswer
-                        points = array[8].ToString();
-
-                        Total = array[10].ToString();
-
-
-                        ThreadHelper.imgbtnIN(this, bunifuImageButton1, false);
-                        ThreadHelper.BunifuBoxHide(this, bunifuMetroTextbox1, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton5, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton6, false);
-
-                        string str = array[7].ToString();
-                        int index = str.IndexOf('(');
-
-                        if (index >= 0)
-                        {
-                            time = str.Substring(0, index);
-
-
-
-                        }
-                        else
-                        {
-
-                            time = str;
-                        }
-
-
-                        convertedtime = Convert.ToInt32(time);//timer
-
-
-                        string cut = array[7].ToString();
-                        int ind = cut.IndexOf('(');
-                        string form;
-                        if (ind >= 0)
-                        {
-                            form = cut.Substring(ind + 1, 7);
-
-
-
-                        }
-                        else
-                        {
-
-                            form = cut;
-                        }
-
-
-                        if (form == "Minutes")
-                        {
-                            convertedtime = convertedtime * 60;
-                        }
-
-
-
-
-
-
-                        this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
+                        //var timer1 = FindViewById<TextView>(Resource.Id.textView5);
+                        //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
 
 
 
                     }
                     else if (array[11].ToString() == "True/False")
                     {
-                        ThreadHelper.PanelOut(this, panel2, false);
-                        ThreadHelper.PanelOut(this, panel3, false);
+                        TrueFalseFragment fragment = new TrueFalseFragment();
+                        FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                        fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+                        fragmentTx.Commit();
 
-                        ThreadHelper.lblAddLabel(this, label1, array[0].ToString());  //Question
-                        correctanswer = array[5].ToString();  //CorrectAnswer
-                        points = array[8].ToString();
-                        Total = array[10].ToString();
-
-                        ThreadHelper.imgbtnIN(this, bunifuImageButton1, false);
-                        ThreadHelper.BunifuBoxHide(this, bunifuMetroTextbox1, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton1, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton2, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton3, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton4, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton5, true);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton6, true);
-
-
-
-
-                        string str = array[7].ToString();
-                        int index = str.IndexOf('(');
-
-                        if (index >= 0)
-                        {
-                            time = str.Substring(0, index);
-
-
-
-                        }
-                        else
-                        {
-
-                            time = str;
-                        }
-
-
-                        convertedtime = Convert.ToInt32(time);//timer
-
-
-
-                        string cut = array[7].ToString();
-                        int ind = cut.IndexOf('(');
-                        string form;
-                        if (ind >= 0)
-                        {
-                            form = cut.Substring(ind + 1, 7);
-
-
-
-                        }
-                        else
-                        {
-
-                            form = cut;
-                        }
-
-
-                        if (form == "Minutes")
-                        {
-                            convertedtime = convertedtime * 60;
-                        }
-
-
-
-
-                        this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
+                        //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
                     }
 
                     else
                     {
+                        ShortAnswerFragment fragment = new ShortAnswerFragment();
+                        FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                        fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+                        fragmentTx.Commit();
 
-                        ThreadHelper.PanelOut(this, panel2, false);
-                        ThreadHelper.PanelOut(this, panel3, false);
-
-                        ThreadHelper.lblAddLabel(this, label1, array[0].ToString());  //Question
-                        correctanswer = array[5].ToString(); ;  //CorrectAnswer
-                        points = array[8].ToString();
-                        Total = array[10].ToString();
-
-                        ThreadHelper.imgbtnIN(this, bunifuImageButton1, true);
-                        ThreadHelper.BunifuBoxHide(this, bunifuMetroTextbox1, true);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton1, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton2, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton3, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton4, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton5, false);
-                        ThreadHelper.ControlHide(this, bunifuFlatButton6, false);
-
-                        string str = array[7].ToString();
-                        int index = str.IndexOf('(');
-
-                        if (index >= 0)
-                        {
-                            time = str.Substring(0, index);
-
-
-
-                        }
-                        else
-                        {
-
-                            time = str;
-                        }
-
-
-                        convertedtime = Convert.ToInt32(time);//timer
-
-
-
-
-                        string cut = array[7].ToString();
-                        int ind = cut.IndexOf('(');
-                        string form;
-                        if (ind >= 0)
-                        {
-                            form = cut.Substring(ind + 1, 7);
-
-
-
-                        }
-                        else
-                        {
-
-                            form = cut;
-                        }
-
-
-                        if (form == "Minutes")
-                        {
-                            convertedtime = convertedtime * 60;
-                        }
-
-
-                        this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
-
-
-
-
+                        //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
 
                     }
-
 
 
                     Receive();
@@ -386,14 +253,74 @@ namespace TooLearnAndroid
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
             }
         }
 
-        public void TypeOfGames()
+        public void RulesOnLoadActivity()
         {
+            SqlDataAdapter Name = new SqlDataAdapter("Select fullname from participant where participant_id='" + Program.par_id + "' ", con);
+            DataTable dt = new DataTable();
+            Name.Fill(dt);
+            Pname = dt.Rows[0][0].ToString();
+
+            RulesFragment fragment = new RulesFragment();
+            FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+            fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+            fragmentTx.Commit();
 
         }
-        
+
+        public static string validateSA(string answer)
+        {
+
+            string feed;
+
+
+
+            if (correctanswer.ToLower().ToString().Contains(answer.ToLower().ToString()) && answer.Length.Equals(correctanswer.Length - 1))
+            {
+                feed = "Correct";
+
+
+
+            }
+            else
+            {
+                feed = "Wrong";
+
+                Toast.MakeText(Application.Context, answer.Length.ToString() + correctanswer.Length.ToString(), ToastLength.Long).Show();
+            }
+
+            return feed;
+        }
+
+        public static string validate(string answer)
+        {
+
+            string feed;
+
+
+
+            if (correctanswer.ToLower().ToString().Contains(answer.ToLower().ToString()))
+            {
+                feed = "Correct";
+
+
+
+            }
+            else
+            {
+                feed = "Wrong";
+
+
+            }
+
+
+            return feed;
+
+
+        }
+
     }
 }

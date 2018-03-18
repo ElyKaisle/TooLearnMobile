@@ -35,6 +35,9 @@ namespace TooLearnAndroid
             var choice3 = view.FindViewById<Button>(Resource.Id.button3);
             var choice4 = view.FindViewById<Button>(Resource.Id.button4);
             choice1.Click += ChoiceOneActivity;
+            choice2.Click += ChoiceTwoActivity;
+            choice3.Click += ChoiceThreeActivity;
+            choice4.Click += ChoiceFourActivity;
             return view;
         }
 
@@ -51,40 +54,169 @@ namespace TooLearnAndroid
             choice3 = GameActivity.array[3].ToString();
             choice4 = GameActivity.array[4].ToString();
 
-            correctanswer = array[5].ToString();  //CorrectAnswer
-            points = array[8].ToString();
+            GameActivity.correctanswer = GameActivity.array[5].ToString();  //CorrectAnswer
+            GameActivity.points = GameActivity.array[8].ToString();
 
-            Total = array[10].ToString();
+            GameActivity.Total = GameActivity.array[10].ToString();
+
+            string str = GameActivity.array[7].ToString();
+            int index = str.IndexOf('(');
+
+            if (index >= 0)
+            {
+                GameActivity.time = str.Substring(0, index);
 
 
-            ThreadHelper.imgbtnIN(this, bunifuImageButton1, false);
-            ThreadHelper.BunifuBoxHide(this, bunifuMetroTextbox1, false);
-            ThreadHelper.ControlHide(this, bunifuFlatButton5, false);
-            ThreadHelper.ControlHide(this, bunifuFlatButton6, false);
+
+            }
+            else
+            {
+
+                GameActivity.time = str;
+            }
+
+
+            GameActivity.convertedtime = Convert.ToInt32(GameActivity.time);//timer
+
+
+            string cut = GameActivity.array[7].ToString();
+            int ind = cut.IndexOf('(');
+            string form;
+            if (ind >= 0)
+            {
+                form = cut.Substring(ind + 1, 7);
+
+
+
+            }
+            else
+            {
+
+                form = cut;
+            }
+
+
+            if (form == "Minutes")
+            {
+                GameActivity.convertedtime = GameActivity.convertedtime * 60;
+            }
         }
 
         private void ChoiceOneActivity(object sender, EventArgs e)
-        {/*
-            string feed = validate("A");
+        {
+            string feed = GameActivity.validate("A");
             int score;
+            var scorepts = View.FindViewById<TextView>(Resource.Id.textView4).Text;
 
             if (feed == "Correct")
             {
 
-                score = Convert.ToInt32(bunifuCustomLabel5.Text);
-                score = score + Convert.ToInt32(points);
-                bunifuCustomLabel5.Text = score.ToString();
-                panel3.Visible = true;
-                panel2.Visible = false;
-                label5.Text = "Correct!";
+                score = Convert.ToInt32(scorepts);
+                score = score + Convert.ToInt32(GameActivity.points);
+                scorepts = score.ToString();
+                RightAnswerFragment fragment = new RightAnswerFragment();
+                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+                fragmentTx.Commit();
+
+                GameActivity.SendScore(scorepts.ToString());
             }
 
             else
             {
-                panel2.Visible = true;
-                panel3.Visible = false;
-                label4.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper();
-           */ }
+                WrongAnswerFragment fragment = new WrongAnswerFragment();
+                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+                fragmentTx.Commit();
+                
+            }
+        }
+
+        private void ChoiceTwoActivity(object sender, EventArgs e)
+        {
+            string feed = GameActivity.validate("B");
+            int score;
+            var scorepts = View.FindViewById<TextView>(Resource.Id.textView4).Text;
+
+            if (feed == "Correct")
+            {
+
+                score = Convert.ToInt32(scorepts);
+                score = score + Convert.ToInt32(GameActivity.points);
+                scorepts = score.ToString();
+                RightAnswerFragment fragment = new RightAnswerFragment();
+                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+                fragmentTx.Commit();
+
+                GameActivity.SendScore(scorepts.ToString());
+            }
+
+            else
+            {
+                WrongAnswerFragment fragment = new WrongAnswerFragment();
+                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+                fragmentTx.Commit();
+            }
+        }
+
+        private void ChoiceThreeActivity(object sender, EventArgs e)
+        {
+            string feed = GameActivity.validate("C");
+            int score;
+            var scorepts = View.FindViewById<TextView>(Resource.Id.textView4).Text;
+
+            if (feed == "Correct")
+            {
+
+                score = Convert.ToInt32(scorepts);
+                score = score + Convert.ToInt32(GameActivity.points);
+                scorepts = score.ToString();
+                RightAnswerFragment fragment = new RightAnswerFragment();
+                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+                fragmentTx.Commit();
+
+                GameActivity.SendScore(scorepts.ToString());
+            }
+
+            else
+            {
+                WrongAnswerFragment fragment = new WrongAnswerFragment();
+                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+                fragmentTx.Commit();
+            }
+        }
+
+        private void ChoiceFourActivity(object sender, EventArgs e)
+        {
+            string feed = GameActivity.validate("D");
+            int score;
+            var scorepts = View.FindViewById<TextView>(Resource.Id.textView4).Text;
+
+            if (feed == "Correct")
+            {
+
+                score = Convert.ToInt32(scorepts);
+                score = score + Convert.ToInt32(GameActivity.points);
+                scorepts = score.ToString();
+                RightAnswerFragment fragment = new RightAnswerFragment();
+                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+                fragmentTx.Commit();
+
+                GameActivity.SendScore(scorepts.ToString());
+            }
+
+            else
+            {
+                WrongAnswerFragment fragment = new WrongAnswerFragment();
+                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+                fragmentTx.Commit();
+            }
         }
     }
 }

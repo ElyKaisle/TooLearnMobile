@@ -126,7 +126,6 @@
     <Compile Include="FeedbackFragment.cs" />
     <Compile Include="GameActivity.cs" />
     <Compile Include="GamepinActivity.cs" />
-    <Compile Include="GameRulesActivity.cs" />
     <Compile Include="GroupSignInActivity.cs" />
     <Compile Include="JoinQuizFragment.cs" />
     <Compile Include="LobbyActivity.cs" />
@@ -211,9 +210,6 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_publicjoinquiz.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\activity_gamerules.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_serverconnection.axml">

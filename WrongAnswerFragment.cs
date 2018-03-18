@@ -29,7 +29,14 @@ namespace TooLearnAndroid
 
             //return base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_wronganswer, container, false);
+            CustomOutput();
             return view;
+        }
+
+        public void CustomOutput()
+        {
+            var feedback = View.FindViewById<TextView>(Resource.Id.textView1).Text;
+            feedback = "Wrong! The Right Answer is " + GameActivity.correctanswer.ToUpper();
         }
     }
 }
