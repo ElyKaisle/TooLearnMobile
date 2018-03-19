@@ -106,13 +106,22 @@ namespace TooLearnAndroid
                 score = score + Convert.ToInt32(GameActivity.points);
                 scorepts = score.ToString();
 
-                RightAnswerFragment fragment = new RightAnswerFragment();
-                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-                fragmentTx.Replace(Resource.Id.fragment_container, fragment);
-                fragmentTx.Commit();
+                RightAnswerFragment fragment5 = new RightAnswerFragment();
+                FragmentTransaction fragmentTx5 = this.FragmentManager.BeginTransaction();
+                fragmentTx5.Replace(Resource.Id.fragment_container, fragment5);
+                fragmentTx5.Commit();
 
                 GameActivity.SendScore(scorepts.ToString());
             }
+
+            else
+            {
+                WrongAnswerFragment fragment6 = new WrongAnswerFragment();
+                FragmentTransaction fragmentTx6 = this.FragmentManager.BeginTransaction();
+                fragmentTx6.Replace(Resource.Id.fragment_container, fragment6);
+                fragmentTx6.Commit();
+            }
+
         }
     }
 }

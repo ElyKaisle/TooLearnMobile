@@ -43,9 +43,9 @@ namespace TooLearnAndroid
 
             // Create your application here
             SetContentView(Resource.Layout.activity_game);
+            RulesOnLoadActivity();
             StartConnect();
             var timersec = FindViewById<TextView>(Resource.Id.textView5);
-            RulesOnLoadActivity();
         }
 
         
@@ -182,21 +182,16 @@ namespace TooLearnAndroid
 
                 else if (message.Contains("StartGame"))
                 {
-                    RulesFragment fragment = new RulesFragment();
-                    FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-                    fragmentTx.Replace(Resource.Id.fragment_container, fragment);
-                    fragmentTx.Commit();
-
                     Receive();
 
                 }
 
                 else if (message.Contains("C1o2m3pute"))
                 {
-                    FeedbackFragment fragment = new FeedbackFragment();
-                    FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-                    fragmentTx.Replace(Resource.Id.fragment_container, fragment);
-                    fragmentTx.Commit();
+                    FeedbackFragment fragment1 = new FeedbackFragment();
+                    FragmentTransaction fragmentTx1 = this.FragmentManager.BeginTransaction();
+                    fragmentTx1.Replace(Resource.Id.fragment_container, fragment1);
+                    fragmentTx1.Commit();
                 }
 
                 else if (message.Contains("PleaseHideThis"))
@@ -214,10 +209,10 @@ namespace TooLearnAndroid
                     if (array[11].ToString() == "Multiple Choice")//Item Format
                     {
 
-                        MultipleChoiceFragment fragment = new MultipleChoiceFragment();
-                        FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-                        fragmentTx.Replace(Resource.Id.fragment_container, fragment);
-                        fragmentTx.Commit();
+                        MultipleChoiceFragment fragment2 = new MultipleChoiceFragment();
+                        FragmentTransaction fragmentTx2 = this.FragmentManager.BeginTransaction();
+                        fragmentTx2.Replace(Resource.Id.fragment_container, fragment2);
+                        fragmentTx2.Commit();
 
                         //var timer1 = FindViewById<TextView>(Resource.Id.textView5);
                         //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
@@ -227,20 +222,20 @@ namespace TooLearnAndroid
                     }
                     else if (array[11].ToString() == "True/False")
                     {
-                        TrueFalseFragment fragment = new TrueFalseFragment();
-                        FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-                        fragmentTx.Replace(Resource.Id.fragment_container, fragment);
-                        fragmentTx.Commit();
+                        TrueFalseFragment fragment3 = new TrueFalseFragment();
+                        FragmentTransaction fragmentTx3 = this.FragmentManager.BeginTransaction();
+                        fragmentTx3.Replace(Resource.Id.fragment_container, fragment3);
+                        fragmentTx3.Commit();
 
                         //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
                     }
 
                     else
                     {
-                        ShortAnswerFragment fragment = new ShortAnswerFragment();
-                        FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-                        fragmentTx.Replace(Resource.Id.fragment_container, fragment);
-                        fragmentTx.Commit();
+                        ShortAnswerFragment fragment4 = new ShortAnswerFragment();
+                        FragmentTransaction fragmentTx4 = this.FragmentManager.BeginTransaction();
+                        fragmentTx4.Replace(Resource.Id.fragment_container, fragment4);
+                        fragmentTx4.Commit();
 
                         //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
 
