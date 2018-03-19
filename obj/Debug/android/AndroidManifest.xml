@@ -6,7 +6,6 @@
     <activity android:label="Edit Profile" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.EditProfileActivity" />
     <activity android:label="GameActivity" android:name="md5163273af215e7232b37cf76ea257f312.GameActivity" />
     <activity android:label="Game Pin" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.GamepinActivity" />
-    <activity android:label="Game Rules" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.GameRulesActivity" />
     <activity android:label="GroupSignInActivity" android:name="md5163273af215e7232b37cf76ea257f312.GroupSignInActivity" />
     <activity android:label="Lobby" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.LobbyActivity" />
     <activity android:label="TooLearn" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MainActivity" />

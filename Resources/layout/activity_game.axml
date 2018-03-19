@@ -56,5 +56,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:id="@+id/fragment_container" />
+        android:id="@+id/fragment_container"
+        android:layout_marginTop="80dp" />
 </RelativeLayout>

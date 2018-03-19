@@ -36,92 +36,99 @@ namespace TooLearnAndroid
         
         public void ConnectActivity(object sender, EventArgs e)
         {
-            String DB, ID, Password;
-            Object Source;
-            var server = FindViewById<EditText>(Resource.Id.editText1);
-            string servername = server.Text;
-            Program.serverIP = servername;
-
-            /*
             try
             {
-                IPHostEntry host = Dns.GetHostEntry(servername); //get the ServerIP
-                foreach (IPAddress ip in host.AddressList)
-                {
+                String DB, ID, Password;
+                Object Source;
+                var servername = FindViewById<EditText>(Resource.Id.editText1).Text;
+                Program.serverIP = servername;
 
-                    if (ip.AddressFamily == AddressFamily.InterNetwork)
-                    {
-                        Program.serverIP = ip.ToString();
-
-                    }
-                }
-            }//end try
-
-            catch (SocketException ex)
-            {
-
-                Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
-            }
-            */
-
-            if (servername != null)
-            {
-                Source = servername;
-                DB = "Toolearn";
-                ID = "Toolearn";
-                Password = "Toolearn";
-                con = new SqlConnection("Data Source='" + Source + "' ; Initial Catalog='" + DB + "'; User ID='" + ID + "';Password='" + Password + "'");
+                /*
                 try
                 {
-                   
-                    con.Open();
-                    if (con.State == ConnectionState.Open)
+                    IPHostEntry host = Dns.GetHostEntry(servername); //get the ServerIP
+                    foreach (IPAddress ip in host.AddressList)
                     {
 
-                        con.Close();
-
-                        Program.source = Source.ToString();
-                        Program.db = DB;
-                        Program.id = ID;
-                        Program.password = Password;
-                        
-                        if (Role == "Individual")
+                        if (ip.AddressFamily == AddressFamily.InterNetwork)
                         {
-                            Intent intent = new Intent(this, typeof(SignInActivity));
-                            StartActivity(intent);
+                            Program.serverIP = ip.ToString();
+
                         }
+                    }
+                }//end try
+
+                catch (SocketException ex)
+                {
+
+                    Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
+                }
+                */
+
+                if (servername != null)
+                {
+                    Source = servername + ",1433";
+                    DB = "Toolearn";
+                    ID = "Toolearn";
+                    Password = "Toolearn";
+                    con = new SqlConnection("Data Source='" + Source + "' ; Initial Catalog='" + DB + "'; User ID='" + ID + "';Password='" + Password + "'");
+                    try
+                    {
+
+                        con.Open();
+                        if (con.State == ConnectionState.Open)
+                        {
+
+                            con.Close();
+
+                            Program.source = Source.ToString();
+                            Program.db = DB;
+                            Program.id = ID;
+                            Program.password = Password;
+
+                            if (Role == "Individual")
+                            {
+                                Intent intent = new Intent(this, typeof(SignInActivity));
+                                StartActivity(intent);
+                            }
+
+                            else
+                            {
+                                Intent intent = new Intent(this, typeof(GroupSignInActivity));
+                                StartActivity(intent);
+                            }
+
+
+                        }
+
 
                         else
                         {
-                            Intent intent = new Intent(this, typeof(GroupSignInActivity));
-                            StartActivity(intent);
+                            Toast.MakeText(this, "Connection Failed", ToastLength.Short).Show();
                         }
 
-
                     }
 
-
-                    else
+                    catch (Exception ex)
                     {
-                        Toast.MakeText(this, "Connection Failed", ToastLength.Short).Show();
+                        Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
                     }
 
+
                 }
 
-                catch (Exception ex)
+                else
                 {
-                    Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
+
+                    Toast.MakeText(this, "No Server Selected", ToastLength.Short).Show();
                 }
-
-
             }
-
-            else
+            catch (Exception ex)
             {
-
-                Toast.MakeText(this, "No Server Selected", ToastLength.Short).Show();
+                Toast.MakeText(this, ex.ToString(), ToastLength.Long).Show();
             }
         }
+
         
     }
 }
