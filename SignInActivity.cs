@@ -48,7 +48,7 @@ namespace TooLearnAndroid
                 sda.Fill(dt);
                 if (dt.Rows[0][0].ToString() == "1")
                 {
-                    SqlCommand cmd = new SqlCommand($"Select participant_id from participant where p_username='"+user+ "' COLLATE SQL_Latin1_General_CP1_CS_AS and p_password='" + pw + "' COLLATE SQL_Latin1_General_CP1_CS_AS", con);
+                    SqlCommand cmd = new SqlCommand($"Select participant_id from participant where p_username='"+ user + "' COLLATE SQL_Latin1_General_CP1_CS_AS and p_password='" + pw + "' COLLATE SQL_Latin1_General_CP1_CS_AS", con);
 
                     con.Open();
                     SqlDataReader dr = cmd.ExecuteReader();

@@ -22,11 +22,6 @@ namespace TooLearnAndroid
 {
     public class JoinQuizFragment : Fragment
     {
-        private TcpClient _client = new TcpClient();
-        private const int _buffer_size = 2048;
-        private byte[] _buffer = new byte[_buffer_size];
-        private string _IPAddress = "127.0.0.1";
-        private const int _PORT = 13000;
         Button join;
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -52,7 +47,7 @@ namespace TooLearnAndroid
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = Helper.ConnectionString;
 
-                SqlDataAdapter sda = new SqlDataAdapter("Select Game_Pin From Pincode", con);
+                SqlDataAdapter sda = new SqlDataAdapter("Select Game_Pin From Pincode where Mode='IP' ", con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
 
@@ -102,80 +97,6 @@ namespace TooLearnAndroid
                     string str = "Data Source='" + Program.source + "' ; Initial Catalog='" + Program.db + "'; User ID='" + Program.id + "';Password='" + Program.password + "'";
                     return str;
                 }
-            }
-        }
-
-        public void StartConnect()
-        {
-            try
-            {
-                if (_client.Connected == false)
-                {
-                    _client = new TcpClient();
-                }
-                _client.NoDelay = true;
-
-                //Begin connecting to server
-                _client.BeginConnect(IPAddress.Parse(_IPAddress), _PORT, BeginConnectCallBack, _client);
-            }
-            catch (Exception ex)
-            {
-                Toast.MakeText(this.Activity, ex.ToString(), ToastLength.Short).Show();
-            }
-        }
-
-        private void BeginConnectCallBack(IAsyncResult ar)
-        {
-            try
-            {
-                TcpClient _client = (TcpClient)ar.AsyncState;
-                _client.EndConnect(ar);
-                Receive();
-            }
-            catch (Exception ex)
-            {
-                Toast.MakeText(this.Activity, ex.ToString(), ToastLength.Short).Show();
-            }
-        }
-
-        private void Receive()
-        {
-            try
-            {
-                _client.Client.BeginReceive(_buffer, 0, _buffer_size, SocketFlags.None, BeginReceiveCallback, _client
-                    );
-            }
-            catch (Exception ex)
-            {
-                Toast.MakeText(this.Activity, ex.ToString(), ToastLength.Short).Show();
-            }
-        }
-
-        private void BeginReceiveCallback(IAsyncResult ar)
-        {
-            try
-            {
-                // get the client socket
-                TcpClient client = (TcpClient)ar.AsyncState;
-                int bytesRead = client.Client.EndReceive(ar);
-
-                string message = System.Text.Encoding.ASCII.GetString(_buffer, 0, bytesRead);
-
-                if (message.Contains("DISCONNECT"))
-                {
-                    client.Client.Shutdown(SocketShutdown.Both);
-                    client.Client.Close();
-                }
-                else
-                {
-
-                    Receive();
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Toast.MakeText(this.Activity, ex.ToString(), ToastLength.Short).Show();
             }
         }
 

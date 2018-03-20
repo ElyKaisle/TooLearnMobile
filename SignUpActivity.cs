@@ -41,7 +41,7 @@ namespace TooLearnAndroid
                 var check = FindViewById<ImageView>(Resource.Id.imageView3);
                 string user = username.Text;
                 string availuser = availableuser.Text;
-                SqlDataAdapter sda = new SqlDataAdapter($"Select count * From participant Where p_username={user}", con);
+                SqlDataAdapter sda = new SqlDataAdapter($"Select count (*) From participant Where p_username='user'", con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
 
@@ -56,7 +56,7 @@ namespace TooLearnAndroid
 
                 else if (int.Parse(dt.Rows[0][0].ToString()) == 0)
                 {
-                    availuser = $"{user} is Available";
+                    availuser = user + " is Available";
                     availableuser.SetTextColor(Color.Green);
                     error.Visibility = ViewStates.Invisible;
                     check.Visibility = ViewStates.Visible;
@@ -65,7 +65,7 @@ namespace TooLearnAndroid
 
                 else if (int.Parse(dt.Rows[0][0].ToString()) > 0)
                 {
-                    availuser = $"{user} is Not Available";
+                    availuser = user + " is Not Available";
                     availableuser.SetTextColor(Color.Red);
                     check.Visibility = ViewStates.Invisible;
                     error.Visibility = ViewStates.Visible;
@@ -107,7 +107,7 @@ namespace TooLearnAndroid
                     {
                         con.Open();
                         
-                        SqlCommand cmd = new SqlCommand($"Insert into participant(fullname,F_name, M_name, L_name, p_username, p_password) Values({first + " " + middle + " " + last},{first},{middle},{last},{user},{pw}", con);
+                        SqlCommand cmd = new SqlCommand($"Insert into participant(fullname,F_name, M_name, L_name, p_username, p_password) Values('" + first + " " + middle + " " + last + "','" + first + "','" + middle + "','" + last + "','" + user + "','" + pw + "')", con);
                         cmd.ExecuteNonQuery();
                         Toast.MakeText(this, "Successfully Inserted", ToastLength.Short).Show();
                         con.Close();

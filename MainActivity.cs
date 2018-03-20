@@ -39,7 +39,6 @@ namespace TooLearnAndroid
                 {
                     Role = "Group";
                     var serverconnection = new Intent(this, typeof(ServerConnectionActivity));
-                    serverconnection.PutExtra("Group", Program.Role);
                     StartActivity(serverconnection);
 
                 };

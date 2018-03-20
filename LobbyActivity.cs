@@ -28,6 +28,8 @@ namespace TooLearnAndroid
         string name;
         public static string GameType = "";
 
+        string me = MainActivity.Role;
+
         SqlConnection con = new SqlConnection("Data Source='" + Program.source + "' ; Initial Catalog='" + Program.db + "'; User ID='" + Program.id + "';Password='" + Program.password + "'");
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -41,12 +43,25 @@ namespace TooLearnAndroid
 
         private void LobbyParticipant_Load()
         {
-            SqlDataAdapter sql = new SqlDataAdapter("Select fullname from participant where participant_id='" + Program.par_id + "'", con);
-            DataTable dt = new DataTable();
-            sql.Fill(dt);
-            name = dt.Rows[0][0].ToString();
+            if (me == "Individual")
+            {
+                SqlDataAdapter sql = new SqlDataAdapter("Select fullname from participant where participant_id='" + Program.par_id + "'", con);
+                DataTable dt = new DataTable();
+                sql.Fill(dt);
+                name = dt.Rows[0][0].ToString();
 
-            Send(name);
+                Send(name);
+            }
+
+            else if (me == "Group")
+            {
+                SqlDataAdapter sql = new SqlDataAdapter("Select  group_name from groups where group_id='" + Program.group_id + "'", con);
+                DataTable dt = new DataTable();
+                sql.Fill(dt);
+                name = dt.Rows[0][0].ToString();
+
+                Send(name);
+            }
         }
 
         private void Send(string message)
@@ -125,13 +140,6 @@ namespace TooLearnAndroid
         }
 
 
-        /*
-        protected override void OnStop()
-        {
-            base.OnStop();
-            SetContentView(Resource.Layout.activity_lobby);
-        }
-        */
         private void BeginReceiveCallback(IAsyncResult ar)
         {
 
@@ -172,25 +180,15 @@ namespace TooLearnAndroid
                     //  GameRules GR = new GameRules();
                     // GR.Show();
 
-
                     StartActivity(typeof(GameActivity));
 
-
                 }
-
-
-
-
-
-
-                //client.Client.Shutdown(SocketShutdown.Both);
-                //client.Client.Close();
+              
 
 
                 else
                 {
                     text = message;
-                    //ThreadHelper.lsbAddItem(this, lsbWait, message); fixlater
                     Receive();
 
                 }

@@ -18,7 +18,7 @@ namespace TooLearnAndroid
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            
             // Create your fragment here
         }
 
@@ -29,9 +29,9 @@ namespace TooLearnAndroid
 
             //return base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_truefalse, container, false);
-            AddTextButtonActivity();
             var choice1 = View.FindViewById<Button>(Resource.Id.button1);
             var choice2 = View.FindViewById<Button>(Resource.Id.button2);
+            AddTextButtonActivity();
             choice1.Click += ChoiceOneActivity;
             choice2.Click += ChoiceTwoActivity;
             return view;
