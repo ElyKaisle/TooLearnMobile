@@ -151,11 +151,10 @@ C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_multiplechoice.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_truefalse.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_shortanswer.xml
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\picturepuzzlerules.txt
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\quizbeerules.txt
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_wronganswer.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_rightanswer.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_feedback.xml
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\iconsplash.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll.mdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\android\assets\TooLearnAndroid.dll.mdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll
@@ -166,6 +165,7 @@ bin\Debug\System.Data.pdb
 bin\Debug\System.Data.Services.Client.pdb
 bin\Debug\System.pdb
 bin\Debug\System.Net.pdb
+bin\Debug\System.Reflection.Context.pdb
 bin\Debug\System.Xml.pdb
 bin\Debug\System.Net.Http.pdb
 bin\Debug\System.Runtime.Serialization.pdb
@@ -190,6 +190,7 @@ obj\Debug\linksrc\System.Data.pdb
 obj\Debug\linksrc\System.Data.Services.Client.pdb
 obj\Debug\linksrc\System.pdb
 obj\Debug\linksrc\System.Net.pdb
+obj\Debug\linksrc\System.Reflection.Context.pdb
 obj\Debug\linksrc\System.Xml.pdb
 obj\Debug\linksrc\System.Net.Http.pdb
 obj\Debug\linksrc\System.Runtime.Serialization.pdb

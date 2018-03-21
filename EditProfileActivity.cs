@@ -28,19 +28,18 @@ namespace TooLearnAndroid
             // Create your application here
 
             SetContentView(Resource.Layout.activity_editprofile);
+            load_account();
             Button edit_button = FindViewById<Button>(Resource.Id.button1);
             edit_button.Click += EditActivity;
         }
 
-        void load_account()
+        public void load_account()
         {
             var fullname = FindViewById<EditText>(Resource.Id.editText1);
             var username = FindViewById<EditText>(Resource.Id.editText2);
             var password = FindViewById<EditText>(Resource.Id.editText3);
             try
             {
-
-
                 SqlDataAdapter sda = new SqlDataAdapter("Select fullname,p_username,p_password from participant Where participant_id='" + Program.par_id + "' ", con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);

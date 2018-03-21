@@ -20,7 +20,6 @@ namespace TooLearnAndroid
         {
             base.OnCreate(savedInstanceState);
 
-            
             // Create your fragment here
         }
 
@@ -32,7 +31,7 @@ namespace TooLearnAndroid
             //return base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.fragment_feedback, container, false);
             ComputeActivity();
-            return view;
+            return base.OnCreateView(inflater, container, savedInstanceState);
         }
 
         public void ComputeActivity()

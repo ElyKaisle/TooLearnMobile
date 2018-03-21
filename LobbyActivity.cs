@@ -17,7 +17,7 @@ using System.Data.SqlClient;
 
 namespace TooLearnAndroid
 {
-    [Activity(Label = "Lobby", Theme = "@style/Theme.DesignDemo")]
+    [Activity(Label = "Lobby", Theme = "@style/Theme.DesignDemo", NoHistory = true)]
     public class LobbyActivity : Activity
     {  
         private TcpClient _client = new TcpClient();
@@ -155,7 +155,7 @@ namespace TooLearnAndroid
 
                 Receive();
 
-                if (message.Contains("GAMEQB"))
+                if (message.Contains("GAMEIPQB"))
                 {
                     //ThreadHelper.Hide(this); fixlater
                     //this.Hide();//kaipuhn muna ithread
@@ -171,7 +171,7 @@ namespace TooLearnAndroid
 
                 }
 
-                else if (message.Contains("GAMEPZ"))
+                else if (message.Contains("GAMEIPPZ"))
                 {
                     //ThreadHelper.Hide(this); fixlater
 

@@ -10,15 +10,18 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using System.IO;
 
 namespace TooLearnAndroid
 {
     public class RulesFragment : Fragment
     {
+        
         string GameType = LobbyActivity.GameType;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            
             // Create your fragment here
         }
 
@@ -27,10 +30,11 @@ namespace TooLearnAndroid
             // Use this to return your custom view for this Fragment
             // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 
-            //return base.OnCreateView(inflater, container, savedInstanceState);
+            
             var view = inflater.Inflate(Resource.Layout.fragment_rules, container, false);
             GameParticipant_Load();
-            return view;
+            return base.OnCreateView(inflater, container, savedInstanceState);
+            
         }
 
         public void GameParticipant_Load()
@@ -38,65 +42,27 @@ namespace TooLearnAndroid
             
             try
             {
-                var rulescontent8 = View.FindViewById<TextView>(Resource.Id.textEleven).Text;
-                var rulescontentv8 = View.FindViewById<TextView>(Resource.Id.textEleven);
-                var rulescontent7 = View.FindViewById<TextView>(Resource.Id.textTen).Text;
-                var rulescontentv7 = View.FindViewById<TextView>(Resource.Id.textTen);
-                var rulestitle = View.FindViewById<TextView>(Resource.Id.textView2).Text;
-                var rulescontent = View.FindViewById<TextView>(Resource.Id.textView3).Text;
-                var rulescontentv = View.FindViewById<TextView>(Resource.Id.textView3);
-                var rulescontent1 = View.FindViewById<TextView>(Resource.Id.textView4).Text;
-                var rulescontentv1 = View.FindViewById<TextView>(Resource.Id.textView4);
-                var rulescontent2 = View.FindViewById<TextView>(Resource.Id.textView5).Text;
-                var rulescontentv2 = View.FindViewById<TextView>(Resource.Id.textView5);
-                var rulescontent3 = View.FindViewById<TextView>(Resource.Id.textView6).Text;
-                var rulescontentv3 = View.FindViewById<TextView>(Resource.Id.textView6);
-                var rulescontent4 = View.FindViewById<TextView>(Resource.Id.textView7).Text;
-                var rulescontentv4 = View.FindViewById<TextView>(Resource.Id.textView7);
-                var rulescontent5 = View.FindViewById<TextView>(Resource.Id.textView8).Text;
-                var rulescontentv5 = View.FindViewById<TextView>(Resource.Id.textView8);
-                var rulescontent6 = View.FindViewById<TextView>(Resource.Id.textView9).Text;
-                var rulescontentv6 = View.FindViewById<TextView>(Resource.Id.textView9);
+                var rulestitle = View.FindViewById<TextView>(Resource.Id.textTitle).Text;
+                var rulescontentv = View.FindViewById<TextView>(Resource.Id.textContent);
+                string rulescontent = rulescontentv.Text;
+                
+
                 if (GameType == "QB")
                 {
                     rulestitle = "Quiz Bee";
-                    rulescontentv.Visibility = ViewStates.Visible;
-                    rulescontent = Context.Resources.GetString(Resource.String.qbrules1);
-                    rulescontentv1.Visibility = ViewStates.Visible;
-                    rulescontent1 = Context.Resources.GetString(Resource.String.qbrules2);
-                    rulescontentv2.Visibility = ViewStates.Visible;
-                    rulescontent2 = Context.Resources.GetString(Resource.String.qbrules3);
-                    rulescontentv3.Visibility = ViewStates.Visible;
-                    rulescontent3 = Context.Resources.GetString(Resource.String.qbrules4);
-                    rulescontentv4.Visibility = ViewStates.Visible;
-                    rulescontent4 = Context.Resources.GetString(Resource.String.qbrules5);
-                    rulescontentv5.Visibility = ViewStates.Visible;
-                    rulescontent5 = Context.Resources.GetString(Resource.String.qbrules6);
-                    rulescontentv6.Visibility = ViewStates.Visible;
-
+                    using (StreamReader sr = new StreamReader(Application.Context.Assets.Open("QuizBeeRules.txt")))
+                    {
+                        rulescontent = sr.ReadToEnd();
+                    }
                 }
 
                 else if (GameType == "PZ")
                 {
                     rulestitle = "Picture Puzzle";
-                    rulescontentv.Visibility = ViewStates.Visible;
-                    rulescontent = Context.Resources.GetString(Resource.String.pprules1);
-                    rulescontentv1.Visibility = ViewStates.Visible;
-                    rulescontent1 = Context.Resources.GetString(Resource.String.pprules2);
-                    rulescontentv2.Visibility = ViewStates.Visible;
-                    rulescontent2 = Context.Resources.GetString(Resource.String.pprules3);
-                    rulescontentv3.Visibility = ViewStates.Visible;
-                    rulescontent3 = Context.Resources.GetString(Resource.String.pprules4);
-                    rulescontentv4.Visibility = ViewStates.Visible;
-                    rulescontent4 = Context.Resources.GetString(Resource.String.pprules5);
-                    rulescontentv5.Visibility = ViewStates.Visible;
-                    rulescontent5 = Context.Resources.GetString(Resource.String.pprules6);
-                    rulescontentv6.Visibility = ViewStates.Visible;
-                    rulescontent6 = Context.Resources.GetString(Resource.String.pprules7);
-                    rulescontentv7.Visibility = ViewStates.Visible;
-                    rulescontent7 = Context.Resources.GetString(Resource.String.pprules8);
-                    rulescontentv8.Visibility = ViewStates.Visible;
-                    rulescontent8 = Context.Resources.GetString(Resource.String.pprules9);
+                    using (StreamReader sr = new StreamReader(Application.Context.Assets.Open("PicturePuzzleRules.txt")))
+                    {
+                        rulescontent = sr.ReadToEnd();
+                    }
                 }
             }
             catch (Exception ex)

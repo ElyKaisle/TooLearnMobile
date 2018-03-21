@@ -18,7 +18,7 @@ using System.Threading;
 
 namespace TooLearnAndroid 
 {
-    [Activity(Label = "GameActivity")]
+    [Activity(Label = "Game", Theme = "@style/Theme.DesignDemo", NoHistory = true)]
     public class GameActivity : Activity
     {
         SqlConnection con = new SqlConnection("Data Source='" + Program.source + "' ; Initial Catalog='" + Program.db + "'; User ID='" + Program.id + "';Password='" + Program.password + "'");
@@ -44,6 +44,7 @@ namespace TooLearnAndroid
             // Create your application here
             SetContentView(Resource.Layout.activity_game);
             RulesOnLoadActivity();
+
             StartConnect();
             var timersec = FindViewById<TextView>(Resource.Id.textView5);
         }

@@ -34,7 +34,7 @@ namespace TooLearnAndroid
             AddTextButtonActivity();
             choice1.Click += ChoiceOneActivity;
             choice2.Click += ChoiceTwoActivity;
-            return view;
+            return base.OnCreateView(inflater, container, savedInstanceState);
         }
 
         public void AddTextButtonActivity()

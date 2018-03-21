@@ -20,6 +20,7 @@ using System.Data.SqlClient;
 
 namespace TooLearnAndroid
 {
+    [Activity(Label = "Join Quiz", Theme = "@style/Theme.DesignDemo", NoHistory = true)]
     public class JoinQuizFragment : Fragment
     {
         Button join;

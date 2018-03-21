@@ -12,19 +12,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
     <Button
-        android:layout_width="120dp"
-        android:layout_height="120dp"
         android:layout_gravity="center"
         android:id="@+id/button1"
         android:background="@drawable/reportcard"
-        android:layout_marginBottom="30dp" />
-    <Button
-        android:layout_width="120dp"
+        android:layout_marginBottom="30dp"
         android:layout_height="120dp"
+        android:layout_width="120dp" />
+    <Button
         android:layout_gravity="center"
         android:id="@+id/button2"
         android:background="@drawable/classroom"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="30dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp" />
     <Button
         android:layout_width="120dp"
         android:layout_height="120dp"
