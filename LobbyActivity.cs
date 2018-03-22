@@ -165,9 +165,13 @@ namespace TooLearnAndroid
                     //  GR.ShowDialog();
 
                     //  testing GR = new testing();
+
+                    //RunOnUiThread(() => Toast.MakeText(this, "MAOPEN ANG GAME", ToastLength.Long).Show());
+
                     
                     Intent intent = new Intent(this, typeof(GameActivity));
-                    intent.AddFlags(ActivityFlags.FromBackground);
+                    intent.AddFlags(ActivityFlags.ClearTop);
+                    intent.AddFlags(ActivityFlags.NewTask);
                     StartActivity(intent);
                     
 
@@ -183,11 +187,14 @@ namespace TooLearnAndroid
                     GameType = "PZ";
                     //  GameRules GR = new GameRules();
                     // GR.Show();
-
+                    //RunOnUiThread(() => Toast.MakeText(this, "MAOPEN ANG GAME", ToastLength.Long).Show());
+                    
                     StartActivity(typeof(GameActivity));
                     Intent intent = new Intent(this, typeof(GameActivity));
-                    intent.AddFlags(ActivityFlags.FromBackground);
+                    intent.AddFlags(ActivityFlags.ClearTop);
+                    intent.AddFlags(ActivityFlags.NewTask);
                     StartActivity(intent);
+                    
 
                 }
               

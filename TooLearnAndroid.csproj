@@ -124,7 +124,6 @@
   <ItemGroup>
     <Compile Include="AboutFragment.cs" />
     <Compile Include="EditProfileActivity.cs" />
-    <Compile Include="FeedbackFragment.cs" />
     <Compile Include="GameActivity.cs" />
     <Compile Include="GamepinActivity.cs" />
     <Compile Include="GroupSignInActivity.cs" />
@@ -134,7 +133,6 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainmenuActivity.cs" />
     <Compile Include="ManualFragment.cs" />
-    <Compile Include="MultipleChoiceFragment.cs" />
     <Compile Include="MyAccountFragment.cs" />
     <Compile Include="MyClassroomActivity.cs" />
     <Compile Include="NicknameActivity.cs" />
@@ -142,17 +140,12 @@
     <Compile Include="PublicJoinQuizActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RightAnswerFragment.cs" />
-    <Compile Include="RulesFragment.cs" />
     <Compile Include="ScoreRecordActivity.cs" />
     <Compile Include="ServerConnectionActivity.cs" />
     <Compile Include="SettingsFragment.cs" />
-    <Compile Include="ShortAnswerFragment.cs" />
     <Compile Include="SignInActivity.cs" />
     <Compile Include="SignUpActivity.cs" />
     <Compile Include="SplashActivity.cs" />
-    <Compile Include="TrueFalseFragment.cs" />
-    <Compile Include="WrongAnswerFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

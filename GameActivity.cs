@@ -24,20 +24,18 @@ namespace TooLearnAndroid
     {
         SqlConnection con = new SqlConnection("Data Source='" + Program.source + "' ; Initial Catalog='" + Program.db + "'; User ID='" + Program.id + "';Password='" + Program.password + "'");
 
-        public static TcpClient _client = new TcpClient();
-        public static int _buffer_size = 2048;
-        public static byte[] _buffer = new byte[_buffer_size];
-        public static string _IPAddress = Program.serverIP;
-        public static int _PORT = 1433;
-
-        Timer timer;
+        private static TcpClient _client = new TcpClient();
+        private const int _buffer_size = 2048;
+        private byte[] _buffer = new byte[_buffer_size];
+        private string _IPAddress = Program.serverIP;
+        private const int _PORT = 13000;
 
         string GameType = LobbyActivity.GameType;
-        public static string correctanswer, points, Pname;
-        public static string time;
-        public static int convertedtime;
-        public static String[] array = { };
-        public static string Total = "";
+        static string correctanswer, points, Pname;
+        string time;
+        int convertedtime;
+        string Total;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -108,6 +106,8 @@ namespace TooLearnAndroid
 
                 //Begin connecting to server
                 _client.BeginConnect(IPAddress.Parse(_IPAddress), _PORT, BeginConnectCallBack, _client);
+
+                //RunOnUiThread(() => Toast.MakeText(this, "START CONNECT!", ToastLength.Short).Show());
             }
             catch (Exception ex)
             {
@@ -164,10 +164,41 @@ namespace TooLearnAndroid
 
         private void BeginReceiveCallback(IAsyncResult ar)
         {
-            
-            var scorepts = FindViewById<TextView>(Resource.Id.textView4).Text;
             try
             {
+                //(message.Contains("StartGame"))
+                var title = FindViewById<TextView>(Resource.Id.textView6);
+                var content = FindViewById<TextView>(Resource.Id.textView7);
+
+                //(message.Contains("C1o2m3pute"))
+                var pscoretext = FindViewById<TextView>(Resource.Id.textView8);
+                var ptotalscores = FindViewById<TextView>(Resource.Id.textView9);
+                var ptotalitems = FindViewById<TextView>(Resource.Id.textView10);
+                var pfeedback = FindViewById<TextView>(Resource.Id.textView11);
+
+                var scorepts = FindViewById<TextView>(Resource.Id.textView4).Text;
+                var totalscores = FindViewById<TextView>(Resource.Id.textView9).Text;
+                var totalitems = FindViewById<TextView>(Resource.Id.textView10).Text;
+                var feedback = FindViewById<TextView>(Resource.Id.textView11).Text;
+
+                //(array[11].ToString() == "Multiple Choice")
+                var pquestion = FindViewById<TextView>(Resource.Id.textView12);
+                var pchoice1 = FindViewById<Button>(Resource.Id.button1);
+                var pchoice2 = FindViewById<Button>(Resource.Id.button2);
+                var pchoice3 = FindViewById<Button>(Resource.Id.button3);
+                var pchoice4 = FindViewById<Button>(Resource.Id.button4);
+
+                var enterans = FindViewById<Button>(Resource.Id.button5);
+                var shortans = FindViewById<EditText>(Resource.Id.editText1);
+                var truechoice = FindViewById<Button>(Resource.Id.button6);
+                var falsechoice = FindViewById<Button>(Resource.Id.button7);
+
+                var question = FindViewById<TextView>(Resource.Id.textView12).Text;
+                var choice1 = FindViewById<Button>(Resource.Id.button1).Text;
+                var choice2 = FindViewById<Button>(Resource.Id.button2).Text;
+                var choice3 = FindViewById<Button>(Resource.Id.button3).Text;
+                var choice4 = FindViewById<Button>(Resource.Id.button4).Text;
+
                 // get the client socket
                 TcpClient client = (TcpClient)ar.AsyncState;
                 int bytesRead = client.Client.EndReceive(ar);
@@ -176,44 +207,133 @@ namespace TooLearnAndroid
 
                 if (message.Contains("DISCONNECT"))
                 {
-                    StartActivity(typeof(MainmenuActivity));
+                    StartActivity(typeof(MainmenuActivity)); //ThreadHelper.Hide(this);
                     client.Client.Shutdown(SocketShutdown.Both);
                     client.Client.Close();
                 }
 
                 else if (message.Contains("StartGame"))
                 {
+                    RunOnUiThread(() => title.Visibility = ViewStates.Invisible);
+                    RunOnUiThread(() => content.Visibility = ViewStates.Invisible);
                     Receive();
-
+                    
                 }
 
                 else if (message.Contains("C1o2m3pute"))
                 {
-                    FeedbackFragment fragment1 = new FeedbackFragment();
-                    FragmentTransaction fragmentTx1 = this.FragmentManager.BeginTransaction();
-                    fragmentTx1.Replace(Resource.Id.fragment_container, fragment1);
-                    fragmentTx1.Commit();
+
+                    int rawscore = Convert.ToInt32(scorepts);
+                    RunOnUiThread(() => totalscores = rawscore.ToString());
+                    RunOnUiThread(() => totalitems = Total);
+
+                    double converted_total = Convert.ToInt32(Total);
+                    double converted_rawscore = rawscore;
+                    double comp = (converted_rawscore / converted_total) * 100;
+                    int compute = Convert.ToInt32(comp);
+
+                    if (compute < Convert.ToInt32("60"))
+                    {
+                        RunOnUiThread(() => feedback = compute.ToString() + "% You Need Improvement, Study and Play!");
+                    }
+                    else if (compute == Convert.ToInt32("100"))
+                    {
+                        RunOnUiThread(() => feedback = compute.ToString() + "% Excellent!");
+                    }
+                    else
+                    {
+                        RunOnUiThread(() => feedback = compute.ToString() + "% Not Bad!, aim for a Perfect Score Next Time ");
+                    }
+
+                    RunOnUiThread(() => pscoretext.Visibility = ViewStates.Visible);
+                    RunOnUiThread(() => ptotalscores.Visibility = ViewStates.Visible);
+                    RunOnUiThread(() => ptotalitems.Visibility = ViewStates.Visible);
+                    RunOnUiThread(() => pfeedback.Visibility = ViewStates.Visible);
+
+                    Receive();
+
                 }
 
                 else if (message.Contains("PleaseHideThis"))
                 {
                     Send("DISCONNECT");
+                    //ThreadHelper.Hide(this);
                 }
 
                 else
                 {
 
 
-                    array = message.Split('\n');
+                    var array = message.Split('\n');
 
 
                     if (array[11].ToString() == "Multiple Choice")//Item Format
                     {
+                        
+                        //ThreadHelper.PanelOut(this, panel2, false); wrong ans panel
+                        //ThreadHelper.PanelOut(this, panel3, false); right ans panel
 
-                        MultipleChoiceFragment fragment2 = new MultipleChoiceFragment();
-                        FragmentTransaction fragmentTx2 = this.FragmentManager.BeginTransaction();
-                        fragmentTx2.Replace(Resource.Id.fragment_container, fragment2);
-                        fragmentTx2.Commit();
+                        
+                        RunOnUiThread(() => question = array[0].ToString());
+                        RunOnUiThread(() => choice1 = array[1].ToString());
+                        RunOnUiThread(() => choice2 = array[2].ToString());
+                        RunOnUiThread(() => choice3 = array[3].ToString());
+                        RunOnUiThread(() => choice4 = array[4].ToString());
+
+                        correctanswer = array[5].ToString();  //CorrectAnswer
+                        points = array[8].ToString();
+                        Total = array[10].ToString();
+
+                        RunOnUiThread(() => pchoice1.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => pchoice2.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => pchoice3.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => pchoice4.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => enterans.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => shortans.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => truechoice.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => falsechoice.Visibility = ViewStates.Invisible);
+
+                        string str = array[7].ToString();
+                        int index = str.IndexOf('(');
+
+                        if (index >= 0)
+                        {
+                            time = str.Substring(0, index);
+
+
+
+                        }
+                        else
+                        {
+
+                            time = str;
+                        }
+
+
+                        convertedtime = Convert.ToInt32(time);//timer
+
+
+                        string cut = array[7].ToString();
+                        int ind = cut.IndexOf('(');
+                        string form;
+                        if (ind >= 0)
+                        {
+                            form = cut.Substring(ind + 1, 7);
+
+
+
+                        }
+                        else
+                        {
+
+                            form = cut;
+                        }
+
+
+                        if (form == "Minutes")
+                        {
+                            convertedtime = convertedtime * 60;
+                        }
 
                         //var timer1 = FindViewById<TextView>(Resource.Id.textView5);
                         //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
@@ -223,20 +343,132 @@ namespace TooLearnAndroid
                     }
                     else if (array[11].ToString() == "True/False")
                     {
-                        TrueFalseFragment fragment3 = new TrueFalseFragment();
-                        FragmentTransaction fragmentTx3 = this.FragmentManager.BeginTransaction();
-                        fragmentTx3.Replace(Resource.Id.fragment_container, fragment3);
-                        fragmentTx3.Commit();
+                        //ThreadHelper.PanelOut(this, panel2, false);
+                        //ThreadHelper.PanelOut(this, panel3, false);
+
+                        RunOnUiThread(() => question = array[0].ToString());  //Question
+                        correctanswer = array[5].ToString();  //CorrectAnswer
+                        points = array[8].ToString();
+                        Total = array[10].ToString();
+
+                        RunOnUiThread(() => enterans.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => shortans.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => pchoice1.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => pchoice2.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => pchoice3.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => pchoice4.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => truechoice.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => falsechoice.Visibility = ViewStates.Visible);
+
+                        string str = array[7].ToString();
+                        int index = str.IndexOf('(');
+
+                        if (index >= 0)
+                        {
+                            time = str.Substring(0, index);
+
+
+
+                        }
+                        else
+                        {
+
+                            time = str;
+                        }
+
+
+                        convertedtime = Convert.ToInt32(time);//timer
+
+
+
+                        string cut = array[7].ToString();
+                        int ind = cut.IndexOf('(');
+                        string form;
+                        if (ind >= 0)
+                        {
+                            form = cut.Substring(ind + 1, 7);
+
+
+
+                        }
+                        else
+                        {
+
+                            form = cut;
+                        }
+
+
+                        if (form == "Minutes")
+                        {
+                            convertedtime = convertedtime * 60;
+                        }
 
                         //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
                     }
 
                     else
                     {
-                        ShortAnswerFragment fragment4 = new ShortAnswerFragment();
-                        FragmentTransaction fragmentTx4 = this.FragmentManager.BeginTransaction();
-                        fragmentTx4.Replace(Resource.Id.fragment_container, fragment4);
-                        fragmentTx4.Commit();
+
+                        //ThreadHelper.PanelOut(this, panel2, false);
+                        //ThreadHelper.PanelOut(this, panel3, false);
+
+                        RunOnUiThread(() => question = array[0].ToString());  //Question
+                        correctanswer = array[5].ToString(); ;  //CorrectAnswer
+                        points = array[8].ToString();
+                        Total = array[10].ToString();
+
+                        RunOnUiThread(() => enterans.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => shortans.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => pchoice1.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => pchoice2.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => pchoice3.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => pchoice4.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => truechoice.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => falsechoice.Visibility = ViewStates.Invisible);
+
+                        string str = array[7].ToString();
+                        int index = str.IndexOf('(');
+
+                        if (index >= 0)
+                        {
+                            time = str.Substring(0, index);
+
+
+
+                        }
+                        else
+                        {
+
+                            time = str;
+                        }
+
+
+                        convertedtime = Convert.ToInt32(time);//timer
+
+
+
+
+                        string cut = array[7].ToString();
+                        int ind = cut.IndexOf('(');
+                        string form;
+                        if (ind >= 0)
+                        {
+                            form = cut.Substring(ind + 1, 7);
+
+
+
+                        }
+                        else
+                        {
+
+                            form = cut;
+                        }
+
+
+                        if (form == "Minutes")
+                        {
+                            convertedtime = convertedtime * 60;
+                        }
 
                         //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
 
@@ -255,18 +487,47 @@ namespace TooLearnAndroid
 
         public void RulesOnLoadActivity()
         {
-            SqlDataAdapter Name = new SqlDataAdapter("Select fullname from participant where participant_id='" + Program.par_id + "' ", con);
-            DataTable dt = new DataTable();
-            Name.Fill(dt);
-            Pname = dt.Rows[0][0].ToString();
+            var title = FindViewById<TextView>(Resource.Id.textView6);
+            var content = FindViewById<TextView>(Resource.Id.textView7);
+            string stitle, scontent;
 
-            RulesFragment fragment = new RulesFragment();
-            FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-            fragmentTx.Replace(Resource.Id.fragment_container, fragment);
-            fragmentTx.AddToBackStack(null);
-            fragmentTx.Commit();
-            
+            try
+            {
+                SqlDataAdapter Name = new SqlDataAdapter("Select fullname from participant where participant_id='" + Program.par_id + "' ", con);
+                DataTable dt = new DataTable();
+                Name.Fill(dt);
+                Pname = dt.Rows[0][0].ToString();
 
+                if (GameType == "QB")
+                {
+                    stitle = "Quiz Bee";
+                    RunOnUiThread(() => title.Text = stitle);
+                    using (StreamReader sr = new StreamReader(Application.Context.Assets.Open("QuizBeeRules.txt")))
+                    {
+                        scontent = sr.ReadToEnd();
+                        RunOnUiThread(() => content.Text = scontent);
+                        
+                    }
+
+                }
+
+                else if (GameType == "PZ")
+                {
+                    stitle = "Picture Puzzle";
+                    RunOnUiThread(() => title.Text = stitle);
+                    using (StreamReader sr = new StreamReader(Application.Context.Assets.Open("PicturePuzzleRules.txt")))
+                    {
+                        scontent = sr.ReadToEnd();
+                        RunOnUiThread(() => content.Text = scontent);
+
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
+            }
         }
 
         public static string validateSA(string answer)
