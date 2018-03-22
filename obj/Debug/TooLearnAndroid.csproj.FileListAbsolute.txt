@@ -155,6 +155,9 @@ C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_rightanswer.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_feedback.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\iconsplash.png
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\adnu.png
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\picturepuzzlerules.txt
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\quizbeerules.txt
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll.mdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\android\assets\TooLearnAndroid.dll.mdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll

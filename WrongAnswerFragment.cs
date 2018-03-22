@@ -35,7 +35,7 @@ namespace TooLearnAndroid
 
         public void CustomOutput()
         {
-            var feedback = View.FindViewById<TextView>(Resource.Id.textView1).Text;
+            var feedback = Activity.FindViewById<TextView>(Resource.Id.textView1).Text;
             feedback = "Wrong! The Right Answer is " + GameActivity.correctanswer.ToUpper();
         }
     }

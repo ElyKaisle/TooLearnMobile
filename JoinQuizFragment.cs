@@ -63,7 +63,7 @@ namespace TooLearnAndroid
 
                     string code = dt.Rows[0][0].ToString();
 
-                    var text = View.FindViewById<EditText>(Resource.Id.editText1).Text;
+                    var text = Activity.FindViewById<EditText>(Resource.Id.editText1).Text;
                     if (code == text)
                     {
                         Intent intent = new Intent(this.Activity, typeof(LobbyActivity));

@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.IO;
 
 using System.Net;
 using System.Net.Sockets;
@@ -24,10 +25,10 @@ namespace TooLearnAndroid
         SqlConnection con = new SqlConnection("Data Source='" + Program.source + "' ; Initial Catalog='" + Program.db + "'; User ID='" + Program.id + "';Password='" + Program.password + "'");
 
         public static TcpClient _client = new TcpClient();
-        private const int _buffer_size = 2048;
-        private byte[] _buffer = new byte[_buffer_size];
-        private string _IPAddress = Program.serverIP;
-        private const int _PORT = 1433;
+        public static int _buffer_size = 2048;
+        public static byte[] _buffer = new byte[_buffer_size];
+        public static string _IPAddress = Program.serverIP;
+        public static int _PORT = 1433;
 
         Timer timer;
 
@@ -43,9 +44,8 @@ namespace TooLearnAndroid
 
             // Create your application here
             SetContentView(Resource.Layout.activity_game);
-            RulesOnLoadActivity();
-
             StartConnect();
+            RulesOnLoadActivity();
             var timersec = FindViewById<TextView>(Resource.Id.textView5);
         }
 
@@ -263,7 +263,9 @@ namespace TooLearnAndroid
             RulesFragment fragment = new RulesFragment();
             FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
             fragmentTx.Replace(Resource.Id.fragment_container, fragment);
+            fragmentTx.AddToBackStack(null);
             fragmentTx.Commit();
+            
 
         }
 

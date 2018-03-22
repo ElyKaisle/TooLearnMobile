@@ -44,12 +44,12 @@ namespace TooLearnAndroid
 
         public void AddTextButtonActivity()
         {
-            var question = View.FindViewById<EditText>(Resource.Id.textView1).Text;
+            var question = Activity.FindViewById<EditText>(Resource.Id.textView1).Text;
             question = GameActivity.array[0].ToString();
-            var choice1 = View.FindViewById<Button>(Resource.Id.button1).Text;
-            var choice2 = View.FindViewById<Button>(Resource.Id.button2).Text;
-            var choice3 = View.FindViewById<Button>(Resource.Id.button3).Text;
-            var choice4 = View.FindViewById<Button>(Resource.Id.button4).Text;
+            var choice1 = Activity.FindViewById<Button>(Resource.Id.button1).Text;
+            var choice2 = Activity.FindViewById<Button>(Resource.Id.button2).Text;
+            var choice3 = Activity.FindViewById<Button>(Resource.Id.button3).Text;
+            var choice4 = Activity.FindViewById<Button>(Resource.Id.button4).Text;
             choice1 = GameActivity.array[1].ToString();
             choice2 = GameActivity.array[2].ToString();
             choice3 = GameActivity.array[3].ToString();
@@ -107,7 +107,7 @@ namespace TooLearnAndroid
         {
             string feed = GameActivity.validate("A");
             int score;
-            var scorepts = View.FindViewById<TextView>(Resource.Id.textView4).Text;
+            var scorepts = Activity.FindViewById<TextView>(Resource.Id.textView4).Text;
 
             if (feed == "Correct")
             {
@@ -137,7 +137,7 @@ namespace TooLearnAndroid
         {
             string feed = GameActivity.validate("B");
             int score;
-            var scorepts = View.FindViewById<TextView>(Resource.Id.textView4).Text;
+            var scorepts = Activity.FindViewById<TextView>(Resource.Id.textView4).Text;
 
             if (feed == "Correct")
             {
@@ -166,7 +166,7 @@ namespace TooLearnAndroid
         {
             string feed = GameActivity.validate("C");
             int score;
-            var scorepts = View.FindViewById<TextView>(Resource.Id.textView4).Text;
+            var scorepts = Activity.FindViewById<TextView>(Resource.Id.textView4).Text;
 
             if (feed == "Correct")
             {
@@ -195,7 +195,7 @@ namespace TooLearnAndroid
         {
             string feed = GameActivity.validate("D");
             int score;
-            var scorepts = View.FindViewById<TextView>(Resource.Id.textView4).Text;
+            var scorepts = Activity.FindViewById<TextView>(Resource.Id.textView4).Text;
 
             if (feed == "Correct")
             {

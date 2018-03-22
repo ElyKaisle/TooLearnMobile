@@ -36,10 +36,10 @@ namespace TooLearnAndroid
 
         public void ComputeActivity()
         {
-            var scorepts = View.FindViewById<TextView>(Resource.Id.textView4).Text;
-            var totalscores = View.FindViewById<TextView>(Resource.Id.textView2).Text;
-            var totalitems = View.FindViewById<TextView>(Resource.Id.totalItems).Text;
-            var comment = View.FindViewById<TextView>(Resource.Id.textView5).Text;
+            var scorepts = Activity.FindViewById<TextView>(Resource.Id.textView4).Text;
+            var totalscores = Activity.FindViewById<TextView>(Resource.Id.textView2).Text;
+            var totalitems = Activity.FindViewById<TextView>(Resource.Id.totalItems).Text;
+            var comment = Activity.FindViewById<TextView>(Resource.Id.textView5).Text;
             int rawscore = Convert.ToInt32(scorepts);
             totalscores = rawscore.ToString();
             totalitems = GameActivity.Total;

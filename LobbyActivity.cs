@@ -40,7 +40,7 @@ namespace TooLearnAndroid
             StartConnect();
             LobbyParticipant_Load();
         }
-
+        
         private void LobbyParticipant_Load()
         {
             if (me == "Individual")
@@ -69,7 +69,7 @@ namespace TooLearnAndroid
             try
             {
                 //Translate the message into its byte form
-                byte[] buffer = System.Text.Encoding.ASCII.GetBytes(message);
+                byte[] buffer = System.Text.Encoding.ASCII.GetBytes(message + " has joined the Lobby.");
 
                 //Get a client stream for reading and writing
                 NetworkStream stream = _client.GetStream();
@@ -165,7 +165,11 @@ namespace TooLearnAndroid
                     //  GR.ShowDialog();
 
                     //  testing GR = new testing();
-                    StartActivity(typeof(GameActivity));
+                    
+                    Intent intent = new Intent(this, typeof(GameActivity));
+                    intent.AddFlags(ActivityFlags.FromBackground);
+                    StartActivity(intent);
+                    
 
 
 
@@ -181,6 +185,9 @@ namespace TooLearnAndroid
                     // GR.Show();
 
                     StartActivity(typeof(GameActivity));
+                    Intent intent = new Intent(this, typeof(GameActivity));
+                    intent.AddFlags(ActivityFlags.FromBackground);
+                    StartActivity(intent);
 
                 }
               

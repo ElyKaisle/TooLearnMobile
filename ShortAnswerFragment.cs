@@ -38,9 +38,9 @@ namespace TooLearnAndroid
 
         public void AddGameActivity()
         {
-            var question = View.FindViewById<TextView>(Resource.Id.textView1).Text;
-            var input = View.FindViewById<EditText>(Resource.Id.editText1).Text;
-            var enter = View.FindViewById<Button>(Resource.Id.button1).Text;
+            var question = Activity.FindViewById<TextView>(Resource.Id.textView1).Text;
+            var input = Activity.FindViewById<EditText>(Resource.Id.editText1).Text;
+            var enter = Activity.FindViewById<Button>(Resource.Id.button1).Text;
 
             question = GameActivity.array[0].ToString();
             GameActivity.correctanswer = GameActivity.array[5].ToString();
@@ -95,10 +95,10 @@ namespace TooLearnAndroid
 
         private void EnterAnswerActivity(object sender, EventArgs e)
         {
-            var enter = View.FindViewById<Button>(Resource.Id.button1).Text;
+            var enter = Activity.FindViewById<Button>(Resource.Id.button1).Text;
             string feed = GameActivity.validateSA(enter);
             int score;
-            var scorepts = View.FindViewById<TextView>(Resource.Id.textView4).Text;
+            var scorepts = Activity.FindViewById<TextView>(Resource.Id.textView4).Text;
 
             if (feed == "Correct")
             {
