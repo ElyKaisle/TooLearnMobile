@@ -22,13 +22,11 @@
             android:layout_height="match_parent"
             android:id="@+id/relativeLayout2">
             <TextView
-                android:text="Question"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView12"
                 android:layout_below="@+id/textView11" />
             <Button
-                android:text="A"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button1"
@@ -100,25 +98,28 @@
                 android:layout_below="@+id/textView10"
                 android:visibility="invisible" />
             <Button
-                android:text="B"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button2"
                 android:layout_below="@+id/button1"
                 android:visibility="invisible" />
             <Button
-                android:text="C"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button3"
                 android:layout_below="@+id/button2"
                 android:visibility="invisible" />
             <Button
-                android:text="D"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button4"
                 android:layout_below="@+id/button3"
+                android:visibility="invisible" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText1"
+                android:layout_below="@+id/button5"
                 android:visibility="invisible" />
             <Button
                 android:text="Enter"
@@ -126,12 +127,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/button5"
                 android:layout_below="@+id/button4"
-                android:visibility="invisible" />
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText1"
-                android:layout_below="@+id/button5"
                 android:visibility="invisible" />
             <Button
                 android:text="True"

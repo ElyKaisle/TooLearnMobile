@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>3/23/2018 9:02:33 AM</xs:documentation>
+    <xs:documentation>4/22/2018 6:04:08 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -391,8 +391,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -868,8 +870,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -1224,8 +1228,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -1580,8 +1586,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -3367,8 +3375,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -3723,8 +3733,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -4177,8 +4189,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -4785,8 +4799,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -5141,8 +5157,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -6540,8 +6558,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -6957,8 +6977,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -7313,8 +7335,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -7669,8 +7693,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -8025,8 +8051,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -8426,8 +8454,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -8782,8 +8812,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -9228,8 +9260,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -9823,8 +9857,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -10258,8 +10294,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -10802,8 +10840,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -11346,8 +11386,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -11702,8 +11744,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -12156,8 +12200,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -13045,8 +13091,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -13499,8 +13547,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -13953,8 +14003,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -14560,8 +14612,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -15111,8 +15165,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -16021,8 +16077,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -16377,8 +16435,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -16913,8 +16973,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -17457,8 +17519,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -17911,8 +17975,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -18455,8 +18521,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -19201,8 +19269,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -19557,8 +19627,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -22074,8 +22146,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -24247,8 +24321,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -24791,8 +24867,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -25147,8 +25225,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />
@@ -25755,8 +25835,10 @@
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
             <xs:enumeration value="@drawable/group_button" />
+            <xs:enumeration value="@drawable/groups" />
             <xs:enumeration value="@drawable/icon" />
             <xs:enumeration value="@drawable/iconsplash" />
+            <xs:enumeration value="@drawable/individual" />
             <xs:enumeration value="@drawable/logo" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
             <xs:enumeration value="@drawable/notification_action_background" />

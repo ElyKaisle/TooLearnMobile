@@ -42,8 +42,9 @@ namespace TooLearnAndroid
 
             // Create your application here
             SetContentView(Resource.Layout.activity_game);
-            StartConnect();
-            RulesOnLoadActivity();
+            RunOnUiThread(() => RulesOnLoadActivity());
+            RunOnUiThread(() => StartConnect());
+
             var enterans = FindViewById<Button>(Resource.Id.button5);
             enterans.Click += EnterAnswer;
             var pchoice1 = FindViewById<Button>(Resource.Id.button1);
@@ -400,8 +401,8 @@ namespace TooLearnAndroid
         {
             try
             {
-                _client.Client.BeginReceive(_buffer, 0, _buffer_size, SocketFlags.None, BeginReceiveCallback, _client
-                    );
+                RunOnUiThread(() => _client.Client.BeginReceive(_buffer, 0, _buffer_size, SocketFlags.None, BeginReceiveCallback, _client
+                    ));
             }
             catch (Exception ex)
             {
@@ -460,11 +461,11 @@ namespace TooLearnAndroid
                 var truechoice = FindViewById<Button>(Resource.Id.button6);
                 var falsechoice = FindViewById<Button>(Resource.Id.button7);
 
-                var question = FindViewById<TextView>(Resource.Id.textView12).Text;
-                var choice1 = FindViewById<Button>(Resource.Id.button1).Text;
-                var choice2 = FindViewById<Button>(Resource.Id.button2).Text;
-                var choice3 = FindViewById<Button>(Resource.Id.button3).Text;
-                var choice4 = FindViewById<Button>(Resource.Id.button4).Text;
+                string question = FindViewById<TextView>(Resource.Id.textView12).Text;
+                string choice1 = FindViewById<Button>(Resource.Id.button1).Text;
+                string choice2 = FindViewById<Button>(Resource.Id.button2).Text;
+                string choice3 = FindViewById<Button>(Resource.Id.button3).Text;
+                string choice4 = FindViewById<Button>(Resource.Id.button4).Text;
 
                 // get the client socket
                 TcpClient client = (TcpClient)ar.AsyncState;

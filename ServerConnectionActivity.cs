@@ -43,7 +43,7 @@ namespace TooLearnAndroid
                 var servername = FindViewById<EditText>(Resource.Id.editText1).Text;
                 Program.serverIP = servername;
 
-                /*
+                
                 try
                 {
                     IPHostEntry host = Dns.GetHostEntry(servername); //get the ServerIP
@@ -63,7 +63,7 @@ namespace TooLearnAndroid
 
                     Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
                 }
-                */
+                
 
                 if (servername != null)
                 {
