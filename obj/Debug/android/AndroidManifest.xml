@@ -14,7 +14,6 @@
     <activity android:label="Main Menu" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MainmenuActivity" />
     <activity android:label="My Classroom" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MyClassroomActivity" />
     <activity android:label="Nickname" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.NicknameActivity" />
-    <activity android:label="Join Quiz" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.PublicJoinQuizActivity" />
     <activity android:label="Score Record" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.ScoreRecordActivity" />
     <activity android:label="Server Connection" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.ServerConnectionActivity" />
     <activity android:label="Sign In" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.SignInActivity" />

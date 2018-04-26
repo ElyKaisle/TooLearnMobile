@@ -64,33 +64,28 @@ namespace TooLearnAndroid
 
         public void FalseChoice(object sender, EventArgs e)
         {
-            var falsechoice = FindViewById<Button>(Resource.Id.button7);
-            string falsecorrect = "";
-            falsechoice.Text = falsecorrect;
+            var falsechoice = FindViewById<Button>(Resource.Id.button7).Text;
+            
+            var correct = FindViewById<TextView>(Resource.Id.textView13);
+
+            var wrong = FindViewById<TextView>(Resource.Id.textView14);
+            var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
 
             var scorepts = FindViewById<TextView>(Resource.Id.textView4);
-            string scorepoints = "";
-            scorepts.Text = scorepoints;
 
-            var correct = FindViewById<TextView>(Resource.Id.textView13);
-            var wrong = FindViewById<TextView>(Resource.Id.textView14);
+            string feed = validate(falsechoice);
 
-            string wrongfeed = "";
-            wrong.Text = wrongfeed;
-
-            string feed = validate(falsecorrect);
             int score;
 
             if (feed == "Correct")
             {
-
-                score = Convert.ToInt32(scorepoints);
+                score = Convert.ToInt32(scorepts.Text);
                 score = score + Convert.ToInt32(points);
-                RunOnUiThread(() => scorepoints = score.ToString());
+                scorepts.Text = score.ToString();
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                RunOnUiThread(() => SendScore(scorepoints.ToString()));
+                RunOnUiThread(() => SendScore(scorepts.ToString()));
             }
 
             else
@@ -103,32 +98,27 @@ namespace TooLearnAndroid
 
         public void TrueChoice(object sender, EventArgs e)
         {
-            var truechoice = FindViewById<Button>(Resource.Id.button6);
-            string truecorrect = "";
-            truechoice.Text = truecorrect;
-
-            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
-            string scorepoints = "";
-            scorepts.Text = scorepoints;
+            var truechoice = FindViewById<Button>(Resource.Id.button6).Text;
 
             var correct = FindViewById<TextView>(Resource.Id.textView13);
-            var wrong = FindViewById<TextView>(Resource.Id.textView14);
-            string wrongfeed = "";
-            wrong.Text = wrongfeed;
 
-            string feed = validate(truecorrect);
+            var wrong = FindViewById<TextView>(Resource.Id.textView14);
+            var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
+
+            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
+
+            string feed = validate(truechoice);
             int score;
 
             if (feed == "Correct")
             {
-
-                score = Convert.ToInt32(scorepoints);
+                score = Convert.ToInt32(scorepts.Text);
                 score = score + Convert.ToInt32(points);
-                RunOnUiThread(() => scorepoints = score.ToString());
+                scorepts.Text = score.ToString();
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                RunOnUiThread(() => SendScore(scorepoints.ToString()));
+                RunOnUiThread(() => SendScore(scorepts.ToString()));
             }
 
             else
@@ -138,32 +128,28 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => wrongfeed = "Wrong! The Right Answer is " + correctanswer.ToUpper());
             }
         }
-
+            
         public void Choice1(object sender, EventArgs e)
         {
-            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
-            string scorepoints = FindViewById<TextView>(Resource.Id.textView4).Text;
-
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
             var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
+
+            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
 
             string feed = validate("A");
             int score;
 
             if (feed == "Correct")
             {
-                int converted = Convert.ToInt32(scorepoints);
-                score = converted;
-                int convertedpts = Convert.ToInt32(points);
-                score = score + convertedpts;
-
-                RunOnUiThread(() => scorepoints = score.ToString());
+                score = Convert.ToInt32(scorepts.Text);
+                score = score + Convert.ToInt32(points);
+                scorepts.Text = score.ToString();
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                RunOnUiThread(() => SendScore(scorepoints.ToString()));
+                RunOnUiThread(() => SendScore(scorepts.ToString()));
             }
 
             else
@@ -176,29 +162,23 @@ namespace TooLearnAndroid
 
         public void Choice2(object sender, EventArgs e)
         {
-            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
-            string scorepoints = FindViewById<TextView>(Resource.Id.textView4).Text;
-
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
             var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
-
+            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
             string feed = validate("B");
             int score;
 
             if (feed == "Correct")
             {
-
-                int converted = Convert.ToInt32(scorepoints);
-                score = converted;
-                int convertedpts = Convert.ToInt32(points);
-                score = score + convertedpts;
-                RunOnUiThread(() => scorepoints = score.ToString());
+                score = Convert.ToInt32(scorepts.Text);
+                score = score + Convert.ToInt32(points);
+                scorepts.Text = score.ToString();
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                RunOnUiThread(() => SendScore(scorepoints.ToString()));
+                RunOnUiThread(() => SendScore(scorepts.ToString()));
             }
 
             else
@@ -211,28 +191,25 @@ namespace TooLearnAndroid
 
         public void Choice3(object sender, EventArgs e)
         {
-            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
-            string scorepoints = FindViewById<TextView>(Resource.Id.textView4).Text;
 
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
             var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
-
+            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
             string feed = validate("C");
             int score;
 
             if (feed == "Correct")
             {
-                var converted = Convert.ToInt32(scorepoints);
-                score = converted;
-                var convertedpts = Convert.ToInt32(points);
-                score = score + convertedpts;
-                RunOnUiThread(() => scorepoints = score.ToString());
+
+                score = Convert.ToInt32(scorepts.Text);
+                score = score + Convert.ToInt32(points);
+                scorepts.Text = score.ToString();
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                RunOnUiThread(() => SendScore(scorepoints.ToString()));
+                RunOnUiThread(() => SendScore(scorepts.ToString()));
             }
 
             else
@@ -246,28 +223,24 @@ namespace TooLearnAndroid
 
         public void Choice4(object sender, EventArgs e)
         {
-            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
-            string scorepoints = FindViewById<TextView>(Resource.Id.textView4).Text;
 
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
             var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
-
+            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
             string feed = validate("D");
             int score;
 
             if (feed == "Correct")
             {
-                var converted = Convert.ToInt32(scorepoints);
-                score = converted;
-                var convertedpts = Convert.ToInt32(points);
-                score = score + convertedpts;
-                RunOnUiThread(() => scorepoints = score.ToString());
+                score = Convert.ToInt32(scorepts.Text);
+                score = score + Convert.ToInt32(points);
+                scorepts.Text = score.ToString();
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                RunOnUiThread(() => SendScore(scorepoints.ToString()));
+                RunOnUiThread(() => SendScore(scorepts.ToString()));
             }
 
             else
@@ -280,32 +253,25 @@ namespace TooLearnAndroid
 
         public void EnterAnswer(object sender, EventArgs e)
         {
-            var shortans = FindViewById<EditText>(Resource.Id.editText1);
-            string shortanswer = "";
-            RunOnUiThread(() => shortans.Text = shortanswer);
-            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
-            string scorepoints = "";
-            RunOnUiThread(() => scorepts.Text = scorepoints);
+            var shortans = FindViewById<EditText>(Resource.Id.editText1).Text;
 
             var correct = FindViewById<TextView>(Resource.Id.textView13);
-            var wrong = FindViewById<TextView>(Resource.Id.textView14);
-            string wrongfeed = "";
-            RunOnUiThread(() => wrong.Text = wrongfeed);
 
-            string feed = validateSA(shortanswer);
+            var wrong = FindViewById<TextView>(Resource.Id.textView14);
+            var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
+            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
+            string feed = validateSA(shortans);
             int score;
 
             if (feed == "Correct")
             {
-
-                score = Convert.ToInt32(scorepoints);
+                score = Convert.ToInt32(scorepts.Text);
                 score = score + Convert.ToInt32(points);
-                RunOnUiThread(() => scorepoints = score.ToString());
-
+                scorepts.Text = score.ToString();
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
                 
-                RunOnUiThread(() => SendScore(scorepoints.ToString()));
+                RunOnUiThread(() => SendScore(scorepts.ToString()));
             }
 
             else
@@ -315,7 +281,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => wrongfeed = "Wrong! The Right Answer is " + correctanswer.ToUpper());
             }
 
-            RunOnUiThread(() => shortanswer = "");
+            RunOnUiThread(() => shortans = "");
 
         }
 
@@ -440,6 +406,11 @@ namespace TooLearnAndroid
                 //(message.Contains("StartGame"))
                 var title = FindViewById<TextView>(Resource.Id.textView6);
                 var content = FindViewById<TextView>(Resource.Id.textView7);
+                var gametype = FindViewById<TextView>(Resource.Id.textView1);
+                var scorelabel = FindViewById<TextView>(Resource.Id.textView2);
+                var timerlabel = FindViewById<TextView>(Resource.Id.textView3);
+                var ptslabel = FindViewById<TextView>(Resource.Id.textView4);
+                var timlabel = FindViewById<TextView>(Resource.Id.textView5);
 
                 //(message.Contains("C1o2m3pute"))
                 var pscoretext = FindViewById<TextView>(Resource.Id.textView8);
@@ -447,10 +418,10 @@ namespace TooLearnAndroid
                 var ptotalitems = FindViewById<TextView>(Resource.Id.textView10);
                 var pfeedback = FindViewById<TextView>(Resource.Id.textView11);
 
-                var scorepts = FindViewById<TextView>(Resource.Id.textView4).Text;
-                var totalscores = FindViewById<TextView>(Resource.Id.textView9).Text;
-                var totalitems = FindViewById<TextView>(Resource.Id.textView10).Text;
-                var feedback = FindViewById<TextView>(Resource.Id.textView11).Text;
+                var scorepts = FindViewById<TextView>(Resource.Id.textView4);
+                var totalscores = FindViewById<TextView>(Resource.Id.textView9);
+                var totalitems = FindViewById<TextView>(Resource.Id.textView10);
+                var feedback = FindViewById<TextView>(Resource.Id.textView11);
 
                 //(array[11].ToString() == "Multiple Choice")
                 var pquestion = FindViewById<TextView>(Resource.Id.textView12);
@@ -464,11 +435,11 @@ namespace TooLearnAndroid
                 var truechoice = FindViewById<Button>(Resource.Id.button6);
                 var falsechoice = FindViewById<Button>(Resource.Id.button7);
 
-                string question = FindViewById<TextView>(Resource.Id.textView12).Text;
-                string choice1 = FindViewById<Button>(Resource.Id.button1).Text;
-                string choice2 = FindViewById<Button>(Resource.Id.button2).Text;
-                string choice3 = FindViewById<Button>(Resource.Id.button3).Text;
-                string choice4 = FindViewById<Button>(Resource.Id.button4).Text;
+                var question = FindViewById<TextView>(Resource.Id.textView12);
+                var choice1 = FindViewById<Button>(Resource.Id.button1);
+                var choice2 = FindViewById<Button>(Resource.Id.button2);
+                var choice3 = FindViewById<Button>(Resource.Id.button3);
+                var choice4 = FindViewById<Button>(Resource.Id.button4);
 
                 // get the client socket
                 TcpClient client = (TcpClient)ar.AsyncState;
@@ -487,6 +458,11 @@ namespace TooLearnAndroid
                 {
                     RunOnUiThread(() => title.Visibility = ViewStates.Gone);
                     RunOnUiThread(() => content.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => gametype.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => scorelabel.Visibility = ViewStates.Visible);
+                    RunOnUiThread(() => timerlabel.Visibility = ViewStates.Visible);
+                    RunOnUiThread(() => ptslabel.Visibility = ViewStates.Visible);
+                    RunOnUiThread(() => timlabel.Visibility = ViewStates.Visible);
                     Receive();
                     
                 }
@@ -494,9 +470,9 @@ namespace TooLearnAndroid
                 else if (message.Contains("C1o2m3pute"))
                 {
 
-                    int rawscore = Convert.ToInt32(scorepts);
-                    RunOnUiThread(() => totalscores = rawscore.ToString());
-                    RunOnUiThread(() => totalitems = Total);
+                    int rawscore = Convert.ToInt32(scorepts.Text);
+                    RunOnUiThread(() => totalscores.Text = rawscore.ToString());
+                    RunOnUiThread(() => totalitems.Text = Total);
 
                     double converted_total = Convert.ToInt32(Total);
                     double converted_rawscore = rawscore;
@@ -505,15 +481,15 @@ namespace TooLearnAndroid
 
                     if (compute < Convert.ToInt32("60"))
                     {
-                        RunOnUiThread(() => feedback = compute.ToString() + "% You Need Improvement, Study and Play!");
+                        RunOnUiThread(() => feedback.Text = compute.ToString() + "% You Need Improvement, Study and Play!");
                     }
                     else if (compute == Convert.ToInt32("100"))
                     {
-                        RunOnUiThread(() => feedback = compute.ToString() + "% Excellent!");
+                        RunOnUiThread(() => feedback.Text = compute.ToString() + "% Excellent!");
                     }
                     else
                     {
-                        RunOnUiThread(() => feedback = compute.ToString() + "% Not Bad!, aim for a Perfect Score Next Time ");
+                        RunOnUiThread(() => feedback.Text = compute.ToString() + "% Not Bad!, aim for a Perfect Score Next Time ");
                     }
 
                     RunOnUiThread(() => pscoretext.Visibility = ViewStates.Visible);
@@ -546,21 +522,12 @@ namespace TooLearnAndroid
 
                         RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                         RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
-
-                        /*
-                        RunOnUiThread(() => Toast.MakeText(this, array[0], ToastLength.Long).Show());
-                        RunOnUiThread(() => Toast.MakeText(this, array[1], ToastLength.Long).Show());
-                        //RunOnUiThread(() => question = "Howmuch");
-                        //RunOnUiThread(() => choice1 = "Yes");
-                        RunOnUiThread(() => choice2 = array[2].ToString());
-                        RunOnUiThread(() => choice3 = array[3].ToString());
-                        RunOnUiThread(() => choice4 = array[4].ToString());
-                        */
-                        RunOnUiThread(() => question = array[0]);
-                        RunOnUiThread(() => choice1 = array[1]);
-                        RunOnUiThread(() => choice2 = array[2]);
-                        RunOnUiThread(() => choice3 = array[3]);
-                        RunOnUiThread(() => choice4 = array[4]);
+                        
+                        RunOnUiThread(() => question.Text = array[0]);
+                        RunOnUiThread(() => choice1.Text = array[1]);
+                        RunOnUiThread(() => choice2.Text = array[2]);
+                        RunOnUiThread(() => choice3.Text = array[3]);
+                        RunOnUiThread(() => choice4.Text = array[4]);
                         
                         correctanswer = array[5].ToString();  //CorrectAnswer
                         points = array[8];
@@ -631,7 +598,7 @@ namespace TooLearnAndroid
                         RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                         RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                        RunOnUiThread(() => question = array[0].ToString());  //Question
+                        RunOnUiThread(() => question.Text = array[0].ToString());  //Question
                         correctanswer = array[5].ToString();  //CorrectAnswer
                         points = array[8].ToString();
                         Total = array[10].ToString();
@@ -700,7 +667,7 @@ namespace TooLearnAndroid
                         RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                         RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                        RunOnUiThread(() => question = array[0].ToString());  //Question
+                        RunOnUiThread(() => question.Text = array[0].ToString());  //Question
                         correctanswer = array[5].ToString(); ;  //CorrectAnswer
                         points = array[8].ToString();
                         Total = array[10].ToString();
