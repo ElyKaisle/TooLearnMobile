@@ -126,7 +126,9 @@
     <Compile Include="EditProfileActivity.cs" />
     <Compile Include="GameActivity.cs" />
     <Compile Include="GamepinActivity.cs" />
+    <Compile Include="GroupGamePinActivity.cs" />
     <Compile Include="GroupSignInActivity.cs" />
+    <Compile Include="HostIPActivity.cs" />
     <Compile Include="JoinQuizFragment.cs" />
     <Compile Include="LobbyActivity.cs" />
     <Compile Include="LogoutFragment.cs" />
@@ -236,6 +238,12 @@
     <AndroidResource Include="Resources\layout\fragment_feedback.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_hostIP.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_groupgamepin.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -266,10 +274,10 @@
     <AndroidResource Include="Resources\drawable\divider.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\classroom_button.xml" />
+    <AndroidResource Include="Resources\drawable\guest_button.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\public_button.xml" />
+    <AndroidResource Include="Resources\drawable\individual_button.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\edittext_design.xml" />

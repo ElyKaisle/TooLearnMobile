@@ -133,8 +133,6 @@ C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\icon.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\rounded_edittext.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\divider.xml
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\classroom_button.xml
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\public_button.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\edittext_design.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\menu\nav_menu.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\values\colors.xml
@@ -161,6 +159,10 @@ C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\publicplay.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\individual.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\groups.png
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\activity_hostip.xml
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\guest_button.xml
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\individual_button.xml
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\activity_groupgamepin.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll
 bin\Debug\Mono.Android.pdb
 bin\Debug\mscorlib.pdb

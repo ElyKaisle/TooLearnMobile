@@ -62,6 +62,10 @@ namespace TooLearnAndroid
 
                 Send(name);
             }
+            else
+            {
+                Send(NicknameActivity.NameFREE);
+            }
         }
 
         private void Send(string message)

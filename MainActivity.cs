@@ -18,9 +18,9 @@ namespace TooLearnAndroid
                 // Set our view from the "main" layout resource
                 SetContentView(Resource.Layout.Main);
 
-                Button classroom_button = FindViewById<Button>(Resource.Id.button1);
-                Button public_button = FindViewById<Button>(Resource.Id.button2);
-                Button group_button = FindViewById<Button>(Resource.Id.button3);
+                var classroom_button = FindViewById<ImageButton>(Resource.Id.imageButton2);
+                var public_button = FindViewById<ImageButton>(Resource.Id.imageButton1);
+                var group_button = FindViewById<ImageButton>(Resource.Id.imageButton3);
 
                 classroom_button.Click += delegate
                 {
@@ -32,7 +32,7 @@ namespace TooLearnAndroid
 
                 public_button.Click += delegate
                 {
-                    StartActivity(typeof(PublicJoinQuizActivity));
+                    StartActivity(typeof(HostIPActivity));
                 };
 
                 group_button.Click += delegate

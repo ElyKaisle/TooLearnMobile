@@ -6,7 +6,9 @@
     <activity android:label="Edit Profile" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.EditProfileActivity" />
     <activity android:label="Game" android:noHistory="true" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.GameActivity" />
     <activity android:label="Game Pin" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.GamepinActivity" />
-    <activity android:label="GroupSignInActivity" android:name="md5163273af215e7232b37cf76ea257f312.GroupSignInActivity" />
+    <activity android:label="GroupGamePinActivity" android:name="md5163273af215e7232b37cf76ea257f312.GroupGamePinActivity" />
+    <activity android:label="Group - Sign In" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.GroupSignInActivity" />
+    <activity android:label="Public - Server Connection" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.HostIPActivity" />
     <activity android:label="Lobby" android:noHistory="true" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.LobbyActivity" />
     <activity android:label="TooLearn" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MainActivity" />
     <activity android:label="Main Menu" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MainmenuActivity" />
