@@ -17,6 +17,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Threading;
 
+
 namespace TooLearnAndroid 
 {
     [Activity(Label = "Game", Theme = "@style/Theme.DesignDemo", NoHistory = true)]
@@ -31,20 +32,28 @@ namespace TooLearnAndroid
         private const int _PORT = 13000;
 
         string GameType = LobbyActivity.GameType;
-        static string correctanswer = "", points = "", Pname = "";
+        public static string correctanswer = "", points = "", Pname = "";
         string time;
         int convertedtime;
         string Total;
+
+
+     
+
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.activity_game);
-            RunOnUiThread(() => RulesOnLoadActivity());
-            RunOnUiThread(() => StartConnect());
 
+            SetContentView(Resource.Layout.activity_game);
+            RunOnUiThread(() => StartConnect());
+            RunOnUiThread(() => RulesOnLoadActivity());
+
+          
+            
             var enterans = FindViewById<Button>(Resource.Id.button5);
             enterans.Click += EnterAnswer;
             var pchoice1 = FindViewById<Button>(Resource.Id.button1);
@@ -84,8 +93,7 @@ namespace TooLearnAndroid
                 scorepts.Text = score.ToString();
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
-
-                RunOnUiThread(() => SendScore(scorepts.ToString()));
+                SendScore(scorepts.Text);
             }
 
             else
@@ -118,7 +126,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                RunOnUiThread(() => SendScore(scorepts.ToString()));
+                SendScore(scorepts.Text);
             }
 
             else
@@ -149,7 +157,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                RunOnUiThread(() => SendScore(scorepts.ToString()));
+                SendScore(scorepts.Text);
             }
 
             else
@@ -178,7 +186,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                RunOnUiThread(() => SendScore(scorepts.ToString()));
+                SendScore(scorepts.Text);
             }
 
             else
@@ -209,7 +217,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                RunOnUiThread(() => SendScore(scorepts.ToString()));
+                SendScore(scorepts.Text);
             }
 
             else
@@ -240,7 +248,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
-                RunOnUiThread(() => SendScore(scorepts.ToString()));
+                SendScore(scorepts.Text);
             }
 
             else
@@ -270,8 +278,8 @@ namespace TooLearnAndroid
                 scorepts.Text = score.ToString();
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
-                
-                RunOnUiThread(() => SendScore(scorepts.ToString()));
+
+                SendScore(scorepts.Text);
             }
 
             else
@@ -310,7 +318,7 @@ namespace TooLearnAndroid
             try
             {
                 //Translate the message into its byte form
-                byte[] buffer = System.Text.Encoding.ASCII.GetBytes("(SCORE)," + Pname + "(" + message + ")");
+                byte[] buffer = System.Text.Encoding.ASCII.GetBytes("(SCORE),"+Pname+",("+message+")");
 
                 //Get a client stream for reading and writing
                 NetworkStream stream = _client.GetStream();

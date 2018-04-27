@@ -17,7 +17,7 @@ using System.Data.SqlClient;
 
 namespace TooLearnAndroid
 {
-    [Activity(Label = "Lobby", Theme = "@style/Theme.DesignDemo", NoHistory = true)]
+    [Activity(Label = "Lobby", Theme = "@style/Theme.DesignDemo")]
     public class LobbyActivity : Activity
     {  
         private TcpClient _client = new TcpClient();
@@ -161,17 +161,7 @@ namespace TooLearnAndroid
 
                 if (message.Contains("GAMEIPQB"))
                 {
-                    //ThreadHelper.Hide(this); fixlater
-                    //this.Hide();//kaipuhn muna ithread
-
                     GameType = "QB";
-                    // GameRules GR = new GameRules();
-                    //  GR.ShowDialog();
-
-                    //  testing GR = new testing();
-
-                    //RunOnUiThread(() => Toast.MakeText(this, "MAOPEN ANG GAME", ToastLength.Long).Show());
-
                     
                     Intent intent = new Intent(this, typeof(GameActivity));
                     intent.AddFlags(ActivityFlags.ClearTop);
@@ -185,13 +175,7 @@ namespace TooLearnAndroid
 
                 else if (message.Contains("GAMEIPPZ"))
                 {
-                    //ThreadHelper.Hide(this); fixlater
-
-                    //this.Hide();//kaipuhn muna ithread
                     GameType = "PZ";
-                    //  GameRules GR = new GameRules();
-                    // GR.Show();
-                    //RunOnUiThread(() => Toast.MakeText(this, "MAOPEN ANG GAME", ToastLength.Long).Show());
                     
                     StartActivity(typeof(GameActivity));
                     Intent intent = new Intent(this, typeof(GameActivity));

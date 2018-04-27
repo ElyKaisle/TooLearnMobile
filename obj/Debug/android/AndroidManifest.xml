@@ -9,7 +9,7 @@
     <activity android:label="GroupGamePinActivity" android:name="md5163273af215e7232b37cf76ea257f312.GroupGamePinActivity" />
     <activity android:label="Group - Sign In" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.GroupSignInActivity" />
     <activity android:label="Public - Server Connection" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.HostIPActivity" />
-    <activity android:label="Lobby" android:noHistory="true" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.LobbyActivity" />
+    <activity android:label="Lobby" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.LobbyActivity" />
     <activity android:label="TooLearn" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MainActivity" />
     <activity android:label="Main Menu" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MainmenuActivity" />
     <activity android:label="My Classroom" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MyClassroomActivity" />
