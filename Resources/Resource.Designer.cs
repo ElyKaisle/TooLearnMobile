@@ -2663,14 +2663,14 @@ namespace TooLearnAndroid
 			// aapt resource value: 0x7f07005e
 			public const int image = 2131165278;
 			
-			// aapt resource value: 0x7f0700c3
-			public const int imageButton1 = 2131165379;
+			// aapt resource value: 0x7f0700c0
+			public const int imageButton1 = 2131165376;
 			
-			// aapt resource value: 0x7f0700c4
-			public const int imageButton2 = 2131165380;
+			// aapt resource value: 0x7f0700c1
+			public const int imageButton2 = 2131165377;
 			
-			// aapt resource value: 0x7f0700c5
-			public const int imageButton3 = 2131165381;
+			// aapt resource value: 0x7f0700c2
+			public const int imageButton3 = 2131165378;
 			
 			// aapt resource value: 0x7f0700a5
 			public const int imageView1 = 2131165349;
@@ -2933,8 +2933,8 @@ namespace TooLearnAndroid
 			// aapt resource value: 0x7f07001a
 			public const int text2 = 2131165210;
 			
-			// aapt resource value: 0x7f0700c2
-			public const int textContent = 2131165378;
+			// aapt resource value: 0x7f0700c5
+			public const int textContent = 2131165381;
 			
 			// aapt resource value: 0x7f070069
 			public const int textSpacerNoButtons = 2131165289;
@@ -2942,11 +2942,11 @@ namespace TooLearnAndroid
 			// aapt resource value: 0x7f070068
 			public const int textSpacerNoTitle = 2131165288;
 			
-			// aapt resource value: 0x7f0700c1
-			public const int textTitle = 2131165377;
+			// aapt resource value: 0x7f0700c4
+			public const int textTitle = 2131165380;
 			
-			// aapt resource value: 0x7f0700c0
-			public const int textType = 2131165376;
+			// aapt resource value: 0x7f0700c3
+			public const int textType = 2131165379;
 			
 			// aapt resource value: 0x7f07008a
 			public const int textView1 = 2131165322;

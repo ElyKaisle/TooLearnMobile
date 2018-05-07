@@ -25,6 +25,8 @@ namespace TooLearnAndroid
 
             // Create your application here
             SetContentView(Resource.Layout.activity_mainmenu);
+            UsernameOnLoad();
+            
             DrawerLayout drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             // Create ActionBarDrawerToggle button and add it to the toolbar  
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
@@ -38,6 +40,11 @@ namespace TooLearnAndroid
             navigationView.NavigationItemSelected += HomeNavigationView_NavigationItemSelected;
 
             
+        }
+
+        public void UsernameOnLoad()
+        {
+            var username = FindViewById<TextView>(Resource.Id.navheader_username);
         }
         private void HomeNavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
         {

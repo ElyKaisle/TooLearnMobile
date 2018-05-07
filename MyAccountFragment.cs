@@ -27,9 +27,9 @@ namespace TooLearnAndroid
         {
             // Use this to return your custom view for this Fragment
             var view = inflater.Inflate(Resource.Layout.fragment_myaccount, container, false);
-            var scorerecord = view.FindViewById<Button>(Resource.Id.button1);
-            var myclassroom = view.FindViewById<Button>(Resource.Id.button2);
-            var editprofile = view.FindViewById<Button>(Resource.Id.button3);   
+            var scorerecord = view.FindViewById<ImageButton>(Resource.Id.imageButton1);
+            var myclassroom = view.FindViewById<ImageButton>(Resource.Id.imageButton2);
+            var editprofile = view.FindViewById<ImageButton>(Resource.Id.imageButton3);   
             scorerecord.Click += StartScoreRecordActivity;
             myclassroom.Click += StartMyClassroomActivity;
             editprofile.Click += StartEditProfileActivity;
