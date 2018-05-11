@@ -14,11 +14,15 @@ using Android.Support.V4.Widget;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.Design.Widget;
 
+using System.Data;
+using System.Data.SqlClient;
+
 namespace TooLearnAndroid
 {
     [Activity(Label = "Main Menu", Theme = "@style/Theme.DesignDemo")]
     public class MainmenuActivity : AppCompatActivity
     {
+        SqlConnection con = new SqlConnection("Data Source='" + Program.source + "' ; Initial Catalog='" + Program.db + "'; User ID='" + Program.id + "';Password='" + Program.password + "'");
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -41,11 +45,22 @@ namespace TooLearnAndroid
 
             
         }
-
+        
         public void UsernameOnLoad()
         {
-            var username = FindViewById<TextView>(Resource.Id.navheader_username);
+            var navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
+            var headerView = navigationView.GetHeaderView(0);
+            var txtUsername = headerView.FindViewById<TextView>(Resource.Id.navheader_username);
+
+
+            SqlDataAdapter sql = new SqlDataAdapter("Select L_name,F_name,M_name from participant where participant_id='" + Program.par_id + "'", con);
+            DataTable dt = new DataTable();
+            sql.Fill(dt);
+            txtUsername.Text = dt.Rows[0][0].ToString()+", "+dt.Rows[0][1].ToString()+" "+dt.Rows[0][2].ToString();
+           
+
         }
+        
         private void HomeNavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
         {
             var menuItem = e.MenuItem;

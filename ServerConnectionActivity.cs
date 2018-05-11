@@ -40,13 +40,13 @@ namespace TooLearnAndroid
             {
                 String DB, ID, Password;
                 Object Source;
-                var servername = FindViewById<EditText>(Resource.Id.editText1).Text;
-                Program.serverIP = servername;
+                var servername = FindViewById<EditText>(Resource.Id.editText1);
+                //Program.serverIP = servername;
 
                 
                 try
                 {
-                    IPHostEntry host = Dns.GetHostEntry(servername); //get the ServerIP
+                    IPHostEntry host = Dns.GetHostEntry(servername.Text); //get the ServerIP
                     foreach (IPAddress ip in host.AddressList)
                     {
 
@@ -65,9 +65,9 @@ namespace TooLearnAndroid
                 }
                 
 
-                if (servername != null)
+                if (servername.Text != null)
                 {
-                    Source = servername + ",1433";
+                    Source = servername.Text + ",1433";
                     DB = "Toolearn";
                     ID = "Toolearn";
                     Password = "Toolearn";

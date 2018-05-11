@@ -15,7 +15,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Data;
 using System.Data.SqlClient;
-using System.Threading;
+using System.Timers;
 
 
 namespace TooLearnAndroid 
@@ -38,9 +38,7 @@ namespace TooLearnAndroid
         string Total;
 
         Timer timer;
-        TextView timerViewer;
 
-       
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -51,7 +49,7 @@ namespace TooLearnAndroid
             SetContentView(Resource.Layout.activity_game);
             RunOnUiThread(() => StartConnect());
             RunOnUiThread(() => RulesOnLoadActivity());
-            
+
 
             var enterans = FindViewById<Button>(Resource.Id.button5);
             enterans.Click += EnterAnswer;
@@ -70,65 +68,29 @@ namespace TooLearnAndroid
             var timersec = FindViewById<TextView>(Resource.Id.textView5);
         }
 
-        private void UpdateView()
+        private string TimerFormat(int secs)
         {
-
-            var timesup = FindViewById<TextView>(Resource.Id.textView3);
-            var timer = FindViewById<TextView>(Resource.Id.textView5);
-
-            var enterans = FindViewById<Button>(Resource.Id.button5);
-            var shortans = FindViewById<EditText>(Resource.Id.editText1);
-            var truechoice = FindViewById<Button>(Resource.Id.button6);
-            var falsechoice = FindViewById<Button>(Resource.Id.button7);
-
-            var choice1 = FindViewById<Button>(Resource.Id.button1);
-            var choice2 = FindViewById<Button>(Resource.Id.button2);
-            var choice3 = FindViewById<Button>(Resource.Id.button3);
-            var choice4 = FindViewById<Button>(Resource.Id.button4);
-
-            this.RunOnUiThread(() => timerViewer.Text = string.Format("{0} seconds left!", convertedtime--));
-
-            if (convertedtime == 0)
-            {
-                RunOnUiThread(() => choice1.Enabled = false);
-                RunOnUiThread(() => choice2.Enabled = false);
-                RunOnUiThread(() => choice3.Enabled = false);
-                RunOnUiThread(() => choice4.Enabled = false);//MC
-
-                RunOnUiThread(() => truechoice.Enabled = false);//TF
-                RunOnUiThread(() => falsechoice.Enabled = false);
-
-                RunOnUiThread(() => shortans.Enabled = false);//SA
-                RunOnUiThread(() => enterans.Enabled = false);
-
-
-
-
-            }
-            else
-            {
-                RunOnUiThread(() => choice1.Enabled = true);
-                RunOnUiThread(() => choice2.Enabled = true);
-                RunOnUiThread(() => choice3.Enabled = true);
-                RunOnUiThread(() => choice4.Enabled = true);//MC
-
-                RunOnUiThread(() => truechoice.Enabled = true);//TF
-                RunOnUiThread(() => falsechoice.Enabled = true);
-
-                RunOnUiThread(() => shortans.Enabled = true);//SA
-                RunOnUiThread(() => enterans.Enabled = true);
-
-            }
+            TimeSpan t = TimeSpan.FromSeconds(secs);
+            return string.Format("{0:D2}:{1:D2}:{2:D2}",
+                (int)t.TotalHours,
+                t.Minutes,
+                t.Seconds);
         }
 
+       
         public void FalseChoice(object sender, EventArgs e)
         {
+            var question = FindViewById<TextView>(Resource.Id.textView12);
+            var timerlabel = FindViewById<TextView>(Resource.Id.textView3);
+            var timertext = FindViewById<TextView>(Resource.Id.textView5);
+            var truebutton = FindViewById<Button>(Resource.Id.button6);
+            var falsebutton = FindViewById<Button>(Resource.Id.button7);
+
             var falsechoice = FindViewById<Button>(Resource.Id.button7).Text;
             
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
-            var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
 
             var scorepts = FindViewById<TextView>(Resource.Id.textView4);
 
@@ -141,27 +103,44 @@ namespace TooLearnAndroid
                 score = Convert.ToInt32(scorepts.Text);
                 score = score + Convert.ToInt32(points);
                 scorepts.Text = score.ToString();
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => truebutton.Enabled = false);
+                RunOnUiThread(() => falsebutton.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
                 SendScore(scorepts.Text);
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
 
             else
             {
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => truebutton.Enabled = false);
+                RunOnUiThread(() => falsebutton.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrongfeed = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
         }
 
         public void TrueChoice(object sender, EventArgs e)
         {
+            var question = FindViewById<TextView>(Resource.Id.textView12);
+            var timerlabel = FindViewById<TextView>(Resource.Id.textView3);
+            var timertext = FindViewById<TextView>(Resource.Id.textView5);
+            var truebutton = FindViewById<Button>(Resource.Id.button6);
+            var falsebutton = FindViewById<Button>(Resource.Id.button7);
+
             var truechoice = FindViewById<Button>(Resource.Id.button6).Text;
 
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
-            var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
 
             var scorepts = FindViewById<TextView>(Resource.Id.textView4);
 
@@ -173,26 +152,44 @@ namespace TooLearnAndroid
                 score = Convert.ToInt32(scorepts.Text);
                 score = score + Convert.ToInt32(points);
                 scorepts.Text = score.ToString();
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => truebutton.Enabled = false);
+                RunOnUiThread(() => falsebutton.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
-
                 SendScore(scorepts.Text);
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
 
             else
             {
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => truebutton.Enabled = false);
+                RunOnUiThread(() => falsebutton.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrongfeed = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
         }
             
         public void Choice1(object sender, EventArgs e)
         {
+            var question = FindViewById<TextView>(Resource.Id.textView12);
+            var timerlabel = FindViewById<TextView>(Resource.Id.textView3);
+            var timertext = FindViewById<TextView>(Resource.Id.textView5);
+            var choice1 = FindViewById<Button>(Resource.Id.button1);
+            var choice2 = FindViewById<Button>(Resource.Id.button2);
+            var choice3 = FindViewById<Button>(Resource.Id.button3);
+            var choice4 = FindViewById<Button>(Resource.Id.button4);
+
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
-            var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
 
             var scorepts = FindViewById<TextView>(Resource.Id.textView4);
 
@@ -204,26 +201,49 @@ namespace TooLearnAndroid
                 score = Convert.ToInt32(scorepts.Text);
                 score = score + Convert.ToInt32(points);
                 scorepts.Text = score.ToString();
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => choice1.Enabled = false);
+                RunOnUiThread(() => choice2.Enabled = false);
+                RunOnUiThread(() => choice3.Enabled = false);
+                RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
-
                 SendScore(scorepts.Text);
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
 
             else
             {
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => choice1.Enabled = false);
+                RunOnUiThread(() => choice2.Enabled = false);
+                RunOnUiThread(() => choice3.Enabled = false);
+                RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrongfeed = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
         }
 
         public void Choice2(object sender, EventArgs e)
         {
+            var question = FindViewById<TextView>(Resource.Id.textView12);
+            var timerlabel = FindViewById<TextView>(Resource.Id.textView3);
+            var timertext = FindViewById<TextView>(Resource.Id.textView5);
+            var choice1 = FindViewById<Button>(Resource.Id.button1);
+            var choice2 = FindViewById<Button>(Resource.Id.button2);
+            var choice3 = FindViewById<Button>(Resource.Id.button3);
+            var choice4 = FindViewById<Button>(Resource.Id.button4);
+
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
-            var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
+
             var scorepts = FindViewById<TextView>(Resource.Id.textView4);
             string feed = validate("B");
             int score;
@@ -233,27 +253,49 @@ namespace TooLearnAndroid
                 score = Convert.ToInt32(scorepts.Text);
                 score = score + Convert.ToInt32(points);
                 scorepts.Text = score.ToString();
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => choice1.Enabled = false);
+                RunOnUiThread(() => choice2.Enabled = false);
+                RunOnUiThread(() => choice3.Enabled = false);
+                RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
-
                 SendScore(scorepts.Text);
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
 
             else
             {
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => choice1.Enabled = false);
+                RunOnUiThread(() => choice2.Enabled = false);
+                RunOnUiThread(() => choice3.Enabled = false);
+                RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrongfeed = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
         }
 
         public void Choice3(object sender, EventArgs e)
         {
+            var question = FindViewById<TextView>(Resource.Id.textView12);
+            var timerlabel = FindViewById<TextView>(Resource.Id.textView3);
+            var timertext = FindViewById<TextView>(Resource.Id.textView5);
+            var choice1 = FindViewById<Button>(Resource.Id.button1);
+            var choice2 = FindViewById<Button>(Resource.Id.button2);
+            var choice3 = FindViewById<Button>(Resource.Id.button3);
+            var choice4 = FindViewById<Button>(Resource.Id.button4);
 
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
-            var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
+
             var scorepts = FindViewById<TextView>(Resource.Id.textView4);
             string feed = validate("C");
             int score;
@@ -264,28 +306,50 @@ namespace TooLearnAndroid
                 score = Convert.ToInt32(scorepts.Text);
                 score = score + Convert.ToInt32(points);
                 scorepts.Text = score.ToString();
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => choice1.Enabled = false);
+                RunOnUiThread(() => choice2.Enabled = false);
+                RunOnUiThread(() => choice3.Enabled = false);
+                RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
-
                 SendScore(scorepts.Text);
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
 
             else
             {
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => choice1.Enabled = false);
+                RunOnUiThread(() => choice2.Enabled = false);
+                RunOnUiThread(() => choice3.Enabled = false);
+                RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrongfeed = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
         }
 
 
         public void Choice4(object sender, EventArgs e)
         {
+            var question = FindViewById<TextView>(Resource.Id.textView12);
+            var timerlabel = FindViewById<TextView>(Resource.Id.textView3);
+            var timertext = FindViewById<TextView>(Resource.Id.textView5);
+            var choice1 = FindViewById<Button>(Resource.Id.button1);
+            var choice2 = FindViewById<Button>(Resource.Id.button2);
+            var choice3 = FindViewById<Button>(Resource.Id.button3);
+            var choice4 = FindViewById<Button>(Resource.Id.button4);
 
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
-            var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
+
             var scorepts = FindViewById<TextView>(Resource.Id.textView4);
             string feed = validate("D");
             int score;
@@ -295,28 +359,49 @@ namespace TooLearnAndroid
                 score = Convert.ToInt32(scorepts.Text);
                 score = score + Convert.ToInt32(points);
                 scorepts.Text = score.ToString();
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => choice1.Enabled = false);
+                RunOnUiThread(() => choice2.Enabled = false);
+                RunOnUiThread(() => choice3.Enabled = false);
+                RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
-
                 SendScore(scorepts.Text);
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
 
             else
             {
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => choice1.Enabled = false);
+                RunOnUiThread(() => choice2.Enabled = false);
+                RunOnUiThread(() => choice3.Enabled = false);
+                RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrongfeed = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
         }
 
         public void EnterAnswer(object sender, EventArgs e)
         {
+            var question = FindViewById<TextView>(Resource.Id.textView12);
+            var timerlabel = FindViewById<TextView>(Resource.Id.textView3);
+            var timertext = FindViewById<TextView>(Resource.Id.textView5);
+            var enterans = FindViewById<Button>(Resource.Id.button5);
+            var shortanswer = FindViewById<EditText>(Resource.Id.editText1);
+
             var shortans = FindViewById<EditText>(Resource.Id.editText1).Text;
 
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
-            var wrongfeed = FindViewById<TextView>(Resource.Id.textView14).Text;
+
             var scorepts = FindViewById<TextView>(Resource.Id.textView4);
             string feed = validateSA(shortans);
             int score;
@@ -326,17 +411,28 @@ namespace TooLearnAndroid
                 score = Convert.ToInt32(scorepts.Text);
                 score = score + Convert.ToInt32(points);
                 scorepts.Text = score.ToString();
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => enterans.Enabled = false);
+                RunOnUiThread(() => shortanswer.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
-
                 SendScore(scorepts.Text);
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
 
             else
             {
+                RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => enterans.Enabled = false);
+                RunOnUiThread(() => shortanswer.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrongfeed = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
+                timer.Stop();
             }
 
             RunOnUiThread(() => shortans = "");
@@ -433,7 +529,7 @@ namespace TooLearnAndroid
             }
             catch (Exception ex)
             {
-                Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
+                Toast.MakeText(this, ex.ToString() + "ERROR SA RECEIVE", ToastLength.Short).Show();
 
             }
         }
@@ -456,11 +552,76 @@ namespace TooLearnAndroid
             return value;
         }
 
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            var question = FindViewById<TextView>(Resource.Id.textView12);
+            var timesup = FindViewById<TextView>(Resource.Id.textView3);
+            var timertxt = FindViewById<TextView>(Resource.Id.textView5);
+
+            var enterans = FindViewById<Button>(Resource.Id.button5);
+            var shortans = FindViewById<EditText>(Resource.Id.editText1);
+            var truechoice = FindViewById<Button>(Resource.Id.button6);
+            var falsechoice = FindViewById<Button>(Resource.Id.button7);
+
+            var choice1 = FindViewById<Button>(Resource.Id.button1);
+            var choice2 = FindViewById<Button>(Resource.Id.button2);
+            var choice3 = FindViewById<Button>(Resource.Id.button3);
+            var choice4 = FindViewById<Button>(Resource.Id.button4);
+
+            convertedtime--;
+
+            if (convertedtime == 0)
+            {
+
+                timer.Stop();
+                RunOnUiThread(() => timertxt.Visibility = ViewStates.Invisible);
+                RunOnUiThread(() => timesup.Text = "Times up!");
+                RunOnUiThread(() => timesup.Visibility = ViewStates.Visible);
+                RunOnUiThread(() => choice1.Enabled = false);
+                RunOnUiThread(() => choice2.Enabled = false);
+                RunOnUiThread(() => choice3.Enabled = false);
+                RunOnUiThread(() => choice4.Enabled = false);//MC
+
+                RunOnUiThread(() => truechoice.Enabled = false);//TF
+                RunOnUiThread(() => falsechoice.Enabled = false);
+
+                RunOnUiThread(() => shortans.Enabled = false);//SA
+                RunOnUiThread(() => enterans.Enabled = false);
+
+
+            }
+            else
+            {
+                RunOnUiThread(() => timertxt.Text = TimerFormat(convertedtime));
+                RunOnUiThread(() => timesup.Visibility = ViewStates.Visible);
+                RunOnUiThread(() => timertxt.Visibility = ViewStates.Visible);
+                RunOnUiThread(() => question.Visibility = ViewStates.Visible);
+
+                RunOnUiThread(() => choice1.Enabled = true);
+                RunOnUiThread(() => choice2.Enabled = true);
+                RunOnUiThread(() => choice3.Enabled = true);
+                RunOnUiThread(() => choice4.Enabled = true);//MC
+
+                RunOnUiThread(() => truechoice.Enabled = true);//TF
+                RunOnUiThread(() => falsechoice.Enabled = true);
+
+                RunOnUiThread(() => shortans.Enabled = true);//SA
+                RunOnUiThread(() => enterans.Enabled = true);
+
+            }
+
+        }
 
         private void BeginReceiveCallback(IAsyncResult ar)
         {
             try
             {
+
+                timer = new Timer();
+                timer.Interval = 1000;
+                timer.Elapsed += Timer_Elapsed;
+
+
                 //(message.Contains("StartGame"))
                 var title = FindViewById<TextView>(Resource.Id.textView6);
                 var content = FindViewById<TextView>(Resource.Id.textView7);
@@ -643,10 +804,8 @@ namespace TooLearnAndroid
                         {
                             convertedtime = convertedtime * 60;
                         }
-
-                        timerViewer = FindViewById<TextView>(Resource.Id.textView5);
-                        timer = new Timer(x => UpdateView(), null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
-                        //var timer1 = FindViewById<TextView>(Resource.Id.textView5);
+                        timer.Start();
+                        
                         //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
 
 
@@ -717,8 +876,7 @@ namespace TooLearnAndroid
                         {
                             convertedtime = convertedtime * 60;
                         }
-                        timerViewer = FindViewById<TextView>(Resource.Id.textView5);
-                        timer = new Timer(x => UpdateView(), null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+                        timer.Start();
                         //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
                     }
 
@@ -789,8 +947,7 @@ namespace TooLearnAndroid
                         {
                             convertedtime = convertedtime * 60;
                         }
-                        timerViewer = FindViewById<TextView>(Resource.Id.textView5);
-                        timer = new Timer(x => UpdateView(), null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+                        timer.Start();
                         //this.Invoke(new ThreadStart(delegate () { timer1.Enabled = true; timer1.Start(); }));
 
                     }
@@ -802,7 +959,7 @@ namespace TooLearnAndroid
             }
             catch (Exception ex)
             {
-                Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
+                Toast.MakeText(this, ex.ToString() + "ERROR SA BEGIN RECIEVECALLBACK", ToastLength.Short).Show();
             }
         }
 
