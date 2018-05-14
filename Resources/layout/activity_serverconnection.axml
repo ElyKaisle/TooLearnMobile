@@ -13,6 +13,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText1"
         android:hint="SERVER IP ADDRESS" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner1" />
     <Button
         android:text="Connect"
         android:layout_width="match_parent"

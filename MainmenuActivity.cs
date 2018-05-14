@@ -45,7 +45,27 @@ namespace TooLearnAndroid
 
             
         }
-        
+
+        public override void OnBackPressed()
+        {
+            Android.Support.V7.App.AlertDialog.Builder alertDialog = new Android.Support.V7.App.AlertDialog.Builder(this);
+            alertDialog.SetTitle("Logout");
+            alertDialog.SetMessage("Are you sure?");
+            alertDialog.SetPositiveButton("Ok", (senderAlert, args) =>
+            {
+                Intent intent = new Intent(this, typeof(SignInActivity));
+                StartActivity(intent);
+            });
+
+            alertDialog.SetNegativeButton("Cancel", delegate
+            {
+                alertDialog.Dispose();
+                Toast.MakeText(this, "Cancelled!", ToastLength.Short).Show();
+            });
+            Dialog dialog = alertDialog.Create();
+            dialog.Show();
+        }
+
         public void UsernameOnLoad()
         {
             var navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);

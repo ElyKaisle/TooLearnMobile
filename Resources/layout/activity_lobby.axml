@@ -26,5 +26,6 @@
         android:layout_height="188.5dp"
         android:id="@+id/editText1"
         android:layout_marginTop="20dp"
-        android:text="Please wait for the Facilitator to Start the Game" />
+        android:text="Please wait for the Facilitator to Start the Game"
+        android:enabled="false" />
 </LinearLayout>

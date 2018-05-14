@@ -77,7 +77,6 @@ namespace TooLearnAndroid
                         username.Enabled = true;
                         password.Enabled = true;
                         MyAccountEdit.Text = "Save";
-                        password.InputType = InputTypes.TextVariationNormal;
 
                     }
                     break;
@@ -109,8 +108,7 @@ namespace TooLearnAndroid
                                     int n = sda.SelectCommand.ExecuteNonQuery();
 
                                     con.Close();
-
-                                    password.InputType = InputTypes.TextVariationPassword;
+                                
 
                                     load_account();
 

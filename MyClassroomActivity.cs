@@ -133,7 +133,7 @@ namespace TooLearnAndroid
                     String[] values = { classname.ToString() };
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, values);
                     adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-                    spinner.Adapter = adapter;
+                    RunOnUiThread(() => spinner.Adapter = adapter);
                 }
                 dr.Close();
                 con.Close();
@@ -146,7 +146,7 @@ namespace TooLearnAndroid
         }
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-
+            Spinner spinner = (Spinner)sender;
             try
             {
 
@@ -160,7 +160,7 @@ namespace TooLearnAndroid
                     var classname = (sda.Update(dt));
                     String[] values = { classname.ToString() };
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, values);
-                    list.Adapter = adapter;
+                    RunOnUiThread(() => list.Adapter = adapter);
                     /*
                     BindingSource bs = new BindingSource();
                     bs.DataSource = dt;
@@ -176,7 +176,7 @@ namespace TooLearnAndroid
                     var classname = (sda.Update(dt));
                     String[] values = { classname.ToString() };
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, values);
-                    list.Adapter = adapter;
+                    RunOnUiThread(() => list.Adapter = adapter);
                     /*
                     BindingSource bs = new BindingSource();
                     bs.DataSource = dt;

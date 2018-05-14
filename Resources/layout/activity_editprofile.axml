@@ -11,7 +11,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText1" />
+        android:id="@+id/editText1"
+        android:enabled="false" />
     <TextView
         android:text="Username"
         android:layout_width="match_parent"
@@ -20,7 +21,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2" />
+        android:id="@+id/editText2"
+        android:enabled="false" />
     <TextView
         android:text="Password"
         android:layout_width="match_parent"
@@ -29,10 +31,12 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3" />
+        android:id="@+id/editText3"
+        android:enabled="false" />
     <Button
         android:text="Edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button1" />
+        android:id="@+id/button1"
+        android:layout_marginTop="10dp" />
 </LinearLayout>

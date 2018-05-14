@@ -29,9 +29,37 @@ namespace TooLearnAndroid
             base.OnCreate(savedInstanceState);
             // Create your application here
             SetContentView(Resource.Layout.activity_serverconnection);
+            load_server();
+            Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
+            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+
             var connect = FindViewById<Button>(Resource.Id.button2);
             connect.Click += ConnectActivity;
 
+        }
+
+        private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            var servername = FindViewById<EditText>(Resource.Id.editText1);
+            Spinner spinner = (Spinner)sender;
+            var servers = spinner.GetItemAtPosition(e.Position);
+            servername.Text = servers.ToString();
+        }
+
+        private void load_server()
+        {
+            Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
+            SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
+            DataTable table = instance.GetDataSources();
+            foreach (DataRow server in table.Rows)
+            {
+                var serverlist = (server[table.Columns["ServerName"]]);
+                String[] values = { serverlist.ToString() };
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, values);
+                adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+                RunOnUiThread(() => spinner.Adapter = adapter);
+            }
+            
         }
         
         public void ConnectActivity(object sender, EventArgs e)
@@ -41,7 +69,7 @@ namespace TooLearnAndroid
                 String DB, ID, Password;
                 Object Source;
                 var servername = FindViewById<EditText>(Resource.Id.editText1);
-                //Program.serverIP = servername;
+                Program.serverIP = servername.Text;
 
                 
                 try

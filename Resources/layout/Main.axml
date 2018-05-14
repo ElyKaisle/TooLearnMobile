@@ -17,15 +17,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView4"
         android:gravity="center"
-        android:layout_gravity="top" />
-    <TextView
-        android:text="PUBLIC PLAY"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:layout_gravity="center"
-        android:gravity="center" />
+        android:paddingBottom="20dp" />
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,12 +25,14 @@
         android:background="@drawable/guest_button"
         android:src="@drawable/publicplay" />
     <TextView
-        android:text="INDIVIDUAL PARTICIPANT"
+        android:text="PUBLIC PLAY"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:gravity="center" />
+        android:id="@+id/textView1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginBottom="10dp" />
     <ImageButton
         android:src="@drawable/individual"
         android:layout_width="match_parent"
@@ -46,16 +40,25 @@
         android:id="@+id/imageButton2"
         android:background="@drawable/individual_button" />
     <TextView
-        android:text="GROUP PARTICIPANT"
+        android:text="INDIVIDUAL PARTICIPANT"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-        android:gravity="center" />
+        android:id="@+id/textView2"
+        android:gravity="center"
+        android:layout_marginBottom="10dp" />
     <ImageButton
         android:src="@drawable/groups"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton3"
         android:background="@drawable/group_button" />
+    <TextView
+        android:text="GROUP PARTICIPANT"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:gravity="center"
+        android:layout_marginBottom="10dp" />
 </LinearLayout>

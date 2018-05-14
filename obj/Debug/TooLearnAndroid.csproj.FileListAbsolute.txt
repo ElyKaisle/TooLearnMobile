@@ -151,7 +151,6 @@ C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\group_button.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\error.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\checked.png
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\iconsplash.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\adnu.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\picturepuzzlerules.txt
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\quizbeerules.txt
@@ -160,8 +159,10 @@ C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\groups.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\reportcard.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\classroom.png
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\splashscreen.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\R.cs.flag
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\uploadflags.txt
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\TooLearnAndroid.csprojResolveAssemblyReference.cache
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll.mdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\android\assets\TooLearnAndroid.dll.mdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll

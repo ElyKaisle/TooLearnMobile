@@ -20,7 +20,7 @@ using System.Timers;
 
 namespace TooLearnAndroid 
 {
-    [Activity(Label = "Game", Theme = "@style/Theme.DesignDemo", NoHistory = true)]
+    [Activity(Label = "Game", Theme = "@style/Theme.DesignDemo")]
     public class GameActivity : Activity
     {
         SqlConnection con = new SqlConnection("Data Source='" + Program.source + "' ; Initial Catalog='" + Program.db + "'; User ID='" + Program.id + "';Password='" + Program.password + "'");
@@ -66,6 +66,26 @@ namespace TooLearnAndroid
             var falsechoice = FindViewById<Button>(Resource.Id.button7);
             falsechoice.Click += FalseChoice;
             var timersec = FindViewById<TextView>(Resource.Id.textView5);
+        }
+
+        public override void OnBackPressed()
+        {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+            alertDialog.SetTitle("Quitting the Game");
+            alertDialog.SetMessage("Are you sure?");
+            alertDialog.SetPositiveButton("Ok", (senderAlert, args) =>
+            {
+                Intent intent = new Intent(this, typeof(LobbyActivity));
+                StartActivity(intent);
+            });
+
+            alertDialog.SetNegativeButton("Cancel", delegate
+            {
+                alertDialog.Dispose();
+                Toast.MakeText(this, "Cancelled!", ToastLength.Short).Show();
+            });
+            Dialog dialog = alertDialog.Create();
+            dialog.Show();
         }
 
         private string TimerFormat(int secs)
@@ -396,14 +416,12 @@ namespace TooLearnAndroid
             var enterans = FindViewById<Button>(Resource.Id.button5);
             var shortanswer = FindViewById<EditText>(Resource.Id.editText1);
 
-            var shortans = FindViewById<EditText>(Resource.Id.editText1).Text;
-
             var correct = FindViewById<TextView>(Resource.Id.textView13);
 
             var wrong = FindViewById<TextView>(Resource.Id.textView14);
 
             var scorepts = FindViewById<TextView>(Resource.Id.textView4);
-            string feed = validateSA(shortans);
+            string feed = validateSA(shortanswer.Text);
             int score;
 
             if (feed == "Correct")
@@ -435,7 +453,7 @@ namespace TooLearnAndroid
                 timer.Stop();
             }
 
-            RunOnUiThread(() => shortans = "");
+            RunOnUiThread(() => shortanswer.Text = "");
 
         }
 
@@ -623,7 +641,7 @@ namespace TooLearnAndroid
 
 
                 //(message.Contains("StartGame"))
-                var title = FindViewById<TextView>(Resource.Id.textView6);
+                var title = FindViewById<TextView>(Resource.Id.textView1);
                 var content = FindViewById<TextView>(Resource.Id.textView7);
                 var gametype = FindViewById<TextView>(Resource.Id.textView1);
                 var scorelabel = FindViewById<TextView>(Resource.Id.textView2);
@@ -632,12 +650,7 @@ namespace TooLearnAndroid
                 var timlabel = FindViewById<TextView>(Resource.Id.textView5);
 
                 //(message.Contains("C1o2m3pute"))
-                var pscoretext = FindViewById<TextView>(Resource.Id.textView8);
-                var ptotalscores = FindViewById<TextView>(Resource.Id.textView9);
-                var ptotalitems = FindViewById<TextView>(Resource.Id.textView10);
-                var pfeedback = FindViewById<TextView>(Resource.Id.textView11);
-
-                var scorepts = FindViewById<TextView>(Resource.Id.textView4);
+                var scoretext = FindViewById<TextView>(Resource.Id.textView8);
                 var totalscores = FindViewById<TextView>(Resource.Id.textView9);
                 var totalitems = FindViewById<TextView>(Resource.Id.textView10);
                 var feedback = FindViewById<TextView>(Resource.Id.textView11);
@@ -689,8 +702,12 @@ namespace TooLearnAndroid
 
                 else if (message.Contains("C1o2m3pute"))
                 {
+                    RunOnUiThread(() => scoretext.Visibility = ViewStates.Visible);
+                    RunOnUiThread(() => totalscores.Visibility = ViewStates.Visible);
+                    RunOnUiThread(() => totalitems.Visibility = ViewStates.Visible);
+                    RunOnUiThread(() => feedback.Visibility = ViewStates.Visible);
 
-                    int rawscore = Convert.ToInt32(scorepts.Text);
+                    int rawscore = Convert.ToInt32(ptslabel.Text);
                     RunOnUiThread(() => totalscores.Text = rawscore.ToString());
                     RunOnUiThread(() => totalitems.Text = Total);
 
@@ -711,11 +728,6 @@ namespace TooLearnAndroid
                     {
                         RunOnUiThread(() => feedback.Text = compute.ToString() + "% Not Bad!, aim for a Perfect Score Next Time ");
                     }
-
-                    RunOnUiThread(() => pscoretext.Visibility = ViewStates.Visible);
-                    RunOnUiThread(() => ptotalscores.Visibility = ViewStates.Visible);
-                    RunOnUiThread(() => ptotalitems.Visibility = ViewStates.Visible);
-                    RunOnUiThread(() => pfeedback.Visibility = ViewStates.Visible);
 
                     Receive();
 
@@ -965,7 +977,7 @@ namespace TooLearnAndroid
 
         public void RulesOnLoadActivity()
         {
-            var title = FindViewById<TextView>(Resource.Id.textView6);
+            var title = FindViewById<TextView>(Resource.Id.textView1);
             var content = FindViewById<TextView>(Resource.Id.textView7);
             string stitle, scontent;
 
