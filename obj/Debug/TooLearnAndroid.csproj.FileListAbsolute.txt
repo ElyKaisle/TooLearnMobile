@@ -126,13 +126,6 @@ C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\activity_serverconnection.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\activity_groupsigninactivity.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\activity_game.xml
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_rules.xml
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_multiplechoice.xml
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_truefalse.xml
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_shortanswer.xml
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_wronganswer.xml
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_rightanswer.xml
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\fragment_feedback.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\activity_hostip.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\activity_groupgamepin.xml
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\layout\main.xml
@@ -159,12 +152,12 @@ C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\groups.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\reportcard.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\classroom.png
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\splashscreen.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\R.cs.flag
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\uploadflags.txt
-C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\TooLearnAndroid.csprojResolveAssemblyReference.cache
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\splash.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll.mdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\android\assets\TooLearnAndroid.dll.mdb
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\TooLearnAndroid.csprojResolveAssemblyReference.cache
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll
 bin\Debug\Mono.Android.pdb
 bin\Debug\mscorlib.pdb
@@ -173,9 +166,10 @@ bin\Debug\System.Data.pdb
 bin\Debug\System.Data.Services.Client.pdb
 bin\Debug\System.pdb
 bin\Debug\System.Net.pdb
+bin\Debug\System.Net.Http.pdb
+bin\Debug\System.Net.Http.WinHttpHandler.pdb
 bin\Debug\System.Reflection.Context.pdb
 bin\Debug\System.Xml.pdb
-bin\Debug\System.Net.Http.pdb
 bin\Debug\System.Runtime.Serialization.pdb
 bin\Debug\System.ServiceModel.Internals.pdb
 bin\Debug\System.Numerics.pdb
@@ -198,9 +192,10 @@ obj\Debug\linksrc\System.Data.pdb
 obj\Debug\linksrc\System.Data.Services.Client.pdb
 obj\Debug\linksrc\System.pdb
 obj\Debug\linksrc\System.Net.pdb
+obj\Debug\linksrc\System.Net.Http.pdb
+obj\Debug\linksrc\System.Net.Http.WinHttpHandler.pdb
 obj\Debug\linksrc\System.Reflection.Context.pdb
 obj\Debug\linksrc\System.Xml.pdb
-obj\Debug\linksrc\System.Net.Http.pdb
 obj\Debug\linksrc\System.Runtime.Serialization.pdb
 obj\Debug\linksrc\System.ServiceModel.Internals.pdb
 obj\Debug\linksrc\System.Numerics.pdb

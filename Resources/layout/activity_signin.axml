@@ -5,7 +5,8 @@
     android:divider="@drawable/divider"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="10dp">
     <ImageView
         android:src="@drawable/icon"
         android:layout_width="wrap_content"
@@ -23,7 +24,8 @@
         android:background="@drawable/rounded_edittext"
         android:id="@+id/editText1"
         android:layout_marginTop="50dp"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:gravity="center" />
     <TextView
         android:text="Username"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -36,7 +38,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_edittext"
         android:id="@+id/editText2"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:gravity="center" />
     <TextView
         android:text="Password"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -48,10 +51,13 @@
         android:text="Sign In"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button1" />
+        android:id="@+id/button1"
+        android:background="@drawable/individual_button"
+        android:paddingBottom="10dp" />
     <Button
         android:text="No Account? Create Account here"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button2" />
+        android:id="@+id/button2"
+        android:background="@drawable/individual_button" />
 </LinearLayout>

@@ -5,7 +5,8 @@
     android:divider="@drawable/divider"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="10dp">
     <ImageView
         android:src="@drawable/icon"
         android:layout_width="wrap_content"
@@ -48,5 +49,6 @@
         android:text="Sign In"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button1" />
+        android:id="@+id/button1"
+        android:background="@drawable/group_button" />
 </LinearLayout>

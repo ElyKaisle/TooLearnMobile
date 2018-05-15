@@ -141,7 +141,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => falsebutton.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Incorrect! The right answer is " + correctanswer.ToUpper());
                 RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
                 RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
                 timer.Stop();
@@ -190,7 +190,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => falsebutton.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Incorrect! The right answer is " + correctanswer.ToUpper());
                 RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
                 RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
                 timer.Stop();
@@ -243,7 +243,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Incorrect! The right answer is " + correctanswer.ToUpper());
                 RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
                 RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
                 timer.Stop();
@@ -295,7 +295,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Incorrect! The right answer is " + correctanswer.ToUpper());
                 RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
                 RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
                 timer.Stop();
@@ -348,7 +348,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Incorrect! The right answer is " + correctanswer.ToUpper());
                 RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
                 RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
                 timer.Stop();
@@ -401,7 +401,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => choice4.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Incorrect! The right answer is " + correctanswer.ToUpper());
                 RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
                 RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
                 timer.Stop();
@@ -447,7 +447,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => shortanswer.Enabled = false);
                 RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                 RunOnUiThread(() => wrong.Visibility = ViewStates.Visible);
-                RunOnUiThread(() => wrong.Text = "Wrong! The Right Answer is " + correctanswer.ToUpper());
+                RunOnUiThread(() => wrong.Text = "Incorrect! The right answer is " + correctanswer.ToUpper());
                 RunOnUiThread(() => timertext.Visibility = ViewStates.Invisible);
                 RunOnUiThread(() => timerlabel.Visibility = ViewStates.Invisible);
                 timer.Stop();
@@ -702,6 +702,8 @@ namespace TooLearnAndroid
 
                 else if (message.Contains("C1o2m3pute"))
                 {
+                    RunOnUiThread(() => Toast.MakeText(this, "SA COMPUTE FEEDBACK", ToastLength.Long).Show());
+                    /*
                     RunOnUiThread(() => scoretext.Visibility = ViewStates.Visible);
                     RunOnUiThread(() => totalscores.Visibility = ViewStates.Visible);
                     RunOnUiThread(() => totalitems.Visibility = ViewStates.Visible);
@@ -728,7 +730,7 @@ namespace TooLearnAndroid
                     {
                         RunOnUiThread(() => feedback.Text = compute.ToString() + "% Not Bad!, aim for a Perfect Score Next Time ");
                     }
-
+                    */
                     Receive();
 
                 }
@@ -971,7 +973,7 @@ namespace TooLearnAndroid
             }
             catch (Exception ex)
             {
-                Toast.MakeText(this, ex.ToString() + "ERROR SA BEGIN RECIEVECALLBACK", ToastLength.Short).Show();
+                RunOnUiThread(() => Toast.MakeText(this, ex.ToString(), ToastLength.Long).Show());
             }
         }
 

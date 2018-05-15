@@ -56,6 +56,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WinHttpHandler" />
     <Reference Include="System.Reflection.Context" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -213,27 +215,6 @@
     <AndroidResource Include="Resources\layout\activity_game.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_rules.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_multiplechoice.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_truefalse.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_shortanswer.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_wronganswer.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_rightanswer.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_feedback.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_hostIP.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -327,7 +308,7 @@
     <AndroidResource Include="Resources\drawable\classroom.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splashscreen.png" />
+    <AndroidResource Include="Resources\drawable\splash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Arch.Core.Common.1.0.0\build\MonoAndroid80\Xamarin.Android.Arch.Core.Common.targets" Condition="Exists('..\packages\Xamarin.Android.Arch.Core.Common.1.0.0\build\MonoAndroid80\Xamarin.Android.Arch.Core.Common.targets')" />

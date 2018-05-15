@@ -16,6 +16,7 @@ using System.Data.SqlClient;
 using System.Data.Sql;
 using System.Net;
 using System.Net.Sockets;
+using System.Net.NetworkInformation;
 
 namespace TooLearnAndroid
 {
@@ -29,7 +30,7 @@ namespace TooLearnAndroid
             base.OnCreate(savedInstanceState);
             // Create your application here
             SetContentView(Resource.Layout.activity_serverconnection);
-            load_server();
+            //load_server();
             Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
             spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
 
