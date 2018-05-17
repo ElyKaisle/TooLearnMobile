@@ -32,7 +32,7 @@ namespace TooLearnAndroid
             SetContentView(Resource.Layout.activity_serverconnection);
             //load_server();
             Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
-            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            //spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
 
             var connect = FindViewById<Button>(Resource.Id.button2);
             connect.Click += ConnectActivity;
@@ -51,15 +51,19 @@ namespace TooLearnAndroid
         {
             Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
             SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
-            DataTable table = instance.GetDataSources();
+            DataTable table = new DataTable();
+            table = instance.GetDataSources();
+            List<string> servers = new List<string>();
+
             foreach (DataRow server in table.Rows)
             {
                 var serverlist = (server[table.Columns["ServerName"]]);
-                String[] values = { serverlist.ToString() };
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, values);
-                adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-                RunOnUiThread(() => spinner.Adapter = adapter);
+                servers.Add(serverlist.ToString());
             }
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, servers);
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            RunOnUiThread(() => spinner.Adapter = adapter);
+            
             
         }
         

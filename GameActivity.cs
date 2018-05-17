@@ -36,6 +36,8 @@ namespace TooLearnAndroid
         string time;
         int convertedtime;
         string Total;
+        string puzzle_description;
+        bool answered = false;
 
         Timer timer;
 
@@ -49,7 +51,6 @@ namespace TooLearnAndroid
             SetContentView(Resource.Layout.activity_game);
             RunOnUiThread(() => StartConnect());
             RunOnUiThread(() => RulesOnLoadActivity());
-
 
             var enterans = FindViewById<Button>(Resource.Id.button5);
             enterans.Click += EnterAnswer;
@@ -66,6 +67,45 @@ namespace TooLearnAndroid
             var falsechoice = FindViewById<Button>(Resource.Id.button7);
             falsechoice.Click += FalseChoice;
             var timersec = FindViewById<TextView>(Resource.Id.textView5);
+            var enterpuzzle = FindViewById<Button>(Resource.Id.button5);
+            enterpuzzle.Click += EnterPuzzleAns;
+        }
+
+        private void EnterPuzzleAns(object sender, EventArgs e)
+        {
+            var puzzletext = FindViewById<TextView>(Resource.Id.textView16);
+            var puzzleenter = FindViewById<Button>(Resource.Id.button8);
+            var puzzleans = FindViewById<EditText>(Resource.Id.editText2);
+            var scorepts = FindViewById<TextView>(Resource.Id.textView4);
+
+            string feed = validatePUZZLE(puzzleans.Text);
+            int score;
+
+            if (feed == "Correct")
+            {
+
+                score = Convert.ToInt32(scorepts.Text);
+                score = score + Convert.ToInt32("50");
+                scorepts.Text = score.ToString();
+
+                SendPUZZLE(score.ToString());
+                answered = true;
+
+                RunOnUiThread(() => puzzletext.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => puzzleans.Visibility = ViewStates.Gone);
+                RunOnUiThread(() => puzzleenter.Visibility = ViewStates.Gone);
+
+
+            }
+
+            else
+            {
+                RunOnUiThread(() => puzzleans.Text = "");
+                RunOnUiThread(() => puzzletext.Text ="*Wrong!");
+                RunOnUiThread(() => puzzletext.Visibility = ViewStates.Visible);
+            }
+
+            RunOnUiThread(() => puzzleans.Text = "");
         }
 
         public override void OnBackPressed()
@@ -75,7 +115,8 @@ namespace TooLearnAndroid
             alertDialog.SetMessage("Are you sure?");
             alertDialog.SetPositiveButton("Ok", (senderAlert, args) =>
             {
-                Intent intent = new Intent(this, typeof(LobbyActivity));
+                Send("DISCONNECT");
+                Intent intent = new Intent(this, typeof(MainActivity));
                 StartActivity(intent);
             });
 
@@ -477,6 +518,26 @@ namespace TooLearnAndroid
             }
         }
 
+        private void SendPUZZLE(string message)
+        {
+            try
+            {
+                //Translate the message into its byte form
+                byte[] buffer = System.Text.Encoding.ASCII.GetBytes("(IMAGE)," + Pname + ",(" + message + ")");
+
+                //Get a client stream for reading and writing
+                NetworkStream stream = _client.GetStream();
+
+                //Send the message to the connected server
+                //stream.Write(buffer, 0, buffer.length);
+                stream.BeginWrite(buffer, 0, buffer.Length, BeginWriteCallback, stream);
+            }
+            catch (Exception ex)
+            {
+                // MessageBox.Show(ex.ToString());
+            }
+        }
+
         public static void SendScore(string message)
         {
             try
@@ -644,6 +705,7 @@ namespace TooLearnAndroid
                 var title = FindViewById<TextView>(Resource.Id.textView1);
                 var content = FindViewById<TextView>(Resource.Id.textView7);
                 var gametype = FindViewById<TextView>(Resource.Id.textView1);
+                var wait = FindViewById<TextView>(Resource.Id.textView15);
                 var scorelabel = FindViewById<TextView>(Resource.Id.textView2);
                 var timerlabel = FindViewById<TextView>(Resource.Id.textView3);
                 var ptslabel = FindViewById<TextView>(Resource.Id.textView4);
@@ -673,6 +735,13 @@ namespace TooLearnAndroid
                 var choice3 = FindViewById<Button>(Resource.Id.button3);
                 var choice4 = FindViewById<Button>(Resource.Id.button4);
 
+                var timesup = FindViewById<TextView>(Resource.Id.textView3);
+
+                //Puzzle
+                var puzzletext = FindViewById<TextView>(Resource.Id.textView16);
+                var puzzleenter = FindViewById<Button>(Resource.Id.button8);
+                var puzzleans = FindViewById<EditText>(Resource.Id.editText2);
+
                 // get the client socket
                 TcpClient client = (TcpClient)ar.AsyncState;
                 int bytesRead = client.Client.EndReceive(ar);
@@ -688,6 +757,7 @@ namespace TooLearnAndroid
 
                 else if (message.Contains("StartGame"))
                 {
+                    RunOnUiThread(() => wait.Visibility = ViewStates.Gone);
                     RunOnUiThread(() => title.Visibility = ViewStates.Gone);
                     RunOnUiThread(() => content.Visibility = ViewStates.Gone);
                     RunOnUiThread(() => gametype.Visibility = ViewStates.Gone);
@@ -696,18 +766,37 @@ namespace TooLearnAndroid
                     RunOnUiThread(() => ptslabel.Visibility = ViewStates.Visible);
                     RunOnUiThread(() => timlabel.Visibility = ViewStates.Visible);
                     RunOnUiThread(() => question.Visibility = ViewStates.Visible);
+
                     Receive();
                     
                 }
 
-                else if (message.Contains("C1o2m3pute"))
+                else if (message.Contains("C1o2mpute"))
                 {
-                    RunOnUiThread(() => Toast.MakeText(this, "SA COMPUTE FEEDBACK", ToastLength.Long).Show());
-                    /*
+                    var correct = FindViewById<TextView>(Resource.Id.textView13);
+                    var wrong = FindViewById<TextView>(Resource.Id.textView14);
                     RunOnUiThread(() => scoretext.Visibility = ViewStates.Visible);
                     RunOnUiThread(() => totalscores.Visibility = ViewStates.Visible);
                     RunOnUiThread(() => totalitems.Visibility = ViewStates.Visible);
                     RunOnUiThread(() => feedback.Visibility = ViewStates.Visible);
+                    RunOnUiThread(() => scorelabel.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => timerlabel.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => ptslabel.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => timlabel.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => question.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => pchoice1.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => pchoice2.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => pchoice3.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => pchoice4.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => enterans.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => shortans.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => truechoice.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => falsechoice.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => puzzletext.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => puzzleans.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => puzzleenter.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
                     int rawscore = Convert.ToInt32(ptslabel.Text);
                     RunOnUiThread(() => totalscores.Text = rawscore.ToString());
@@ -730,14 +819,16 @@ namespace TooLearnAndroid
                     {
                         RunOnUiThread(() => feedback.Text = compute.ToString() + "% Not Bad!, aim for a Perfect Score Next Time ");
                     }
-                    */
                     Receive();
+
 
                 }
 
                 else if (message.Contains("PleaseHideThis"))
                 {
                     Send("DISCONNECT");
+                    Intent intent = new Intent(this, typeof(MainActivity));
+                    StartActivity(intent);
                     //ThreadHelper.Hide(this);
                 }
 
@@ -746,14 +837,33 @@ namespace TooLearnAndroid
 
 
                     var array = message.Split('\n');
+                    if (array[9].ToString().Contains("Quiz Bee"))//Game Format
+                    {
+                        RunOnUiThread(() => puzzletext.Visibility = ViewStates.Gone);
+                        RunOnUiThread(() => puzzleans.Visibility = ViewStates.Gone);
+                        RunOnUiThread(() => puzzleenter.Visibility = ViewStates.Gone);
 
+                    }
+                    else
+                    {
+                        if (answered == false)
+                        {
+                            RunOnUiThread(() => puzzletext.Visibility = ViewStates.Visible);
+                            RunOnUiThread(() => puzzleans.Visibility = ViewStates.Visible);
+                            RunOnUiThread(() => puzzleenter.Visibility = ViewStates.Visible);
 
-                    if (array[11].ToString() == "Multiple Choice")//Item Format
+                            RunOnUiThread(() => puzzle_description = array[11].ToString());
+                            //this.Invoke((MethodInvoker)(() => MessageBox.Show(array[11].ToString()+array[11].Length.ToString())));
+                        }
+
+                    }
+
+                    if (array[12].ToString() == "Multiple Choice")//Item Format
                     {
 
                         var correct = FindViewById<TextView>(Resource.Id.textView13);
                         var wrong = FindViewById<TextView>(Resource.Id.textView14);
-
+                        RunOnUiThread(() => timesup.Text = "Timer:");
                         RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                         RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
                         
@@ -825,11 +935,11 @@ namespace TooLearnAndroid
 
 
                     }
-                    else if (array[11].ToString() == "True/False")
+                    else if (array[12].ToString() == "True/False")
                     {
                         var correct = FindViewById<TextView>(Resource.Id.textView13);
                         var wrong = FindViewById<TextView>(Resource.Id.textView14);
-
+                        RunOnUiThread(() => timesup.Text = "Timer:");
                         RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                         RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
@@ -899,7 +1009,7 @@ namespace TooLearnAndroid
 
                         var correct = FindViewById<TextView>(Resource.Id.textView13);
                         var wrong = FindViewById<TextView>(Resource.Id.textView14);
-
+                        RunOnUiThread(() => timesup.Text = "Timer:");
                         RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                         RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
 
@@ -976,6 +1086,7 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => Toast.MakeText(this, ex.ToString(), ToastLength.Long).Show());
             }
         }
+        
 
         public void RulesOnLoadActivity()
         {
@@ -1044,6 +1155,33 @@ namespace TooLearnAndroid
             }
 
             return feed;
+        }
+
+        private string validatePUZZLE(string answer)
+        {
+
+            string feed;
+
+
+
+            if (puzzle_description.ToLower().ToString().Contains(answer.ToLower().ToString()) && answer.Length.Equals(puzzle_description.Length - 1))
+            {
+                feed = "Correct";
+
+
+
+            }
+            else
+            {
+                feed = "Wrong";
+
+
+            }
+
+
+            return feed;
+
+
         }
 
         public static string validate(string answer)

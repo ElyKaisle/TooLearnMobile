@@ -16,18 +16,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView1"
         android:adjustViewBounds="true"
-        android:maxWidth="150dp"
-        android:maxHeight="150dp"
-        android:layout_gravity="right"
-        android:layout_marginRight="20dp" />
+        android:maxWidth="200dp"
+        android:maxHeight="200dp"
+        android:layout_gravity="center" />
     <ImageView
         android:src="@drawable/adnu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
         android:adjustViewBounds="true"
-        android:maxWidth="100dp"
-        android:maxHeight="100dp"
+        android:maxWidth="50dp"
+        android:maxHeight="50dp"
         android:scaleType="fitCenter"
         android:layout_gravity="center" />
     <TextView

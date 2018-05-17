@@ -120,21 +120,23 @@ namespace TooLearnAndroid
             try
             {
                 Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner1);
-              
-                // comboBox1.Items.Clear(); comboBox1 = spinner
 
                 SqlCommand cmd = new SqlCommand("SELECT class_name from classrooms c, classlist cl where c.class_id = cl.class_id AND cl.participant_id = '" + Program.par_id + "'", con);
                 
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
+                List<string> classes = new List<string>();
+                
                 while (dr.Read())
                 {
                     var classname = (dr["class_name"]);
-                    String[] values = { classname.ToString() };
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, values);
-                    adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-                    RunOnUiThread(() => spinner.Adapter = adapter);
+                    classes.Add(classname.ToString());
                 }
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, classes);
+                adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+                RunOnUiThread(() => spinner.Adapter = adapter);
+                
                 dr.Close();
                 con.Close();
             }
@@ -147,44 +149,21 @@ namespace TooLearnAndroid
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
+            List<string> names = new List<string>();
+            ListView list = FindViewById<ListView>(Resource.Id.listView1);
             try
             {
-
-                ListView list = FindViewById<ListView>(Resource.Id.listView1);
-
-                SqlDataAdapter sda = new SqlDataAdapter("select fullname AS 'Name' from participant p,classlist cl where p.participant_id=cl.participant_id AND class_id=(select class_id from classrooms where class_name = '" + sender + "') ", con);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                if (dt.Rows.Count == 0)
+                SqlCommand cmd = new SqlCommand("select fullname AS 'Name' from participant p,classlist cl where p.participant_id=cl.participant_id AND class_id=(select class_id from classrooms where class_name = '" + sender + "') ", con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    var classname = (sda.Update(dt));
-                    String[] values = { classname.ToString() };
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, values);
-                    RunOnUiThread(() => list.Adapter = adapter);
-                    /*
-                    BindingSource bs = new BindingSource();
-                    bs.DataSource = dt;
-                    bunifuCustomDataGrid1.DataSource = bs;
-                    sda.Update(dt);
-                    bunifuCustomLabel1.Visible = true;
-                    */
+                    names.Add(dr["fullname"].ToString());
                 }
-
-
-                else
-                {
-                    var classname = (sda.Update(dt));
-                    String[] values = { classname.ToString() };
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleSpinnerItem, values);
-                    RunOnUiThread(() => list.Adapter = adapter);
-                    /*
-                    BindingSource bs = new BindingSource();
-                    bs.DataSource = dt;
-                    bunifuCustomDataGrid1.DataSource = bs;
-                    sda.Update(dt);
-                    bunifuCustomLabel1.Visible = false;
-                    */
-                }
+                ArrayAdapter ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, names);
+                dr.Close();
+                con.Close();
+                
 
             }
 
