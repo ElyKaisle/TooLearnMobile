@@ -32,6 +32,7 @@ namespace TooLearnAndroid
             var enroll = FindViewById<Button>(Resource.Id.button1);
             enroll.Click += EnrollActivity;
         }
+        
 
         public void EnrollActivity(object sender, EventArgs e)
         {
@@ -149,20 +150,30 @@ namespace TooLearnAndroid
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
+            // List<string> names = new List<string>();
+            var listview = FindViewById<ListView>(Resource.Id.listView1);
             List<string> names = new List<string>();
-            ListView list = FindViewById<ListView>(Resource.Id.listView1);
             try
             {
-                SqlCommand cmd = new SqlCommand("select fullname AS 'Name' from participant p,classlist cl where p.participant_id=cl.participant_id AND class_id=(select class_id from classrooms where class_name = '" + sender + "') ", con);
+              // SqlCommand cmd = new SqlCommand("select fullname AS 'Name' from participant p,classlist cl where p.participant_id=cl.participant_id AND class_id=(select class_id from classrooms where class_name = 'KyleClass') ", con);
                 con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                SqlDataAdapter adapt = new SqlDataAdapter("select fullname AS 'Name' from participant p,classlist cl where p.participant_id=cl.participant_id AND class_id=(select class_id from classrooms where class_name = '" + spinner.GetItemAtPosition(e.Position) + "') ", con);
+                DataTable dt = new DataTable();
+                adapt.Fill(dt);
+               // names= dt.Rows[0][0].ToString();
+                int count = dt.Rows.Count;
+                for (int i = 0; i < count; i++)
                 {
-                    names.Add(dr["fullname"].ToString());
+
+                    names.Add(dt.Rows[i][0].ToString()+System.Environment.NewLine);
+
                 }
                 ArrayAdapter ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, names);
-                dr.Close();
+                RunOnUiThread(() => listview.Adapter = ListAdapter);
+
+                //  dr.Close();
                 con.Close();
+                
                 
 
             }

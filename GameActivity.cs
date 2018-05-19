@@ -67,7 +67,7 @@ namespace TooLearnAndroid
             var falsechoice = FindViewById<Button>(Resource.Id.button7);
             falsechoice.Click += FalseChoice;
             var timersec = FindViewById<TextView>(Resource.Id.textView5);
-            var enterpuzzle = FindViewById<Button>(Resource.Id.button5);
+            var enterpuzzle = FindViewById<Button>(Resource.Id.button8);
             enterpuzzle.Click += EnterPuzzleAns;
         }
 
@@ -647,6 +647,10 @@ namespace TooLearnAndroid
             var choice3 = FindViewById<Button>(Resource.Id.button3);
             var choice4 = FindViewById<Button>(Resource.Id.button4);
 
+            var puzzletext = FindViewById<TextView>(Resource.Id.textView16);
+            var puzzleenter = FindViewById<Button>(Resource.Id.button8);
+            var puzzleans = FindViewById<EditText>(Resource.Id.editText2);
+
             convertedtime--;
 
             if (convertedtime == 0)
@@ -666,8 +670,10 @@ namespace TooLearnAndroid
 
                 RunOnUiThread(() => shortans.Enabled = false);//SA
                 RunOnUiThread(() => enterans.Enabled = false);
-
-
+                
+                RunOnUiThread(() => puzzleans.Enabled = false);//Puzzle
+                RunOnUiThread(() => puzzletext.Enabled = false);
+                RunOnUiThread(() => puzzleenter.Enabled = false);
             }
             else
             {
@@ -686,6 +692,10 @@ namespace TooLearnAndroid
 
                 RunOnUiThread(() => shortans.Enabled = true);//SA
                 RunOnUiThread(() => enterans.Enabled = true);
+
+                RunOnUiThread(() => puzzleans.Enabled = true);//Puzzle
+                RunOnUiThread(() => puzzletext.Enabled = true);
+                RunOnUiThread(() => puzzleenter.Enabled = true);
 
             }
 
@@ -851,6 +861,16 @@ namespace TooLearnAndroid
                             RunOnUiThread(() => puzzletext.Visibility = ViewStates.Visible);
                             RunOnUiThread(() => puzzleans.Visibility = ViewStates.Visible);
                             RunOnUiThread(() => puzzleenter.Visibility = ViewStates.Visible);
+
+                            RunOnUiThread(() => wait.Visibility = ViewStates.Gone);
+                            RunOnUiThread(() => title.Visibility = ViewStates.Gone);
+                            RunOnUiThread(() => content.Visibility = ViewStates.Gone);
+                            RunOnUiThread(() => gametype.Visibility = ViewStates.Gone);
+                            RunOnUiThread(() => scorelabel.Visibility = ViewStates.Visible);
+                            RunOnUiThread(() => timerlabel.Visibility = ViewStates.Visible);
+                            RunOnUiThread(() => ptslabel.Visibility = ViewStates.Visible);
+                            RunOnUiThread(() => timlabel.Visibility = ViewStates.Visible);
+                            RunOnUiThread(() => question.Visibility = ViewStates.Visible);
 
                             RunOnUiThread(() => puzzle_description = array[11].ToString());
                             //this.Invoke((MethodInvoker)(() => MessageBox.Show(array[11].ToString()+array[11].Length.ToString())));

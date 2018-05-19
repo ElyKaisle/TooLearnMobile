@@ -2,7 +2,7 @@ package md5163273af215e7232b37cf76ea257f312;
 
 
 public class MyClassroomActivity
-	extends android.app.ListActivity
+	extends android.app.Activity
 	implements
 		mono.android.IGCUserPeer
 {
