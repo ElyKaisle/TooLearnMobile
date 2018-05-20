@@ -116,7 +116,7 @@ namespace TooLearnAndroid
             alertDialog.SetPositiveButton("Ok", (senderAlert, args) =>
             {
                 Send("DISCONNECT");
-                Intent intent = new Intent(this, typeof(MainActivity));
+                Intent intent = new Intent(this, typeof(MainmenuActivity));
                 StartActivity(intent);
             });
 
@@ -651,6 +651,9 @@ namespace TooLearnAndroid
             var puzzleenter = FindViewById<Button>(Resource.Id.button8);
             var puzzleans = FindViewById<EditText>(Resource.Id.editText2);
 
+            var lblquestion = FindViewById<TextView>(Resource.Id.textView17);
+            var lblnumber = FindViewById<TextView>(Resource.Id.textView18);
+
             convertedtime--;
 
             if (convertedtime == 0)
@@ -681,6 +684,8 @@ namespace TooLearnAndroid
                 RunOnUiThread(() => timesup.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => timertxt.Visibility = ViewStates.Visible);
                 RunOnUiThread(() => question.Visibility = ViewStates.Visible);
+                RunOnUiThread(() => lblnumber.Visibility = ViewStates.Visible);
+                RunOnUiThread(() => lblquestion.Visibility = ViewStates.Visible);
 
                 RunOnUiThread(() => choice1.Enabled = true);
                 RunOnUiThread(() => choice2.Enabled = true);
@@ -752,6 +757,10 @@ namespace TooLearnAndroid
                 var puzzleenter = FindViewById<Button>(Resource.Id.button8);
                 var puzzleans = FindViewById<EditText>(Resource.Id.editText2);
 
+                //Question #
+                var lblquestion = FindViewById<TextView>(Resource.Id.textView17);
+                var lblnumber = FindViewById<TextView>(Resource.Id.textView18);
+
                 // get the client socket
                 TcpClient client = (TcpClient)ar.AsyncState;
                 int bytesRead = client.Client.EndReceive(ar);
@@ -807,6 +816,8 @@ namespace TooLearnAndroid
                     RunOnUiThread(() => puzzleenter.Visibility = ViewStates.Gone);
                     RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                     RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => lblnumber.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => lblquestion.Visibility = ViewStates.Gone);
 
                     int rawscore = Convert.ToInt32(ptslabel.Text);
                     RunOnUiThread(() => totalscores.Text = rawscore.ToString());
@@ -837,7 +848,7 @@ namespace TooLearnAndroid
                 else if (message.Contains("PleaseHideThis"))
                 {
                     Send("DISCONNECT");
-                    Intent intent = new Intent(this, typeof(MainActivity));
+                    Intent intent = new Intent(this, typeof(MainmenuActivity));
                     StartActivity(intent);
                     //ThreadHelper.Hide(this);
                 }
@@ -861,7 +872,8 @@ namespace TooLearnAndroid
                             RunOnUiThread(() => puzzletext.Visibility = ViewStates.Visible);
                             RunOnUiThread(() => puzzleans.Visibility = ViewStates.Visible);
                             RunOnUiThread(() => puzzleenter.Visibility = ViewStates.Visible);
-
+                            RunOnUiThread(() => lblnumber.Visibility = ViewStates.Visible);
+                            RunOnUiThread(() => lblquestion.Visibility = ViewStates.Visible);
                             RunOnUiThread(() => wait.Visibility = ViewStates.Gone);
                             RunOnUiThread(() => title.Visibility = ViewStates.Gone);
                             RunOnUiThread(() => content.Visibility = ViewStates.Gone);
@@ -880,13 +892,15 @@ namespace TooLearnAndroid
 
                     if (array[12].ToString() == "Multiple Choice")//Item Format
                     {
-
+                        RunOnUiThread(() =>lblnumber.Text = (Convert.ToInt32(lblnumber.Text) + 1).ToString());
                         var correct = FindViewById<TextView>(Resource.Id.textView13);
                         var wrong = FindViewById<TextView>(Resource.Id.textView14);
                         RunOnUiThread(() => timesup.Text = "Timer:");
                         RunOnUiThread(() => correct.Visibility = ViewStates.Gone);
                         RunOnUiThread(() => wrong.Visibility = ViewStates.Gone);
-                        
+                        RunOnUiThread(() => lblnumber.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => lblquestion.Visibility = ViewStates.Visible);
+
                         RunOnUiThread(() => question.Text = array[0]);
                         RunOnUiThread(() => choice1.Text = array[1]);
                         RunOnUiThread(() => choice2.Text = array[2]);
@@ -957,6 +971,7 @@ namespace TooLearnAndroid
                     }
                     else if (array[12].ToString() == "True/False")
                     {
+                        RunOnUiThread(() => lblnumber.Text = (Convert.ToInt32(lblnumber.Text) + 1).ToString());
                         var correct = FindViewById<TextView>(Resource.Id.textView13);
                         var wrong = FindViewById<TextView>(Resource.Id.textView14);
                         RunOnUiThread(() => timesup.Text = "Timer:");
@@ -968,6 +983,8 @@ namespace TooLearnAndroid
                         points = array[8].ToString();
                         Total = array[10].ToString();
 
+                        RunOnUiThread(() => lblnumber.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => lblquestion.Visibility = ViewStates.Visible);
                         RunOnUiThread(() => pquestion.Visibility = ViewStates.Visible);
                         RunOnUiThread(() => enterans.Visibility = ViewStates.Gone);
                         RunOnUiThread(() => shortans.Visibility = ViewStates.Gone);
@@ -1026,7 +1043,7 @@ namespace TooLearnAndroid
 
                     else
                     {
-
+                        RunOnUiThread(() => lblnumber.Text = (Convert.ToInt32(lblnumber.Text) + 1).ToString());
                         var correct = FindViewById<TextView>(Resource.Id.textView13);
                         var wrong = FindViewById<TextView>(Resource.Id.textView14);
                         RunOnUiThread(() => timesup.Text = "Timer:");
@@ -1038,6 +1055,8 @@ namespace TooLearnAndroid
                         points = array[8].ToString();
                         Total = array[10].ToString();
 
+                        RunOnUiThread(() => lblnumber.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => lblquestion.Visibility = ViewStates.Visible);
                         RunOnUiThread(() => pquestion.Visibility = ViewStates.Visible);
                         RunOnUiThread(() => enterans.Visibility = ViewStates.Visible);
                         RunOnUiThread(() => shortans.Visibility = ViewStates.Visible);
