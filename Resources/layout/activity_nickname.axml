@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText1"
         android:gravity="center"
-        android:hint="Nickname"
+        android:hint="Screen Name"
         android:textColorHint="#808080"
         android:textColor="#FFFFFF"
         android:background="@drawable/rounded_edittext"

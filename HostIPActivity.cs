@@ -30,9 +30,8 @@ namespace TooLearnAndroid
         public void JoinServerActivity(object sender, EventArgs e)
         {
             var ipadd = FindViewById<EditText>(Resource.Id.editText1);
-            string server = ipadd.Text;
 
-            if (server == null || server == "")
+            if (ipadd.Text == null || ipadd.Text == "")
             {
                 Toast.MakeText(this, "Enter Host IP Address!", ToastLength.Long).Show();
             }
@@ -41,17 +40,18 @@ namespace TooLearnAndroid
             {
                 try
                 {
-                    IPHostEntry host = Dns.GetHostEntry(server);
+                    IPHostEntry host = Dns.GetHostEntry(ipadd.Text);
                     foreach (IPAddress ip in host.AddressList)
                     {
 
                         if (ip.AddressFamily == AddressFamily.InterNetwork)
                         {
                             Program.serverIP = ip.ToString();
+                            
 
                         }
+                        StartActivity(typeof(LobbyActivity));
 
-                        StartActivity(typeof(NicknameActivity));
                     }
                 }//end try
 

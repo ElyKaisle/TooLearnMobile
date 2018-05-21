@@ -32,7 +32,7 @@ namespace TooLearnAndroid
 
                 public_button.Click += delegate
                 {
-                    StartActivity(typeof(HostIPActivity));
+                    StartActivity(typeof(NicknameActivity));
                 };
 
                 group_button.Click += delegate

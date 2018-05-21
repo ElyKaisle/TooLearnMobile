@@ -1,22 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">  
     <group android:checkableBehavior="single">
-      <item android:title="Profile">
+      <item android:title="Profile:">
         <menu>
-        <item android:id="@+id/nav_myaccount" android:title="My Account" />
-        <item android:id="@+id/nav_logout" android:title="Log Out" />
+        <item android:id="@+id/nav_myaccount" android:icon="@drawable/myaccounticon" android:title="My Account" />
+        <item android:id="@+id/nav_logout" android:icon="@drawable/logouticon" android:title="Log Out" />
         </menu>
       </item>
-      <item android:title="Quiz">
+      <item android:title="Quiz:">
         <menu>
-        <item android:id="@+id/nav_joinquiz" android:title="Join Quiz" />
+        <item android:id="@+id/nav_joinquiz" android:icon="@drawable/joinquizicon" android:title="Join Quiz" />
         </menu>
       </item>
-      <item android:title="Other">
+      <item android:title="Other:">
         <menu>
-        <item android:id="@+id/nav_settings" android:title="Settings" /> 
-        <item android:id="@+id/nav_manual" android:title="Manual" /> 
-        <item android:id="@+id/nav_about" android:title="About" />
+        <item android:id="@+id/nav_manual" android:icon="@drawable/manualicon" android:title="Manual" /> 
+        <item android:id="@+id/nav_about" android:icon="@drawable/abouticon" android:title="About" />
         </menu>
       </item>
     </group>  

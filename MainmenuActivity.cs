@@ -53,7 +53,7 @@ namespace TooLearnAndroid
             alertDialog.SetMessage("Are you sure?");
             alertDialog.SetPositiveButton("Ok", (senderAlert, args) =>
             {
-                Intent intent = new Intent(this, typeof(MainActivity));
+                Intent intent = new Intent(this, typeof(SplashActivity));
                 StartActivity(intent);
             });
 
@@ -104,13 +104,13 @@ namespace TooLearnAndroid
                     FragmentTransaction fragmentTx2 = this.FragmentManager.BeginTransaction();
                     fragmentTx2.Replace(Resource.Id.fragment_container, fragment2);
                     fragmentTx2.Commit(); break;
-
+                    /*
                 case Resource.Id.nav_settings:
                     SettingsFragment fragment3 = new SettingsFragment();
                     FragmentTransaction fragmentTx3 = this.FragmentManager.BeginTransaction();
                     fragmentTx3.Replace(Resource.Id.fragment_container, fragment3);
                     fragmentTx3.Commit(); break;
-
+                    */
                 case Resource.Id.nav_manual:
                     ManualFragment fragment4 = new ManualFragment();
                     FragmentTransaction fragmentTx4 = this.FragmentManager.BeginTransaction();

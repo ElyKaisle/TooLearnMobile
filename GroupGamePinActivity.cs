@@ -16,7 +16,7 @@ using System.Data.SqlClient;
 
 namespace TooLearnAndroid
 {
-    [Activity(Label = "GroupGamePinActivity")]
+    [Activity(Label = "Group - Game Pin", Theme = "@style/Theme.DesignDemo")]
     public class GroupGamePinActivity : Activity
     {
         SqlConnection con = new SqlConnection("Data Source='" + Program.source + "' ; Initial Catalog='" + Program.db + "'; User ID='" + Program.id + "';Password='" + Program.password + "'");
@@ -33,7 +33,7 @@ namespace TooLearnAndroid
 
         public void JoinGameActivity(object sender, EventArgs e)
         {
-            var gamepin = FindViewById<Button>(Resource.Id.editText1).Text;
+            var gamepin = FindViewById<EditText>(Resource.Id.editText1);
             SqlDataAdapter sda = new SqlDataAdapter("Select Game_Pin,Mode From Pincode where Mode='GP' ", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
@@ -49,13 +49,13 @@ namespace TooLearnAndroid
                 string code = dt.Rows[0][0].ToString();
 
 
-                if (code == gamepin)
+                if (code == gamepin.Text)
                 {
 
                     StartActivity(typeof(LobbyActivity));
                 }
 
-                else if (gamepin == null || gamepin == "")
+                else if (gamepin.Text == null || gamepin.Text == "")
                 {
                     Toast.MakeText(this, "* Please Enter Code", ToastLength.Long).Show();
 

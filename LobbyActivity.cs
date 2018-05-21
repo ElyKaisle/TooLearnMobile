@@ -148,7 +148,6 @@ namespace TooLearnAndroid
         {
 
             var msg = FindViewById<EditText>(Resource.Id.editText1);
-            string text = msg.Text;
             try
             {
                 // get the client socket
@@ -159,17 +158,17 @@ namespace TooLearnAndroid
 
                 Receive();
 
-                if (message.Contains("GAMEIPQB"))
+                if (message.Contains("CONFIRM"))
+                {
+                    RunOnUiThread(() => Toast.MakeText(this, " You are now connected! Please Wait", ToastLength.Long).Show());
+                }
+
+                else if (message.Contains("GAMEIPQB"))
                 {
                     GameType = "QB";
                     
                     Intent intent = new Intent(this, typeof(GameActivity));
-                    intent.AddFlags(ActivityFlags.ClearTop);
-                    intent.AddFlags(ActivityFlags.NewTask);
                     StartActivity(intent);
-                    
-
-
 
                 }
 
@@ -179,18 +178,77 @@ namespace TooLearnAndroid
                     
                     StartActivity(typeof(GameActivity));
                     Intent intent = new Intent(this, typeof(GameActivity));
-                    intent.AddFlags(ActivityFlags.ClearTop);
-                    intent.AddFlags(ActivityFlags.NewTask);
                     StartActivity(intent);
                     
+                }
+
+
+                else if (message.Contains("GAMEGPQB")) //group
+                {
+
+                    //this.Hide();//kaipuhn muna ithread
+                    GameType = "QB";
+                    //  GameRules GR = new GameRules();
+                    // GR.Show();
+
+
+                    StartActivity(typeof(GameGroupActivity));
+                    Intent intent = new Intent(this, typeof(GameGroupActivity));
+                    StartActivity(intent);
+
 
                 }
-              
+
+                else if (message.Contains("GAMEGPPZ"))//group
+                {
+
+                    //this.Hide();//kaipuhn muna ithread
+                    GameType = "PZ";
+                    //  GameRules GR = new GameRules();
+                    // GR.Show();
+
+                    StartActivity(typeof(GameGroupActivity));
+                    Intent intent = new Intent(this, typeof(GameGroupActivity));
+                    StartActivity(intent);
+
+
+                }
+
+
+                else if (message.Contains("GAMEFPQB"))
+                {
+
+                    //this.Hide();//kaipuhn muna ithread
+                    GameType = "QB";
+                    //  GameRules GR = new GameRules();
+                    // GR.Show();
+                    StartActivity(typeof(GameGuestActivity));
+                    Intent intent = new Intent(this, typeof(GameGuestActivity));
+                    StartActivity(intent);
+
+                }
+
+                else if (message.Contains("GAMEFPPZ"))
+                {
+                    
+
+                    //this.Hide();//kaipuhn muna ithread
+                    GameType = "PZ";
+                    //  GameRules GR = new GameRules();
+                    // GR.Show();
+
+
+                    StartActivity(typeof(GameGuestActivity));
+                    Intent intent = new Intent(this, typeof(GameGuestActivity));
+                    StartActivity(intent);
+
+
+                }
 
 
                 else
                 {
-                    text = message;
+                    msg.Text = message;
                     Receive();
 
                 }

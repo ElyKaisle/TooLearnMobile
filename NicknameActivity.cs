@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace TooLearnAndroid
 {
-    [Activity(Label = "Nickname", Theme = "@style/Theme.DesignDemo")]
+    [Activity(Label = "Guest - Screen Name", Theme = "@style/Theme.DesignDemo")]
     public class NicknameActivity : Activity
     {
         public static string NameFREE;
@@ -38,7 +38,7 @@ namespace TooLearnAndroid
             else
             {
                 NameFREE = nickname;
-                StartActivity(typeof(LobbyActivity));
+                StartActivity(typeof(HostIPActivity));
             }
         }
     }
