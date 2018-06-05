@@ -64,7 +64,7 @@ namespace TooLearnAndroid
             }
             else
             {
-                Send(NicknameActivity.NameFREE);
+                Send(HostIPActivity.NameFREE);
             }
         }
 
@@ -86,7 +86,7 @@ namespace TooLearnAndroid
             {
                 //ThreadHelper.lsbAddItem(this, lsbWait, ex.ToString());
 
-                Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
+                //Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
             }
         }
 
@@ -166,7 +166,7 @@ namespace TooLearnAndroid
                 else if (message.Contains("GAMEIPQB"))
                 {
                     GameType = "QB";
-                    
+
                     Intent intent = new Intent(this, typeof(GameActivity));
                     StartActivity(intent);
 
@@ -175,11 +175,10 @@ namespace TooLearnAndroid
                 else if (message.Contains("GAMEIPPZ"))
                 {
                     GameType = "PZ";
-                    
-                    StartActivity(typeof(GameActivity));
+
                     Intent intent = new Intent(this, typeof(GameActivity));
                     StartActivity(intent);
-                    
+
                 }
 
 
@@ -192,7 +191,6 @@ namespace TooLearnAndroid
                     // GR.Show();
 
 
-                    StartActivity(typeof(GameGroupActivity));
                     Intent intent = new Intent(this, typeof(GameGroupActivity));
                     StartActivity(intent);
 
@@ -207,7 +205,6 @@ namespace TooLearnAndroid
                     //  GameRules GR = new GameRules();
                     // GR.Show();
 
-                    StartActivity(typeof(GameGroupActivity));
                     Intent intent = new Intent(this, typeof(GameGroupActivity));
                     StartActivity(intent);
 
@@ -222,7 +219,6 @@ namespace TooLearnAndroid
                     GameType = "QB";
                     //  GameRules GR = new GameRules();
                     // GR.Show();
-                    StartActivity(typeof(GameGuestActivity));
                     Intent intent = new Intent(this, typeof(GameGuestActivity));
                     StartActivity(intent);
 
@@ -230,7 +226,7 @@ namespace TooLearnAndroid
 
                 else if (message.Contains("GAMEFPPZ"))
                 {
-                    
+
 
                     //this.Hide();//kaipuhn muna ithread
                     GameType = "PZ";
@@ -238,17 +234,15 @@ namespace TooLearnAndroid
                     // GR.Show();
 
 
-                    StartActivity(typeof(GameGuestActivity));
                     Intent intent = new Intent(this, typeof(GameGuestActivity));
                     StartActivity(intent);
-
 
                 }
 
 
                 else
                 {
-                    msg.Text = message;
+                    //msg.Text = message;
                     Receive();
 
                 }

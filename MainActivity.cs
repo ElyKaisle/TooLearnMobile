@@ -32,7 +32,9 @@ namespace TooLearnAndroid
 
                 public_button.Click += delegate
                 {
-                    StartActivity(typeof(NicknameActivity));
+                    Role = "Public";
+                    Intent intent = new Intent(this, typeof(HostIPActivity));
+                    StartActivity(intent);
                 };
 
                 group_button.Click += delegate

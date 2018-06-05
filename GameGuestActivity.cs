@@ -31,7 +31,7 @@ namespace TooLearnAndroid
         private string _IPAddress = Program.serverIP;
         private const int _PORT = 13000;
 
-        string GameType = LobbyActivity.GameType;
+        string GameType = LobbyGuestActivity.GameType;
         public static string correctanswer = "", points = "", Pname = "";
         string time;
         int convertedtime;
@@ -49,6 +49,7 @@ namespace TooLearnAndroid
             // Create your application here
 
             SetContentView(Resource.Layout.activity_gameguest);
+            //Toast.MakeText(this, HostIPActivity.NameFREE, ToastLength.Long).Show();
             RunOnUiThread(() => StartConnect());
             RunOnUiThread(() => RulesOnLoadActivity());
 
@@ -116,8 +117,7 @@ namespace TooLearnAndroid
             alertDialog.SetPositiveButton("Ok", (senderAlert, args) =>
             {
                 Send("DISCONNECT");
-                Intent intent = new Intent(this, typeof(MainmenuActivity));
-                StartActivity(intent);
+                StartActivity(typeof(MainmenuActivity));
             });
 
             alertDialog.SetNegativeButton("Cancel", delegate
@@ -848,8 +848,7 @@ namespace TooLearnAndroid
                 else if (message.Contains("PleaseHideThis"))
                 {
                     Send("DISCONNECT");
-                    Intent intent = new Intent(this, typeof(MainmenuActivity));
-                    StartActivity(intent);
+                    StartActivity(typeof(MainmenuActivity));
                     //ThreadHelper.Hide(this);
                 }
 
@@ -1135,10 +1134,7 @@ namespace TooLearnAndroid
 
             try
             {
-                SqlDataAdapter Name = new SqlDataAdapter("Select fullname from participant where participant_id='" + Program.par_id + "' ", con);
-                DataTable dt = new DataTable();
-                Name.Fill(dt);
-                Pname = dt.Rows[0][0].ToString();
+                Pname = HostIPActivity.NameFREE;
 
                 if (GameType == "QB")
                 {

@@ -18,6 +18,7 @@ namespace TooLearnAndroid
     [Activity(Label = "Public - Server Connection", Theme = "@style/Theme.DesignDemo")]
     public class HostIPActivity : Activity
     {
+        public static string NameFREE;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -30,16 +31,28 @@ namespace TooLearnAndroid
         public void JoinServerActivity(object sender, EventArgs e)
         {
             var ipadd = FindViewById<EditText>(Resource.Id.editText1);
+            var screenname = FindViewById<EditText>(Resource.Id.editText2);
 
-            if (ipadd.Text == null || ipadd.Text == "")
+            if (ipadd.Text == null || ipadd.Text == "" || screenname.Text == null || screenname.Text == "")
             {
-                Toast.MakeText(this, "Enter Host IP Address!", ToastLength.Long).Show();
+                Toast.MakeText(this, "Enter Host IP Address! and Provide a Screen Name!", ToastLength.Long).Show();
             }
 
             else
             {
+
+
                 try
                 {
+                    
+                    Program.serverIP = ipadd.Text;
+                    //Program.source = ipadd.Text + ",13000";
+                   // Program.db = "Toolearn";
+                   // Program.id = "Toolearn";
+                   // Program.password = "Toolearn";
+                    NameFREE = screenname.Text;
+                    StartActivity(typeof(LobbyActivity));
+                    /*
                     IPHostEntry host = Dns.GetHostEntry(ipadd.Text);
                     foreach (IPAddress ip in host.AddressList)
                     {
@@ -50,9 +63,11 @@ namespace TooLearnAndroid
                             
 
                         }
-                        StartActivity(typeof(LobbyActivity));
-
+                        
                     }
+                    NameFREE = screenname.Text;
+                    StartActivity(typeof(LobbyGuestActivity));
+                    */
                 }//end try
 
                 catch

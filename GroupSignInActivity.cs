@@ -34,16 +34,16 @@ namespace TooLearnAndroid
 
         public void SignInActivity(object sender, EventArgs e)
         {
-            
-            var username = FindViewById<EditText>(Resource.Id.editText1).Text;
-            var password = FindViewById<EditText>(Resource.Id.editText2).Text;
 
-            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) From groups Where g_username='" + username + "' COLLATE SQL_Latin1_General_CP1_CS_AS and g_password= '" + password + "' COLLATE SQL_Latin1_General_CP1_CS_AS", con);
+            var username = FindViewById<EditText>(Resource.Id.editText1);
+            var password = FindViewById<EditText>(Resource.Id.editText2);
+
+            SqlDataAdapter sda = new SqlDataAdapter("Select count(*) From groups Where g_username='" + username.Text + "' COLLATE SQL_Latin1_General_CP1_CS_AS and g_password= '" + password.Text + "' COLLATE SQL_Latin1_General_CP1_CS_AS", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows[0][0].ToString() == "1")
             {
-                SqlCommand cmd = new SqlCommand("Select group_id from groups where g_username='" + username + "' COLLATE SQL_Latin1_General_CP1_CS_AS and g_password= '" + password + "' COLLATE SQL_Latin1_General_CP1_CS_AS", con);
+                SqlCommand cmd = new SqlCommand("Select group_id from groups where g_username='" + username.Text + "' COLLATE SQL_Latin1_General_CP1_CS_AS and g_password= '" + password.Text + "' COLLATE SQL_Latin1_General_CP1_CS_AS", con);
 
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();

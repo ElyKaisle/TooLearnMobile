@@ -135,13 +135,14 @@
     <Compile Include="HostIPActivity.cs" />
     <Compile Include="JoinQuizFragment.cs" />
     <Compile Include="LobbyActivity.cs" />
+    <Compile Include="LobbyGroupActivity.cs" />
+    <Compile Include="LobbyGuestActivity.cs" />
     <Compile Include="LogoutFragment.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MainmenuActivity.cs" />
     <Compile Include="ManualFragment.cs" />
     <Compile Include="MyAccountFragment.cs" />
     <Compile Include="MyClassroomActivity.cs" />
-    <Compile Include="NicknameActivity.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,9 +165,6 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_gamepin.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\activity_nickname.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_mainmenu.axml">
@@ -227,6 +225,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_gamegroup.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_lobbyguest.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\activity_lobbygroup.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

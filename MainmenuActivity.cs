@@ -53,8 +53,7 @@ namespace TooLearnAndroid
             alertDialog.SetMessage("Are you sure?");
             alertDialog.SetPositiveButton("Ok", (senderAlert, args) =>
             {
-                Intent intent = new Intent(this, typeof(SplashActivity));
-                StartActivity(intent);
+                StartActivity(typeof(SplashActivity));
             });
 
             alertDialog.SetNegativeButton("Cancel", delegate

@@ -25,7 +25,7 @@
         android:background="@drawable/guest_button"
         android:src="@drawable/publicplay" />
     <TextView
-        android:text="PUBLIC PLAY"
+        android:text="GUEST"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

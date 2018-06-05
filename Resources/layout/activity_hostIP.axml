@@ -15,9 +15,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText1"
         android:hint="Host IP ADDRESS"
-        android:gravity="center" />
+        android:gravity="center"
+        android:layout_marginTop="20dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:gravity="center"
+        android:hint="Screen Name"
+        android:textColorHint="#808080"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_edittext"
+        android:layout_marginBottom="20dp" />
     <Button
-        android:text="Join"
+        android:text="ENTER"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button1"

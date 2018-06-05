@@ -116,8 +116,7 @@ namespace TooLearnAndroid
             alertDialog.SetPositiveButton("Ok", (senderAlert, args) =>
             {
                 Send("DISCONNECT");
-                Intent intent = new Intent(this, typeof(MainmenuActivity));
-                StartActivity(intent);
+                StartActivity(typeof(MainmenuActivity));
             });
 
             alertDialog.SetNegativeButton("Cancel", delegate
@@ -848,8 +847,7 @@ namespace TooLearnAndroid
                 else if (message.Contains("PleaseHideThis"))
                 {
                     Send("DISCONNECT");
-                    Intent intent = new Intent(this, typeof(MainmenuActivity));
-                    StartActivity(intent);
+                    StartActivity(typeof(MainmenuActivity));
                     //ThreadHelper.Hide(this);
                 }
 
@@ -1135,7 +1133,7 @@ namespace TooLearnAndroid
 
             try
             {
-                SqlDataAdapter Name = new SqlDataAdapter("Select fullname from participant where participant_id='" + Program.par_id + "' ", con);
+                SqlDataAdapter Name = new SqlDataAdapter("Select group_name from groups where group_id='" + Program.group_id + "' ", con);
                 DataTable dt = new DataTable();
                 Name.Fill(dt);
                 Pname = dt.Rows[0][0].ToString();

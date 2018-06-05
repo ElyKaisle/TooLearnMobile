@@ -12,10 +12,11 @@
     <activity android:label="Group - Sign In" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.GroupSignInActivity" />
     <activity android:label="Public - Server Connection" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.HostIPActivity" />
     <activity android:label="Lobby" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.LobbyActivity" />
+    <activity android:label="Group - Lobby" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.LobbyGroupActivity" />
+    <activity android:label="Guest - Lobby" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.LobbyGuestActivity" />
     <activity android:label="TooLearn" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MainActivity" />
     <activity android:label="Main Menu" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MainmenuActivity" />
     <activity android:label="My Classroom" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.MyClassroomActivity" />
-    <activity android:label="Guest - Screen Name" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.NicknameActivity" />
     <activity android:label="Score Record" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.ScoreRecordActivity" />
     <activity android:label="Server Connection" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.ServerConnectionActivity" />
     <activity android:label="Sign In" android:theme="@style/Theme.DesignDemo" android:name="md5163273af215e7232b37cf76ea257f312.SignInActivity" />

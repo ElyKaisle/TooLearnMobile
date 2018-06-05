@@ -74,7 +74,7 @@ namespace TooLearnAndroid
                 String DB, ID, Password;
                 Object Source;
                 var servername = FindViewById<EditText>(Resource.Id.editText1);
-                Program.serverIP = servername.Text;
+                //Program.serverIP = servername.Text;
 
                 
                 try

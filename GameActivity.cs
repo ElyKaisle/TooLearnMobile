@@ -49,8 +49,9 @@ namespace TooLearnAndroid
             // Create your application here
 
             SetContentView(Resource.Layout.activity_game);
-            RunOnUiThread(() => StartConnect());
+
             RunOnUiThread(() => RulesOnLoadActivity());
+            RunOnUiThread(() => StartConnect());
 
             var enterans = FindViewById<Button>(Resource.Id.button5);
             enterans.Click += EnterAnswer;
@@ -116,8 +117,7 @@ namespace TooLearnAndroid
             alertDialog.SetPositiveButton("Ok", (senderAlert, args) =>
             {
                 Send("DISCONNECT");
-                Intent intent = new Intent(this, typeof(MainmenuActivity));
-                StartActivity(intent);
+                StartActivity(typeof(MainmenuActivity));
             });
 
             alertDialog.SetNegativeButton("Cancel", delegate
@@ -769,9 +769,11 @@ namespace TooLearnAndroid
 
                 if (message.Contains("DISCONNECT"))
                 {
-                    StartActivity(typeof(MainmenuActivity)); //ThreadHelper.Hide(this);
+                     //ThreadHelper.Hide(this);
                     client.Client.Shutdown(SocketShutdown.Both);
                     client.Client.Close();
+                    
+                    StartActivity(typeof(MainmenuActivity));
                 }
 
                 else if (message.Contains("StartGame"))
@@ -848,8 +850,7 @@ namespace TooLearnAndroid
                 else if (message.Contains("PleaseHideThis"))
                 {
                     Send("DISCONNECT");
-                    Intent intent = new Intent(this, typeof(MainmenuActivity));
-                    StartActivity(intent);
+                    StartActivity(typeof(MainmenuActivity));
                     //ThreadHelper.Hide(this);
                 }
 
