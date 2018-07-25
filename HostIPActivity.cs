@@ -44,7 +44,7 @@ namespace TooLearnAndroid
 
                 try
                 {
-                    
+                    Toast.MakeText(this, "Sucessfully connected!", ToastLength.Short).Show();
                     Program.serverIP = ipadd.Text;
                     //Program.source = ipadd.Text + ",13000";
                    // Program.db = "Toolearn";

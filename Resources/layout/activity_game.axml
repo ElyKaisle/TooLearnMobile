@@ -164,34 +164,72 @@
                 android:id="@+id/relativeLayout3"
                 android:layout_gravity="center"
                 android:gravity="center">
+                <TextView
+                    android:text="A"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView19"
+                    android:visibility="invisible"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginRight="75dp" />
                 <Button
                     android:layout_width="160dp"
                     android:layout_height="120dp"
                     android:id="@+id/button1"
                     android:visibility="invisible"
+                    android:layout_below="@+id/textView19"
                     android:background="@drawable/blue_button" />
+                <TextView
+                    android:text="B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView20"
+                    android:visibility="invisible"
+                    android:layout_toRightOf="@id/textView19"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginRight="75dp" />
                 <Button
                     android:layout_width="160dp"
                     android:layout_height="120dp"
                     android:id="@+id/button2"
                     android:visibility="invisible"
                     android:background="@drawable/green_button"
+                    android:layout_below="@+id/textView20"
                     android:layout_toRightOf="@+id/button1" />
+                <TextView
+                    android:text="C"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView21"
+                    android:layout_below="@+id/button1"
+                    android:visibility="invisible"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginRight="75dp" />
                 <Button
                     android:layout_width="160dp"
                     android:layout_height="120dp"
                     android:id="@+id/button3"
                     android:background="@drawable/red_button"
-                    android:layout_below="@+id/button2"
+                    android:layout_below="@+id/textView21"
                     android:visibility="invisible" />
+                <TextView
+                    android:text="D"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView22"
+                    android:layout_below="@+id/button2"
+                    android:visibility="invisible"
+                    android:layout_toRightOf="@id/textView21"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginRight="75dp" />
                 <Button
                     android:layout_width="160dp"
                     android:layout_height="120dp"
                     android:id="@+id/button4"
                     android:visibility="invisible"
                     android:background="@drawable/pink_button"
-                    android:layout_toRightOf="@+id/button1"
-                    android:layout_below="@+id/button2" />
+                    android:layout_below="@+id/textView22"
+                    android:layout_toRightOf="@id/button3" />
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

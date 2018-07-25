@@ -39,7 +39,14 @@
         android:background="@drawable/rounded_edittext"
         android:id="@+id/editText2"
         android:textColor="#FFFFFF"
-        android:gravity="center" />
+        android:gravity="center"
+        android:password="true" />
+    <ImageView
+        android:src="@drawable/eye"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/imageView2"
+        android:visibility="gone" />
     <TextView
         android:text="Password"
         android:textAppearance="?android:attr/textAppearanceSmall"

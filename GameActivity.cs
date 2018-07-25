@@ -733,6 +733,11 @@ namespace TooLearnAndroid
                 var feedback = FindViewById<TextView>(Resource.Id.textView11);
 
                 //(array[11].ToString() == "Multiple Choice")
+                var labelA = FindViewById<TextView>(Resource.Id.textView19);
+                var labelB = FindViewById<TextView>(Resource.Id.textView20);
+                var labelC = FindViewById<TextView>(Resource.Id.textView21);
+                var labelD = FindViewById<TextView>(Resource.Id.textView22);
+
                 var pquestion = FindViewById<TextView>(Resource.Id.textView12);
                 var pchoice1 = FindViewById<Button>(Resource.Id.button1);
                 var pchoice2 = FindViewById<Button>(Resource.Id.button2);
@@ -804,6 +809,10 @@ namespace TooLearnAndroid
                     RunOnUiThread(() => timerlabel.Visibility = ViewStates.Gone);
                     RunOnUiThread(() => ptslabel.Visibility = ViewStates.Gone);
                     RunOnUiThread(() => timlabel.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => labelA.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => labelB.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => labelC.Visibility = ViewStates.Gone);
+                    RunOnUiThread(() => labelD.Visibility = ViewStates.Gone);
                     RunOnUiThread(() => question.Visibility = ViewStates.Gone);
                     RunOnUiThread(() => pchoice1.Visibility = ViewStates.Gone);
                     RunOnUiThread(() => pchoice2.Visibility = ViewStates.Gone);
@@ -912,6 +921,10 @@ namespace TooLearnAndroid
                         points = array[8];
                         Total = array[10];
 
+                        RunOnUiThread(() => labelA.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => labelB.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => labelC.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => labelD.Visibility = ViewStates.Visible);
                         RunOnUiThread(() => pquestion.Visibility = ViewStates.Visible);
                         RunOnUiThread(() => pchoice1.Visibility = ViewStates.Visible);
                         RunOnUiThread(() => pchoice2.Visibility = ViewStates.Visible);
@@ -989,6 +1002,10 @@ namespace TooLearnAndroid
                         RunOnUiThread(() => pquestion.Visibility = ViewStates.Visible);
                         RunOnUiThread(() => enterans.Visibility = ViewStates.Gone);
                         RunOnUiThread(() => shortans.Visibility = ViewStates.Gone);
+                        RunOnUiThread(() => labelA.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => labelB.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => labelC.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => labelD.Visibility = ViewStates.Invisible);
                         RunOnUiThread(() => pchoice1.Visibility = ViewStates.Invisible);
                         RunOnUiThread(() => pchoice2.Visibility = ViewStates.Invisible);
                         RunOnUiThread(() => pchoice3.Visibility = ViewStates.Invisible);
@@ -1061,6 +1078,10 @@ namespace TooLearnAndroid
                         RunOnUiThread(() => pquestion.Visibility = ViewStates.Visible);
                         RunOnUiThread(() => enterans.Visibility = ViewStates.Visible);
                         RunOnUiThread(() => shortans.Visibility = ViewStates.Visible);
+                        RunOnUiThread(() => labelA.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => labelB.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => labelC.Visibility = ViewStates.Invisible);
+                        RunOnUiThread(() => labelD.Visibility = ViewStates.Invisible);
                         RunOnUiThread(() => pchoice1.Visibility = ViewStates.Invisible);
                         RunOnUiThread(() => pchoice2.Visibility = ViewStates.Invisible);
                         RunOnUiThread(() => pchoice3.Visibility = ViewStates.Invisible);

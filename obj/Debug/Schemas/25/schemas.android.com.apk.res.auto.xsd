@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>5/22/2018 9:47:36 AM</xs:documentation>
+    <xs:documentation>7/25/2018 3:21:51 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -391,6 +391,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -880,6 +881,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -1248,6 +1250,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -1616,6 +1619,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -3415,6 +3419,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -3783,6 +3788,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -4249,6 +4255,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -4869,6 +4876,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -5237,6 +5245,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -6648,6 +6657,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -7077,6 +7087,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -7445,6 +7456,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -7813,6 +7825,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -8181,6 +8194,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -8594,6 +8608,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -8962,6 +8977,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -9420,6 +9436,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -10027,6 +10044,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -10474,6 +10492,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -11030,6 +11049,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -11586,6 +11606,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -11954,6 +11975,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -12420,6 +12442,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -13321,6 +13344,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -13787,6 +13811,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -14253,6 +14278,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -14872,6 +14898,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -15435,6 +15462,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -16357,6 +16385,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -16725,6 +16754,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -17273,6 +17303,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -17829,6 +17860,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -18295,6 +18327,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -18851,6 +18884,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -19609,6 +19643,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -19977,6 +20012,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -22506,6 +22542,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -24691,6 +24728,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -25247,6 +25285,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -25615,6 +25654,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />
@@ -26235,6 +26275,7 @@
             <xs:enumeration value="@drawable/editprofile" />
             <xs:enumeration value="@drawable/edittext_design" />
             <xs:enumeration value="@drawable/error" />
+            <xs:enumeration value="@drawable/eye" />
             <xs:enumeration value="@drawable/green_button" />
             <xs:enumeration value="@drawable/group_button" />
             <xs:enumeration value="@drawable/groups" />

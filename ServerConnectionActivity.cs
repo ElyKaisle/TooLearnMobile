@@ -121,12 +121,14 @@ namespace TooLearnAndroid
 
                             if (Role == "Individual")
                             {
+                                Toast.MakeText(this, "Sucessfully connected!", ToastLength.Short).Show();
                                 Intent intent = new Intent(this, typeof(SignInActivity));
                                 StartActivity(intent);
                             }
 
                             else
                             {
+                                Toast.MakeText(this, "Sucessfully connected!", ToastLength.Short).Show();
                                 Intent intent = new Intent(this, typeof(GroupSignInActivity));
                                 StartActivity(intent);
                             }

@@ -167,6 +167,9 @@ C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\abouticon.png
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\R.cs.flag
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\uploadflags.txt
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\res\drawable\eye.png
+C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\TooLearnAndroid.csprojResolveAssemblyReference.cache
+obj\Debug\linksrc\System.Xml.pdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll.mdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\obj\Debug\android\assets\TooLearnAndroid.dll.mdb
 C:\Users\BOC\Documents\Visual Studio 2015\Projects\TooLearnAndroid\bin\Debug\TooLearnAndroid.dll
@@ -180,7 +183,6 @@ bin\Debug\System.Net.pdb
 bin\Debug\System.Net.Http.pdb
 bin\Debug\System.Net.Http.WinHttpHandler.pdb
 bin\Debug\System.Reflection.Context.pdb
-bin\Debug\System.Xml.pdb
 bin\Debug\System.Runtime.Serialization.pdb
 bin\Debug\System.ServiceModel.Internals.pdb
 bin\Debug\System.Numerics.pdb
@@ -206,7 +208,6 @@ obj\Debug\linksrc\System.Net.pdb
 obj\Debug\linksrc\System.Net.Http.pdb
 obj\Debug\linksrc\System.Net.Http.WinHttpHandler.pdb
 obj\Debug\linksrc\System.Reflection.Context.pdb
-obj\Debug\linksrc\System.Xml.pdb
 obj\Debug\linksrc\System.Runtime.Serialization.pdb
 obj\Debug\linksrc\System.ServiceModel.Internals.pdb
 obj\Debug\linksrc\System.Numerics.pdb

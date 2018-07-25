@@ -37,7 +37,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_edittext"
         android:id="@+id/editText2"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:password="true" />
     <TextView
         android:text="Password"
         android:textAppearance="?android:attr/textAppearanceSmall"
